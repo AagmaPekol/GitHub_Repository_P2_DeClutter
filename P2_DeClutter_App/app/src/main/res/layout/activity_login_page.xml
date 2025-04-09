@@ -5,15 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".loginPage">
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jonas Jonas Jonas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:text="THIS IS A PROFILE/LOGIN PAGE"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="291dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
