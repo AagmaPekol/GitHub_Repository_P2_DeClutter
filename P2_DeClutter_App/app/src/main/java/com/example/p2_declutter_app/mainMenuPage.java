@@ -1,6 +1,8 @@
 package com.example.p2_declutter_app;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -75,4 +77,5 @@ public class mainMenuPage extends AppCompatActivity {
     public void notImplemented(){
         Toast.makeText(this, "This is not implemented yet", Toast.LENGTH_SHORT).show();
     }
+
 }
