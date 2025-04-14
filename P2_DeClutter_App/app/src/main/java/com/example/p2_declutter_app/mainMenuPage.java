@@ -1,8 +1,6 @@
 package com.example.p2_declutter_app;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -53,11 +51,12 @@ public class mainMenuPage extends AppCompatActivity {
             }
         });
 
-        Button challengesBtn = findViewById(R.id.challengesBtn);
-        challengesBtn.setOnClickListener(new View.OnClickListener(){
+        Button juliaBtn = findViewById(R.id.juliaBtn);
+        juliaBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                notImplemented();
+                Intent intent = new Intent(mainMenuPage.this, JuliasTemplate.class);
+                startActivity(intent);
             }
         });
 
