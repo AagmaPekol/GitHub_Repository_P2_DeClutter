@@ -69,6 +69,15 @@ public class mainMenuPage extends AppCompatActivity {
             }
         });
 
+        Button camera = findViewById(R.id.CameraBTN);
+        camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mainMenuPage.this,Camera.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
