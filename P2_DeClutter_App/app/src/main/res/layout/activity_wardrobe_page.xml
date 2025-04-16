@@ -7,13 +7,44 @@
     android:layout_height="match_parent"
     tools:context=".wardrobePage">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="THIS IS A WARDROBE"
+    <EditText
+        android:id="@+id/clothingTypeText"
+        android:layout_width="298dp"
+        android:layout_height="90dp"
+        android:ems="10"
+        android:hint="What type of clothing? Pants?"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.071" />
+
+    <Button
+        android:id="@+id/dbBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send to database"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descText"
+        app:layout_constraintVertical_bias="0.093" />
+
+    <EditText
+        android:id="@+id/descText"
+        android:layout_width="284dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Write some description here"
+
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clothingTypeText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
