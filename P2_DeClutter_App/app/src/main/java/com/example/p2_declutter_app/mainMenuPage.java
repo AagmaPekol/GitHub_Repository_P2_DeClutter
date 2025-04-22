@@ -55,7 +55,7 @@ public class mainMenuPage extends AppCompatActivity {
         juliaBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(mainMenuPage.this, JuliasTemplate.class);
+                Intent intent = new Intent(mainMenuPage.this, Julias2Template.class);
                 startActivity(intent);
             }
         });
