@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DDEED9"
+    android:background="@color/background_lightGreen"
     tools:context=".JuliasTemplate">
 
     <FrameLayout
@@ -34,19 +34,6 @@
             android:textSize="28sp"
             android:textStyle="bold|italic"
             android:translationY="58dp" />
-
-        <TextView
-            android:id="@+id/extraTitle"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:elevation="20dp"
-            android:rotation="-8"
-            android:text="Your personal declutter assistant"
-            android:textAlignment="center"
-            android:textSize="10sp"
-            android:translationX="30dp"
-            android:translationY="93dp" />
 
 
         <!-- middle squares-->
@@ -225,6 +212,7 @@
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:background="@drawable/bg_top_diamonds_gr"
+            android:alpha="0.8"
             android:elevation="2dp"
             android:rotation="-65"
             android:layout_gravity="end"
@@ -234,6 +222,7 @@
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:background="@drawable/bg_top_diamonds_bl"
+            android:alpha="0.8"
             android:elevation="1dp"
             android:rotation="-65"
             android:layout_gravity="end"
