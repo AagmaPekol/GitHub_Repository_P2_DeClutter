@@ -25,7 +25,7 @@
             android:name=".loginPage"
             android:exported="false" />
         <activity
-            android:name=".wardrobePage"
+            android:name=".WardrobePage"
             android:exported="false" />
         <activity
             android:name=".deClutterOverviewPage"

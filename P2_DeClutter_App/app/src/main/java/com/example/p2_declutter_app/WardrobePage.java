@@ -1,6 +1,9 @@
 package com.example.p2_declutter_app;
 
-import android.content.ClipData;
+import com.example.p2_declutter_app.database.AppDatabase;
+import com.example.p2_declutter_app.database.Clothing;
+import com.example.p2_declutter_app.database.ClothingDao;
+
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,10 +15,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class wardrobePage extends AppCompatActivity {
+public class WardrobePage extends AppCompatActivity {
 
-    private ClothingDB db;
-    private DBClothingItemDao dao;
+    private AppDatabase db;
+    private ClothingDao dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +31,8 @@ public class wardrobePage extends AppCompatActivity {
             return insets;
         });
 
-        db = ClothingDB.getDatabase(this);
-        dao = db.DBClothingItemDao();
+        db = AppDatabase.getDatabase(this);
+        dao = db.ClothingDao();
 
         EditText clothingTypeText = findViewById(R.id.clothingTypeText);
         EditText descriptionText = findViewById(R.id.descText);
@@ -41,7 +44,7 @@ public class wardrobePage extends AppCompatActivity {
 
             if (!type.isEmpty() && !desc.isEmpty()) {
                 new Thread(() -> {
-                    dao.addItem(new DBClothingItem(type, desc));
+                    dao.addItem(new Clothing(type, desc));
                 }).start();
 
                 clothingTypeText.setText("");
