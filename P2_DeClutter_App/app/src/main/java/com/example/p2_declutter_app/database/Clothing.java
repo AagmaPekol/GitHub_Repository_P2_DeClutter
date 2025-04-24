@@ -16,8 +16,12 @@ public class Clothing {
     @ColumnInfo(name = "clothing_description")
     public String description;
 
-    public Clothing(String clothingType, String description){
+    @ColumnInfo(name = "image_path")
+    public String imageUri;
+
+    public Clothing(String clothingType, String description, String imageUri){
         this.clothingType = clothingType;
         this.description = description;
+        this.imageUri = imageUri;
     }
 }

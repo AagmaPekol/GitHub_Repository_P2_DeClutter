@@ -20,4 +20,7 @@ public interface ClothingDao {
     @Delete
     void deleteItem(Clothing item);
 
+    @Query("SELECT * FROM db_clothing_items WHERE clothing_type = :clothingType")
+    List<Clothing> getClothingItemsByType(String clothingType);
+
 }

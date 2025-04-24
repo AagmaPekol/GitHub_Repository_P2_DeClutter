@@ -33,14 +33,14 @@ android {
 }
 
 dependencies {
-
-    implementation libs.camera.view
+    implementation libs.protolite.well.known.types
     def room_version = "2.7.0"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
     implementation libs.appcompat
     implementation libs.material
+    implementation libs.camera.view
     implementation libs.activity
     implementation libs.constraintlayout
     testImplementation libs.junit
