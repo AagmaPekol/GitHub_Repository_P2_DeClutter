@@ -6,10 +6,7 @@
     <!-- Background COLOR-->
     <color name="background_lightGreen">#DDEED9</color>
 
-    <!-- ALL GREEN STUFF-->
-    <color name="vector_green_main">#A0CAA4</color>
-    <color name="vector_green_darkerGradient">#92B996</color>
-    <color name="vector_green_border">#939E87</color>
+
 
     <!-- ALL BROWN STUFF-->
     <color name="vector_brown_main">#A6B398</color>
@@ -21,6 +18,11 @@
     <color name="vector_blue_darkerGradient">#B0D2C3</color>
     <color name="vector_blue_border">#939E87</color>
 
+    <!-- ALL GREEN STUFF-->
+    <color name="vector_green_main">#A0CAA4</color>
+    <color name="vector_green_darkerGradient">#92B996</color>
+    <color name="vector_green_border">#939E87</color>
 
+    <color name="Text_dark_green">#3C543B</color>
 
 </resources>

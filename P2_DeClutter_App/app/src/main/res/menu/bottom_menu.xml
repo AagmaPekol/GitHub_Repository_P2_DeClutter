@@ -7,9 +7,9 @@
         android:icon="@drawable/ic_home_24dp" />
 
     <item
-        android:id="@+id/Wardrobe"
-        android:title="Wardrobe"
-        android:icon="@drawable/ic_wardrobe_24dp" />
+        android:id="@+id/fab"
+        android:title=""
+        android:enabled="true"/>
 
     <item
         android:id="@+id/Profile"
