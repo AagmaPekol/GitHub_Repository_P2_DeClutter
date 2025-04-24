@@ -3,15 +3,15 @@ package com.example.p2_declutter_app;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.google.firebase.inappmessaging.model.Button;
-
 public class TutorialActivity extends AppCompatActivity {
     private ViewPager2 viewPager;
-    private Button skipButton, nextButton;
+    private View skipButton;
+    private View nextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class TutorialActivity extends AppCompatActivity {
         editor.putBoolean("first_time", false);
         editor.apply();
 
-        Intent intent = new Intent(this, MainActivity.class); //Her skal den hedder hvor tutorualen skal være - J
+        Intent intent = new Intent(this, activity_tut.class); //Her skal den hedder hvor tutorualen skal være - J
         startActivity(intent);
         finish();
     }
