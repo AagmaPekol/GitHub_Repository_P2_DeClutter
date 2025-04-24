@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/bottomAppBar"
         android:layout_gravity="bottom"
-        android:background="@color/Text_dark_green"
+        android:background="@color/vector_green_main"
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="50dp">
 
