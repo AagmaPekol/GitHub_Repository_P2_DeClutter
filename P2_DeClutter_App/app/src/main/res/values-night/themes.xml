@@ -3,5 +3,7 @@
     <style name="Base.Theme.P2_DeClutter_App" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/vector_green_main</item>
+        <item name="colorPrimaryVariant">@color/vector_green_main</item>
     </style>
 </resources>
