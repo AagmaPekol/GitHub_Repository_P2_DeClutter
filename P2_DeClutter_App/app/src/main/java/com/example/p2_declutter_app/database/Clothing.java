@@ -19,9 +19,13 @@ public class Clothing {
     @ColumnInfo(name = "image_path")
     public String imageUri;
 
-    public Clothing(String clothingType, String description, String imageUri){
+    @ColumnInfo(name = "decision_keep_donate_sell")
+    public String decision;
+
+    public Clothing(String clothingType, String description, String imageUri, String decision){
         this.clothingType = clothingType;
         this.description = description;
         this.imageUri = imageUri;
+        this.decision = decision;
     }
 }
