@@ -1,14 +1,19 @@
 package com.example.p2_declutter_app;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -16,26 +21,46 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
+import com.bumptech.glide.Glide;
 import com.example.p2_declutter_app.database.AppDatabase;
 import com.example.p2_declutter_app.database.Clothing;
 import com.example.p2_declutter_app.database.ClothingDao;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class WardrobePage extends AppCompatActivity {
 
-    private static final int REQUEST_IMAGE_CAPTURE = 101;
-    private static final int REQUEST_CAMERA_PERMISSION = 100;
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
 
     private AppDatabase db;
     private ClothingDao dao;
 
-    private Uri photoUri;  // To store the URI of the captured image
+    private String currentPhotoPath;
 
-    private EditText clothingTypeText;
-    private EditText descriptionText;
-    private ImageView imageView;
+    //Loads picture taken into the imageView
+    //Uses the library Glide https://www.geeksforgeeks.org/image-loading-caching-library-android-set-2/
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            ImageView imageView = findViewById(R.id.imageView);
+            File imgFile = new File(currentPhotoPath);
+
+            if (imgFile.exists()) {
+                Glide.with(this)
+                        .load(imgFile)
+                        .into(imageView);
+            } else {
+                Toast.makeText(this, "Image file not found", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,92 +71,82 @@ public class WardrobePage extends AppCompatActivity {
         db = AppDatabase.getDatabase(this);
         dao = db.ClothingDao();
 
-        clothingTypeText = findViewById(R.id.clothingTypeText);
-        descriptionText = findViewById(R.id.descText);
+        TextView clothingTypeText = (TextView) findViewById(R.id.clothingTypeText);
+        TextView descriptionText = (TextView) findViewById(R.id.descText);
         Button dbBtn = findViewById(R.id.dbBtn);
         Button cameraButton = findViewById(R.id.takePhotoBtn);
-        imageView = findViewById(R.id.imageView);
 
-        cameraButton.setOnClickListener(v -> {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                    != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
-            } else {
-                openCamera();
+
+        cameraButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dispatchTakePictureIntent();
             }
         });
-
-        dbBtn.setOnClickListener(v -> saveToDatabase());
     }
 
-    private void openCamera() {
+    private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            // Create a temporary file to save the image
-            try {
-                photoUri = getPhotoUri();
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-            } catch (Exception e) {
-                Toast.makeText(this, "Error capturing image", Toast.LENGTH_SHORT).show();
+        try {
+            File photoFile = createImageFile();
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this, "com.example.p2_declutter_app.fileprovider", photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
             }
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        } catch (IOException ex) {
+            Toast.makeText(this, "Error creating file", Toast.LENGTH_SHORT).show();
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, "No camera app found", Toast.LENGTH_SHORT).show();
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
 
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            if (photoUri != null) {
-                // Display the image using the URI
-                imageView.setImageURI(photoUri);
-            }
-        }
+        // Save a file: path for use with ACTION_VIEW intents
+        currentPhotoPath = image.getAbsolutePath();
+        return image;
     }
 
-    private Uri getPhotoUri() throws Exception {
-        // Create a unique file to store the image
-        String imageFileName = "JPEG_" + System.currentTimeMillis() + ".jpg";
-        File storageDir = getExternalFilesDir(null);  // Or get a specific directory
-        File imageFile = File.createTempFile(imageFileName, ".jpg", storageDir);
-        return Uri.fromFile(imageFile);
-    }
 
-    private void saveToDatabase() {
-        String type = clothingTypeText.getText().toString();
-        String desc = descriptionText.getText().toString();
-
-        if (type.isEmpty() || desc.isEmpty() || photoUri == null) {
-            Toast.makeText(this, "Fill all fields and take a picture!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Convert the Uri to a string to save in the database
-        String imageUriString = photoUri.toString();
-
-        Clothing clothingItem = new Clothing(type, desc, imageUriString);
-        new Thread(() -> {
-            dao.addItem(clothingItem);
-            runOnUiThread(() -> {
-                clothingTypeText.setText("");
-                descriptionText.setText("");
-                imageView.setImageDrawable(null);
-                Toast.makeText(this, "Clothing item saved!", Toast.LENGTH_SHORT).show();
-            });
-        }).start();
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (requestCode == REQUEST_CAMERA_PERMISSION) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                openCamera();
-            } else {
-                Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show();
-            }
-        }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
 }
+
+
+
+/*
+ * resolveActivity(getPackageManager()) != null))
+ * This apperently always returns null and doesn't work on emulators?
+ * or it skips the if statement silently?
+ * Maybe it works on a real device? I don't know.
+ * A different version has been implemented above
+ * that doesn't use resolveActivity.
+ * */
+
+//    private void dispatchTakePictureIntent() {
+//        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//
+//        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+//            File photoFile = null;
+//            try {
+//                photoFile = createImageFile();
+//            } catch (IOException ex) {
+//                Toast.makeText(this, "Something went wrong with creating the file", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            if (photoFile != null) {
+//                Uri photoURI = FileProvider.getUriForFile(this, "com.example.android.fileprovider",
+//                        photoFile);
+//                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+//                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+//            }
+//        }
+//    }
