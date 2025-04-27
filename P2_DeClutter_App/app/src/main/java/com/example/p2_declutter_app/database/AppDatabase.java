@@ -13,6 +13,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract ClothingDao ClothingDao();
 
     //Singleton pattern
+    //Ensures that only one instance of the database is created
     public static AppDatabase getDatabase(final Context context){
         if (INSTANCE == null){
             synchronized (AppDatabase.class){

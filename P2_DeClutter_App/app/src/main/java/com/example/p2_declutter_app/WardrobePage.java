@@ -136,6 +136,7 @@ public class WardrobePage extends AppCompatActivity {
         }
     }
 
+    //Used from Android Studio documentation
     private File createImageFile() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());

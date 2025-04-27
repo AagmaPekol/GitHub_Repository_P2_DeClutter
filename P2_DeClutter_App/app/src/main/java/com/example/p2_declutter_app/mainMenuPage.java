@@ -29,7 +29,7 @@ public class mainMenuPage extends AppCompatActivity {
         deClutterBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mainMenuPage.this, deClutterOverviewPage.class);
+                Intent intent = new Intent(mainMenuPage.this, Declutter_PickClothingType.class);
                 startActivity(intent);
             }
         });
