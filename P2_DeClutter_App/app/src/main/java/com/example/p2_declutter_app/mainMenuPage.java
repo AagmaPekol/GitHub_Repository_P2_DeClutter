@@ -29,7 +29,7 @@ public class mainMenuPage extends AppCompatActivity {
         deClutterBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mainMenuPage.this, deClutterOverviewPage.class);
+                Intent intent = new Intent(mainMenuPage.this, Declutter_PickClothingType.class);
                 startActivity(intent);
             }
         });
@@ -38,7 +38,7 @@ public class mainMenuPage extends AppCompatActivity {
         wardrobeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(mainMenuPage.this, wardrobePage.class);
+                Intent intent = new Intent(mainMenuPage.this, WardrobePage.class);
                 startActivity(intent);
             }
         });
@@ -55,7 +55,7 @@ public class mainMenuPage extends AppCompatActivity {
         juliaBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(mainMenuPage.this, JuliasTemplate.class);
+                Intent intent = new Intent(mainMenuPage.this, Julias2Template.class);
                 startActivity(intent);
             }
         });
