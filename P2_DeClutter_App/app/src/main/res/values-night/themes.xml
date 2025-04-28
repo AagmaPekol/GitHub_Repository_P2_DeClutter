@@ -3,5 +3,16 @@
     <style name="Base.Theme.P2_DeClutter_App" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/vector_green_main</item>
+        <item name="colorPrimaryVariant">@color/vector_green_main</item>
+        <item name="colorOnPrimary">@color/background_lightGreen</item>
+
+        <item name="colorSecondary">@color/vector_brown_main</item>
+        <item name="colorSecondaryVariant">@color/vector_brown_darkerGradient</item>
+        <item name="colorOnSecondary">@color/vector_brown_main</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
     </style>
 </resources>

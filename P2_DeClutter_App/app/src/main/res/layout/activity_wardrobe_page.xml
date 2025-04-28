@@ -5,14 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".wardrobePage">
+    tools:context=".WardrobePage">
 
     <EditText
         android:id="@+id/clothingTypeText"
-        android:layout_width="298dp"
-        android:layout_height="90dp"
+        android:layout_width="295dp"
+        android:layout_height="73dp"
         android:ems="10"
-        android:hint="What type of clothing? Pants?"
+        android:hint="Clothing type"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,30 +21,67 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.071" />
 
+    <EditText
+        android:id="@+id/decisionText"
+        android:layout_width="295dp"
+        android:layout_height="73dp"
+        android:ems="10"
+        android:hint="Keep, sell or donate?"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.319" />
+
     <Button
-        android:id="@+id/dbBtn"
+        android:id="@+id/saveToDatabaseBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send to database"
+        android:text="Save to database"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descText"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.847" />
 
     <EditText
         android:id="@+id/descText"
-        android:layout_width="284dp"
-        android:layout_height="101dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="283dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Write some description here"
+        android:hint="Write something about your clothing..."
 
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/clothingTypeText" />
+
+    <Button
+        android:id="@+id/takePhotoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Take photo"
+        app:layout_constraintBottom_toTopOf="@+id/saveToDatabaseBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descText"
+        app:layout_constraintVertical_bias="0.322" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/saveToDatabaseBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/takePhotoBtn"
+        tools:srcCompat="@tools:sample/avatars" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
