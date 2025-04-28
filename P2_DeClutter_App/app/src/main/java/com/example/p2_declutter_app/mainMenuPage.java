@@ -3,7 +3,10 @@ package com.example.p2_declutter_app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -17,6 +20,8 @@ public class mainMenuPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_menu_page);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -51,7 +56,7 @@ public class mainMenuPage extends AppCompatActivity {
             }
         });
 
-        Button juliaBtn = findViewById(R.id.juliaBtn);
+        ImageButton juliaBtn = findViewById(R.id.juliaBtn);
         juliaBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -60,7 +65,7 @@ public class mainMenuPage extends AppCompatActivity {
             }
         });
 
-        Button loginBtn = findViewById(R.id.profileBtn);
+        ImageButton loginBtn = findViewById(R.id.profileBtn);
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,14 +74,14 @@ public class mainMenuPage extends AppCompatActivity {
             }
         });
 
-        Button camera = findViewById(R.id.CameraBTN);
-        camera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mainMenuPage.this,Camera.class);
-                startActivity(intent);
-            }
-        });
+//        Button camera = findViewById(R.id.CameraBTN);
+//        camera.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(mainMenuPage.this,Camera.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 
