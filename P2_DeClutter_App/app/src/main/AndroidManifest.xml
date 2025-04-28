@@ -27,6 +27,9 @@
         android:theme="@style/Theme.P2_DeClutter_App"
         tools:targetApi="31">
         <activity
+            android:name=".Declutter_ClothingDescription"
+            android:exported="false" />
+        <activity
             android:name=".Declutter_ClothingPicture"
             android:exported="false" />
         <activity
@@ -50,6 +53,7 @@
         <activity
             android:name=".deClutterOverviewPage"
             android:exported="false" />
+        <activity android:name=".TutorialActivity" />
         <activity
             android:name=".mainMenuPage"
             android:exported="true">

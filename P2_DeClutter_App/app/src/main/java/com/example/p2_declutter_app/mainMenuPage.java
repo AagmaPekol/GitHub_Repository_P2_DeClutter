@@ -64,7 +64,7 @@ public class mainMenuPage extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mainMenuPage.this,loginPage.class);
+                Intent intent = new Intent(mainMenuPage.this,TutorialActivity.class);
                 startActivity(intent);
             }
         });

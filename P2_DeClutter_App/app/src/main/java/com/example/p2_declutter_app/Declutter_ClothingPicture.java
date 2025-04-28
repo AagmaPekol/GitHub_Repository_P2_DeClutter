@@ -56,7 +56,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
         continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Declutter_ClothingPicture.this, mainMenuPage.class);
+                Intent intent = new Intent(Declutter_ClothingPicture.this, Declutter_ClothingDescription.class);
 
                 if (bundle != null) {
                     bundle.putString("currentPhotoPath", currentPhotoPath);
