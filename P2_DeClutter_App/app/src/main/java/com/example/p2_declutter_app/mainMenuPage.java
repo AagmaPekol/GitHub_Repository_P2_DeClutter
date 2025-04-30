@@ -52,7 +52,9 @@ public class mainMenuPage extends AppCompatActivity {
         rewardsBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                notImplemented();
+                Intent intent = new Intent(mainMenuPage.this, ApiCallTest.class);
+                startActivity(intent);
+
             }
         });
 
