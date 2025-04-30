@@ -1,5 +1,6 @@
 package com.example.p2_declutter_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
@@ -10,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.p2_declutter_app.fragments.Homepage;
 import com.example.p2_declutter_app.fragments.Profilepage;
@@ -23,15 +25,12 @@ public class Julias2Template extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//        EdgeToEdge.enable(this);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        EdgeToEdge.enable(this);
+
         setContentView(R.layout.activity_julias2_template);
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nagivation);
         bottomNav.setSelectedItemId(R.id.bottom_nav_home);
         bottomNav.setOnItemSelectedListener(navListener);
@@ -44,15 +43,23 @@ public class Julias2Template extends AppCompatActivity {
         int itemId = item.getItemId();
         Fragment selectedFragment = null;
 
+
         if(itemId == R.id.bottom_nav_home){
-            selectedFragment = new Homepage();
+            Intent intent = new Intent(Julias2Template.this, mainMenuPage.class);
+            startActivity(intent);
+            return true;
+
         }else if (itemId == R.id.bottom_nav_profile){
             selectedFragment = new Profilepage();
+
         }else if (itemId == R.id.bottom_nav_wardrobe){
             selectedFragment = new Wardrobepage1();}
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-
+        if (selectedFragment != null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, selectedFragment)
+                    .commit();
+        }
         return true;
     };
 
