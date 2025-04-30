@@ -110,8 +110,8 @@ public class WardrobePage extends AppCompatActivity {
         } else {
             executorService.execute(new Runnable() {
                 public void run() {
-                    Clothing item = new Clothing(clothingType, description, imageUri, decision);
-                    dao.addItem(item);
+                    //Clothing item = new Clothing(clothingType, description, imageUri, decision);
+                    //dao.addItem(item);
 
                     runOnUiThread(new Runnable() {
                         @Override

@@ -20,7 +20,7 @@ import java.io.IOException;
 public class ApiCallTest extends AppCompatActivity {
 
     private static final String TAG = "OpenAI";
-    private static final String OPENAI_API_KEY = ""; // key here bruh (star wars reference)
+    private static final String OPENAI_API_KEY = "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"; // key here bruh (star wars reference)
 
     // UI elements
     private EditText editTextInput1;
