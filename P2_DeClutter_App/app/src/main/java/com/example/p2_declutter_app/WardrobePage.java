@@ -2,6 +2,7 @@ package com.example.p2_declutter_app;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import com.bumptech.glide.Glide;
@@ -34,6 +37,7 @@ public class WardrobePage extends AppCompatActivity {
 
     private ExecutorService executorService;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
+    private static final int REQUEST_CAMERA_PERMISSION = 200;
 
     private AppDatabase db;
     private ClothingDao dao;
@@ -106,8 +110,8 @@ public class WardrobePage extends AppCompatActivity {
         } else {
             executorService.execute(new Runnable() {
                 public void run() {
-                    Clothing item = new Clothing(clothingType, description, imageUri, decision);
-                    dao.addItem(item);
+                    //Clothing item = new Clothing(clothingType, description, imageUri, decision);
+                    //dao.addItem(item);
 
                     runOnUiThread(new Runnable() {
                         @Override
@@ -121,18 +125,28 @@ public class WardrobePage extends AppCompatActivity {
     }
 
     private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        try {
-            File photoFile = createImageFile();
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this, "com.example.p2_declutter_app.fileprovider", photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+        //Request camera permission from the user if not granted
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{android.Manifest.permission.CAMERA},
+                    REQUEST_CAMERA_PERMISSION);
+        } else {
+
+            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            try {
+                File photoFile = createImageFile();
+                if (photoFile != null) {
+                    Uri photoURI = FileProvider.getUriForFile(this, "com.example.p2_declutter_app.fileprovider", photoFile);
+                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                }
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+            } catch (IOException ex) {
+                Toast.makeText(this, "Error creating file", Toast.LENGTH_SHORT).show();
+            } catch (ActivityNotFoundException e) {
+                Toast.makeText(this, "No camera app found", Toast.LENGTH_SHORT).show();
             }
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        } catch (IOException ex) {
-            Toast.makeText(this, "Error creating file", Toast.LENGTH_SHORT).show();
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, "No camera app found", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -151,6 +165,21 @@ public class WardrobePage extends AppCompatActivity {
         // Save a file: path for use with ACTION_VIEW intents
         currentPhotoPath = image.getAbsolutePath();
         return image;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == REQUEST_CAMERA_PERMISSION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted.
+                dispatchTakePictureIntent();
+            } else {
+                // Permission denied.
+                Toast.makeText(this, "Camera permission is required to take pictures", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
 

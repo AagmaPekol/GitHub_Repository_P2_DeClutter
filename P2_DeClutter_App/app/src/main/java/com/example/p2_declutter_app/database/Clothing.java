@@ -22,10 +22,14 @@ public class Clothing {
     @ColumnInfo(name = "decision_keep_donate_sell")
     public String decision;
 
-    public Clothing(String clothingType, String description, String imageUri, String decision){
+    @ColumnInfo(name = "ai_text")
+    public String aiText;
+
+    public Clothing(String clothingType, String description, String imageUri, String decision, String aiText){
         this.clothingType = clothingType;
         this.description = description;
         this.imageUri = imageUri;
         this.decision = decision;
+        this.aiText = aiText;
     }
 }

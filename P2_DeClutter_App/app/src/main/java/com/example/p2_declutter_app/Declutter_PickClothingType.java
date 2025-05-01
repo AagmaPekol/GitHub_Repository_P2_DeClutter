@@ -76,6 +76,8 @@ public class Declutter_PickClothingType extends AppCompatActivity {
                 bundle.putString("clothingType", clothingType);
                 intent.putExtras(bundle);
 
+
+
                 startActivity(intent);
                 alertDialog.dismiss();
             }

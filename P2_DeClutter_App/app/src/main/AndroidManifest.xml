@@ -15,6 +15,7 @@
         android:name="android.permission.READ_MEDIA_IMAGES"
         android:maxSdkVersion="32"
         tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -26,6 +27,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.P2_DeClutter_App"
         tools:targetApi="31">
+        <activity
+            android:name=".Declutter_KeepDonateSell"
+            android:exported="false" />
+        <activity
+            android:name=".ApiCallTest"
+            android:exported="false" />
+        <activity
+            android:name=".Declutter_ClothingDescription"
+            android:exported="false" />
         <activity
             android:name=".Declutter_ClothingPicture"
             android:exported="false" />
@@ -51,7 +61,6 @@
             android:name=".deClutterOverviewPage"
             android:exported="false" />
         <activity android:name=".TutorialActivity" />
-
         <activity
             android:name=".mainMenuPage"
             android:exported="true">
