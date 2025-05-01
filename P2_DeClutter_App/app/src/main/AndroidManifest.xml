@@ -49,9 +49,6 @@
             android:name=".Camera"
             android:exported="false" />
         <activity
-            android:name=".JuliasTemplate"
-            android:exported="false" />
-        <activity
             android:name=".loginPage"
             android:exported="false" />
         <activity
@@ -61,6 +58,8 @@
             android:name=".deClutterOverviewPage"
             android:exported="false" />
         <activity android:name=".TutorialActivity" />
+        <service android:name="MusicBackground"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".mainMenuPage"
             android:exported="true">
