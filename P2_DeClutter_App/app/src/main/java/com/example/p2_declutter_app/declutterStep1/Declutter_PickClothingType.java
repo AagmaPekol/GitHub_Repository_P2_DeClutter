@@ -1,4 +1,4 @@
-package com.example.p2_declutter_app;
+package com.example.p2_declutter_app.declutterStep1;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,8 @@ import android.widget.ImageView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.p2_declutter_app.R;
 
 public class Declutter_PickClothingType extends AppCompatActivity {
 

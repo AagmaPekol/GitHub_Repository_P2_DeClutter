@@ -37,10 +37,10 @@
             android:name=".Declutter_ClothingDescription"
             android:exported="false" />
         <activity
-            android:name=".Declutter_ClothingPicture"
+            android:name=".declutterStep1.Declutter_ClothingPicture"
             android:exported="false" />
         <activity
-            android:name=".Declutter_PickClothingType"
+            android:name=".declutterStep1.Declutter_PickClothingType"
             android:exported="false" />
         <activity
             android:name=".Julias2Template"

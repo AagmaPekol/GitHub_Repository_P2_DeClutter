@@ -1,4 +1,4 @@
-package com.example.p2_declutter_app;
+package com.example.p2_declutter_app.declutterStep1;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -19,12 +19,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.p2_declutter_app.Declutter_ClothingDescription;
+import com.example.p2_declutter_app.R;
 
 import java.io.File;
 import java.io.IOException;
