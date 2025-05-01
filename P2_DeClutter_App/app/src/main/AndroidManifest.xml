@@ -49,6 +49,9 @@
             android:name=".Camera"
             android:exported="false" />
         <activity
+            android:name=".JuliasTemplate"
+            android:exported="false" />
+        <activity
             android:name=".loginPage"
             android:exported="false" />
         <activity
