@@ -16,6 +16,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
@@ -57,13 +60,16 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
                 String userDescription = descriptionText.getText().toString().trim();
 
                 if (!userDescription.isEmpty()) {
-                    bundle.putString("userDescription", userDescription);
 
-                    // Combine base prompt with the user's input
-                    String fullPrompt = BASE_PROMPT.replace("[story]", userDescription);
+                    if (userDescription.length() < 20){
+                        Toast.makeText(Declutter_ClothingDescription.this, "Please write some more", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Combine base prompt with the user's input
+                        String fullPrompt = BASE_PROMPT.replace("[story]", userDescription);
 
-                    // sends a combined prompt with the userDescription & BASE_PROMPT to the AI
-                    callOpenAI(fullPrompt);
+                        // sends a combined prompt with the userDescription & BASE_PROMPT to the AI
+                        callOpenAI(fullPrompt);
+                    }
                 } else {
                     Toast.makeText(Declutter_ClothingDescription.this, "Please write something", Toast.LENGTH_SHORT).show();
                 }
@@ -74,14 +80,15 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
     private void setImage() {
         if (bundle != null) {
             String currentPhotoPath = bundle.getString("currentPhotoPath");
+            File imgFile = new File(currentPhotoPath);
 
-            if (currentPhotoPath != null) {
-                File imgFile = new File(currentPhotoPath);
-                if (imgFile.exists()) {
-                    photoView.setImageURI(Uri.fromFile(imgFile));
-                } else {
-                    Toast.makeText(this, "Image file not found", Toast.LENGTH_SHORT).show();
-                }
+            if (imgFile.exists()) {
+                Glide.with(this)
+                        .load(imgFile)
+                        .apply(new RequestOptions().override(600, 600))
+                        .into(photoView);
+            } else {
+                Toast.makeText(this, "Image file not found", Toast.LENGTH_SHORT).show();
             }
         }
     }
