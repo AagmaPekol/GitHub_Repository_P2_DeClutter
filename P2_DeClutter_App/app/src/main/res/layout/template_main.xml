@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_lightGreen"
+    android:orientation="vertical"
+    tools:context=".templates.Julias2Template">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <FrameLayout
+            android:id="@+id/top_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="126dp"
+            android:layout_gravity="start"
+            android:layout_marginBottom="8dp">
+
+            <!--            <ImageButton-->
+            <!--                android:id="@+id/settingsBtn"-->
+            <!--                android:layout_width="90dp"-->
+            <!--                android:layout_height="90dp"-->
+            <!--                android:layout_gravity="end"-->
+            <!--                android:elevation="12dp"-->
+            <!--                android:background="@android:color/transparent"-->
+            <!--                android:contentDescription="Settings button"-->
+            <!--                app:srcCompat="@drawable/ic_settings_icon_foreground"/>-->
+
+            <ImageButton
+                android:id="@+id/backBtn"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="start"
+                android:background="@android:color/transparent"
+                android:contentDescription="Back button"
+                android:elevation="12dp"
+                app:srcCompat="@drawable/ic_backarrow_icon_foreground" />
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:background="@drawable/bg_top_diamonds_gr"
+                android:elevation="10dp"
+                android:rotation="70"
+                android:translationX="-80dp"
+                android:translationY="-100dp" />
+
+            <View
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_top_diamonds_br"
+                android:elevation="8dp"
+                android:rotation="78"
+                android:translationX="-65dp"
+                android:translationY="-20dp" />
+
+            <View
+                android:layout_width="160dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_top_diamonds_bl"
+                android:elevation="4dp"
+                android:rotation="82"
+                android:translationX="95dp"
+                android:translationY="-120dp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_top_diamonds_gr"
+            android:layout_gravity="bottom"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:elevation="10dp"
+            >
+            <ImageButton
+                android:id="@+id/menuBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="menuButton"
+                android:background="@drawable/bottom_nav_btn"
+                android:src="@drawable/bn_ic_home_38dp">
+            </ImageButton>
+            <ImageButton
+                android:id="@+id/wardrobeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="wardrobeButton"
+                android:background="@drawable/bottom_nav_btn"
+                android:src="@drawable/bn_ic_wardrobe_38dp">
+            </ImageButton>
+            <ImageButton
+                android:id="@+id/profileBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="profileButton"
+                android:background="@drawable/bottom_nav_btn"
+                android:src="@drawable/bn_ic_profile_42dp">
+            </ImageButton>
+        </LinearLayout>
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:id="@+id/bottom_nagivation"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/bg_top_diamonds_gr"-->
+<!--            android:layout_gravity="bottom"-->
+<!--            android:paddingBottom="5dp"-->
+<!--            android:elevation="10dp"-->
+<!--            app:itemIconTint="@color/bottom_navigation_selector"-->
+<!--            app:itemTextColor="@color/bottom_navigation_selector"-->
+<!--            app:menu="@menu/bottom_navigation_menu"-->
+<!--            />-->
+    </FrameLayout>
+
+
+</LinearLayout>

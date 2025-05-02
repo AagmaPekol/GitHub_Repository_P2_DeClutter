@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_lightGreen"
     android:orientation="vertical"
-    tools:context=".Julias2Template">
+    tools:context=".templates.Julias2Template">
 
     <FrameLayout
         android:id="@+id/fragment_container"
@@ -73,31 +73,18 @@
                 android:translationY="-120dp" />
         </FrameLayout>
 
-
-
-
-<!--        HER INDSÆTTE HVAD DER SKAL VISES MIDT PÅ SKÆRMEN -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="550dp"
-            android:layout_gravity="center_vertical"
-            android:translationY="24dp"/>
-        <!--        HER INDSÆTTE HVAD DER SKAL VISES MIDT PÅ SKÆRMEN -->
-
-
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_nagivation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_top_diamonds_gr"
-            android:layout_gravity="bottom"
-            android:paddingBottom="5dp"
-            android:elevation="10dp"
-            app:itemIconTint="@color/bottom_navigation_selector"
-            app:itemTextColor="@color/bottom_navigation_selector"
-            app:menu="@menu/bottom_navigation_menu"
-            />
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:id="@+id/bottom_nagivation"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/bg_top_diamonds_gr"-->
+<!--            android:layout_gravity="bottom"-->
+<!--            android:paddingBottom="5dp"-->
+<!--            android:elevation="10dp"-->
+<!--            app:itemIconTint="@color/bottom_navigation_selector"-->
+<!--            app:itemTextColor="@color/bottom_navigation_selector"-->
+<!--            app:menu="@menu/bottom_navigation_menu"-->
+<!--            />-->
     </FrameLayout>
 
 
