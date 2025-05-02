@@ -1,4 +1,4 @@
-package com.example.p2_declutter_app.declutterStep1;
+package com.example.p2_declutter_app.declutterStep2;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.p2_declutter_app.ApiCallTest;
 import com.example.p2_declutter_app.Declutter_KeepDonateSell;
+import com.example.p2_declutter_app.Profile_page_main;
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.WardrobePage;
 import com.example.p2_declutter_app.mainMenuPage;
@@ -93,7 +94,7 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
         profileBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Declutter_ClothingDescription.this, ApiCallTest.class);
+                Intent intent = new Intent(Declutter_ClothingDescription.this, Profile_page_main.class);
                 startActivity(intent);
             }
         });

@@ -12,8 +12,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.p2_declutter_app.ApiCallTest;
+import com.example.p2_declutter_app.Profile_page_main;
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.WardrobePage;
+import com.example.p2_declutter_app.declutterStep2.Declutter_ClothingPicture;
 import com.example.p2_declutter_app.mainMenuPage;
 
 public class Declutter_PickClothingType extends AppCompatActivity {
@@ -80,7 +82,7 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         profileBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Declutter_PickClothingType.this, ApiCallTest.class);
+                Intent intent = new Intent(Declutter_PickClothingType.this, Profile_page_main.class);
                 startActivity(intent);
             }
         });
