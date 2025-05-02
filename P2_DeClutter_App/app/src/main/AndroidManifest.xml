@@ -27,6 +27,9 @@
         android:theme="@style/Theme.P2_DeClutter_App"
         tools:targetApi="31">
         <activity
+            android:name=".AchievementPage"
+            android:exported="false" />
+        <activity
             android:name=".AchievementTest"
             android:exported="false" />
         <activity
