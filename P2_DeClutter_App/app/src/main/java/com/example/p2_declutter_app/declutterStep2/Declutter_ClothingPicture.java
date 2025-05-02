@@ -23,8 +23,7 @@ import androidx.core.content.FileProvider;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.p2_declutter_app.ApiCallTest;
-import com.example.p2_declutter_app.Profile_page_main;
+import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.WardrobePage;
 import com.example.p2_declutter_app.mainMenuPage;

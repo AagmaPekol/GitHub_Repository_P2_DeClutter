@@ -17,6 +17,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.p2_declutter_app.declutterStep1.Declutter_PickClothingType;
 import com.example.p2_declutter_app.templates.Julias2Template;
+import com.example.p2_declutter_app.tutorial.TutorialActivity;
+import com.example.p2_declutter_app.xxxTestingFeatures.ApiCallTest;
 
 public class mainMenuPage extends AppCompatActivity {
 
@@ -76,7 +78,7 @@ public class mainMenuPage extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mainMenuPage.this,TutorialActivity.class);
+                Intent intent = new Intent(mainMenuPage.this, TutorialActivity.class);
                 startActivity(intent);
             }
         });
