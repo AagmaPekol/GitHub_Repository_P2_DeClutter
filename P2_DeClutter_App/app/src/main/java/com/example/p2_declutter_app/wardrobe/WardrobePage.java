@@ -1,4 +1,4 @@
-package com.example.p2_declutter_app;
+package com.example.p2_declutter_app.wardrobe;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -23,8 +23,10 @@ import androidx.core.content.FileProvider;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.database.AppDatabase;
 import com.example.p2_declutter_app.database.ClothingDao;
+import com.example.p2_declutter_app.mainMenuPage;
 import com.example.p2_declutter_app.xxxTestingFeatures.ApiCallTest;
 
 

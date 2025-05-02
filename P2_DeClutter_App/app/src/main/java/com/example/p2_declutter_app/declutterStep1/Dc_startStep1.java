@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.p2_declutter_app.xxxTestingFeatures.ApiCallTest;
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.WardrobePage;
+import com.example.p2_declutter_app.wardrobe.WardrobePage;
 import com.example.p2_declutter_app.mainMenuPage;
 
 public class Dc_startStep1 extends AppCompatActivity {

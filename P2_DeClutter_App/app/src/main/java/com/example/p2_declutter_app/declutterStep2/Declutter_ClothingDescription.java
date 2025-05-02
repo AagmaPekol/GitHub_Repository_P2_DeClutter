@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.WardrobePage;
+import com.example.p2_declutter_app.wardrobe.WardrobePage;
 import com.example.p2_declutter_app.mainMenuPage;
 
 import org.json.JSONArray;

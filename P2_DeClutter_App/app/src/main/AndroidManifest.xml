@@ -55,7 +55,7 @@
             android:name=".xxxTestingFeatures.Camera"
             android:exported="false" />
         <activity
-            android:name=".WardrobePage"
+            android:name=".wardrobe.WardrobePage"
             android:exported="false" />
         <activity
             android:name=".deClutterOverviewPage"

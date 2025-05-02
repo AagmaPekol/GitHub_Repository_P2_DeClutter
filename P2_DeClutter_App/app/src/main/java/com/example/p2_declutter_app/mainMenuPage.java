@@ -18,6 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.p2_declutter_app.declutterStep1.Declutter_PickClothingType;
 import com.example.p2_declutter_app.templates.Julias2Template;
 import com.example.p2_declutter_app.tutorial.TutorialActivity;
+import com.example.p2_declutter_app.wardrobe.WardrobePage;
 import com.example.p2_declutter_app.xxxTestingFeatures.ApiCallTest;
 
 public class mainMenuPage extends AppCompatActivity {
