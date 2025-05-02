@@ -1,4 +1,4 @@
-package com.example.p2_declutter_app;
+package com.example.p2_declutter_app.declutterStep1;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -6,19 +6,22 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.p2_declutter_app.ApiCallTest;
+import com.example.p2_declutter_app.Declutter_KeepDonateSell;
+import com.example.p2_declutter_app.R;
+import com.example.p2_declutter_app.WardrobePage;
+import com.example.p2_declutter_app.mainMenuPage;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.IOException;
@@ -67,6 +70,38 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
                 } else {
                     Toast.makeText(Declutter_ClothingDescription.this, "Please write something", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        //      The five buttons for the top/bottom nav
+        ImageButton menuBtn = findViewById(R.id.menuBtn);
+        menuBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Declutter_ClothingDescription.this, mainMenuPage.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
+        wardrobeBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Declutter_ClothingDescription.this, WardrobePage.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton profileBtn = findViewById(R.id.profileBtn);
+        profileBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Declutter_ClothingDescription.this, ApiCallTest.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
     }

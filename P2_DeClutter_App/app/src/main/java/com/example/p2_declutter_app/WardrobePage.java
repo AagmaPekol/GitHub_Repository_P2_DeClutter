@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -95,7 +96,7 @@ public class WardrobePage extends AppCompatActivity {
         });
 
 
-//        aaaaahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+//      The five buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -121,6 +122,13 @@ public class WardrobePage extends AppCompatActivity {
                 Intent intent = new Intent(WardrobePage.this, ApiCallTest.class);
                 startActivity(intent);
 
+            }
+        });
+        ImageButton backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
 

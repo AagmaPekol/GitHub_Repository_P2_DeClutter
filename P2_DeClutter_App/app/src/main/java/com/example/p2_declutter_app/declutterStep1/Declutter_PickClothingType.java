@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.p2_declutter_app.ApiCallTest;
 import com.example.p2_declutter_app.R;
+import com.example.p2_declutter_app.WardrobePage;
+import com.example.p2_declutter_app.mainMenuPage;
 
 public class Declutter_PickClothingType extends AppCompatActivity {
 
@@ -53,6 +57,39 @@ public class Declutter_PickClothingType extends AppCompatActivity {
                 showDialog("Hoodie");
             }
 
+        });
+
+        //      The five buttons for the top/bottom nav
+        ImageButton menuBtn = findViewById(R.id.menuBtn);
+        menuBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Declutter_PickClothingType.this, mainMenuPage.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
+        wardrobeBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Declutter_PickClothingType.this, WardrobePage.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton profileBtn = findViewById(R.id.profileBtn);
+        profileBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Declutter_PickClothingType.this, ApiCallTest.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
         });
     }
 

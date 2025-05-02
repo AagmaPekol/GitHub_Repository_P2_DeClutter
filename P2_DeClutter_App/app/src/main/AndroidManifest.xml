@@ -34,7 +34,7 @@
             android:name=".ApiCallTest"
             android:exported="false" />
         <activity
-            android:name=".Declutter_ClothingDescription"
+            android:name=".declutterStep1.Declutter_ClothingDescription"
             android:exported="false" />
         <activity
             android:name=".declutterStep1.Declutter_ClothingPicture"
@@ -43,13 +43,10 @@
             android:name=".declutterStep1.Declutter_PickClothingType"
             android:exported="false" />
         <activity
-            android:name=".Julias2Template"
+            android:name=".templates.Julias2Template"
             android:exported="false" />
         <activity
             android:name=".Camera"
-            android:exported="false" />
-        <activity
-            android:name=".JuliasTemplate"
             android:exported="false" />
         <activity
             android:name=".loginPage"
