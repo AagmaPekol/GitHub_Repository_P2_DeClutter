@@ -23,6 +23,8 @@ import com.example.p2_declutter_app.xxxTestingFeatures.ApiCallTest;
 
 public class mainMenuPage extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
