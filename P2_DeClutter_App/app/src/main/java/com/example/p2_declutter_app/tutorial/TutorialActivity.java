@@ -1,4 +1,4 @@
-package com.example.p2_declutter_app;
+package com.example.p2_declutter_app.tutorial;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +7,9 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
+
+import com.example.p2_declutter_app.R;
+import com.example.p2_declutter_app.mainMenuPage;
 
 public class TutorialActivity extends AppCompatActivity {
     private ViewPager2 viewPager;

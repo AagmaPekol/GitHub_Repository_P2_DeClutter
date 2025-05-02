@@ -28,16 +28,16 @@
         android:theme="@style/Theme.P2_DeClutter_App"
         tools:targetApi="31">
         <activity
-            android:name=".Profile_page_main"
+            android:name=".profile.Profile_page_main"
             android:exported="false" />
         <activity
             android:name=".declutterStep1.Dc_startStep1"
             android:exported="false" />
         <activity
-            android:name=".Declutter_KeepDonateSell"
+            android:name=".declutterStep2.Declutter_KeepDonateSell"
             android:exported="false" />
         <activity
-            android:name=".ApiCallTest"
+            android:name=".xxxTestingFeatures.ApiCallTest"
             android:exported="false" />
         <activity
             android:name=".declutterStep2.Declutter_ClothingDescription"
@@ -52,10 +52,7 @@
             android:name=".templates.Julias2Template"
             android:exported="false" />
         <activity
-            android:name=".Camera"
-            android:exported="false" />
-        <activity
-            android:name=".loginPage"
+            android:name=".xxxTestingFeatures.Camera"
             android:exported="false" />
         <activity
             android:name=".WardrobePage"
@@ -63,7 +60,7 @@
         <activity
             android:name=".deClutterOverviewPage"
             android:exported="false" />
-        <activity android:name=".TutorialActivity" />
+        <activity android:name=".tutorial.TutorialActivity" />
         <activity
             android:name=".mainMenuPage"
             android:exported="true">

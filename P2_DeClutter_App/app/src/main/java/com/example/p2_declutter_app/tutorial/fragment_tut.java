@@ -1,4 +1,4 @@
-package com.example.p2_declutter_app;
+package com.example.p2_declutter_app.tutorial;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.p2_declutter_app.R;
 //JONAS- HAR INGEN IDÈ OM HVORFOR DEN SKAL VÆRE HER
 /**
  * A simple {@link Fragment} subclass.

@@ -1,17 +1,17 @@
-package com.example.p2_declutter_app;
+package com.example.p2_declutter_app.xxxTestingFeatures;
 
 import android.os.Bundle;
-import androidx.activity.EdgeToEdge;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
+
 import android.view.View;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.p2_declutter_app.R;
+
 import okhttp3.*;
 import org.json.JSONArray;
 import org.json.JSONObject;

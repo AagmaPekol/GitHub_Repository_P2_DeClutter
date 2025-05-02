@@ -1,9 +1,11 @@
-package com.example.p2_declutter_app;
+package com.example.p2_declutter_app.tutorial;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import com.example.p2_declutter_app.R;
 
 public class TutorialAdapter extends FragmentStateAdapter {
     public TutorialAdapter(@NonNull FragmentActivity fragmentActivity) {
