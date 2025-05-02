@@ -5,7 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Declutter_PickClothingType">
+    tools:context=".declutterStep1.Declutter_PickClothingType">
+    <include layout="@layout/template_main">
+    </include>
 
     <TextView
         android:id="@+id/textView2"

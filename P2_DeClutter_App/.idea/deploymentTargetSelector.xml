@@ -8,6 +8,10 @@
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="PhysicalDevice" identifier="serial=RFCNC0QR2KE" />
+        <DropdownSelection timestamp="2025-05-02T07:19:27.296313700Z">
+          <Target type="DEFAULT_BOOT">
+            <handle>
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Malgo\.android\avd\Main_Phone.avd" />
             </handle>
           </Target>
         </DropdownSelection>
