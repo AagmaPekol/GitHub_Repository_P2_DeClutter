@@ -16,6 +16,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class mainMenuPage extends AppCompatActivity {
+    private static final String ACHIEVEMENT_ID = "wardrobe_opened";
+    private AchievementManager achievementManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +40,14 @@ public class mainMenuPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        achievementManager = new AchievementManager(this);
         Button wardrobeBtn = findViewById(R.id.wardrobeBtn);
         wardrobeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                // Unlock the achievement
+                achievementManager.unlockAchievement(ACHIEVEMENT_ID);
+
                 Intent intent = new Intent(mainMenuPage.this, WardrobePage.class);
                 startActivity(intent);
             }
@@ -52,7 +57,7 @@ public class mainMenuPage extends AppCompatActivity {
         rewardsBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(mainMenuPage.this, ApiCallTest.class);
+                Intent intent = new Intent(mainMenuPage.this, AchievementTest.class);
                 startActivity(intent);
 
             }
