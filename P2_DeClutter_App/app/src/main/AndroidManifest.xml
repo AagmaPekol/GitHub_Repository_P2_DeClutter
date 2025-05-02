@@ -61,6 +61,7 @@
             android:name=".deClutterOverviewPage"
             android:exported="false" />
         <activity android:name=".tutorial.TutorialActivity" />
+
         <activity
             android:name=".mainMenuPage"
             android:exported="true">
