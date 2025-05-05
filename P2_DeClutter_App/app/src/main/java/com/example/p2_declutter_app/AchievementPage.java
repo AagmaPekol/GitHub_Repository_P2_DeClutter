@@ -1,6 +1,10 @@
 package com.example.p2_declutter_app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.p2_declutter_app.achievement.Achievement;
 import com.example.p2_declutter_app.achievement.AchievementAdapter;
 import com.example.p2_declutter_app.achievement.AchievementManager;
+import com.example.p2_declutter_app.declutterStep1.Declutter_PickClothingType;
+import com.example.p2_declutter_app.profile.Profile_page_main;
+import com.example.p2_declutter_app.wardrobe.WardrobePage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,5 +50,38 @@ public class AchievementPage extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new AchievementAdapter(achievements);
         recyclerView.setAdapter(adapter);
+
+        //      The five buttons for the top/bottom nav
+        ImageButton menuBtn = findViewById(R.id.menuBtn);
+        menuBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(AchievementPage.this, mainMenuPage.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
+        wardrobeBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(AchievementPage.this, WardrobePage.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton profileBtn = findViewById(R.id.profileBtn);
+        profileBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(AchievementPage.this, Profile_page_main.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 }
