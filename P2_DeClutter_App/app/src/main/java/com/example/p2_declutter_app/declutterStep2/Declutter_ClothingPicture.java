@@ -64,14 +64,19 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Declutter_ClothingPicture.this, Declutter_ClothingDescription.class);
 
-                if (bundle != null) {
-                    bundle.putString("currentPhotoPath", currentPhotoPath);
+                if(currentPhotoPath != null){
+                    if (bundle != null) {
+                        bundle.putString("currentPhotoPath", currentPhotoPath);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                    } else {
+                        Log.e("Declutter_ClothingPicture", "Bundle is null");
+                    }
                 } else {
-                    Log.e("Declutter_ClothingPicture", "Bundle is null");
+                    Toast.makeText(Declutter_ClothingPicture.this, "Please take a picture", Toast.LENGTH_SHORT).show();
                 }
                 intent.putExtras(bundle);
                 startActivity(intent);
-
             }
         });
         //      The five buttons for the top/bottom nav

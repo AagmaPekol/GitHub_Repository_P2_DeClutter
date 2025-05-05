@@ -7,27 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".declutterStep2.Declutter_KeepDonateSell">
 
-    <TextView
-        android:id="@+id/aiDescriptionText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="324dp"
+        android:layout_height="547dp"
+        android:backgroundTint="@color/vector_blue_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photoView2"
-        app:layout_constraintVertical_bias="0.416" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/photoView2"
-        android:layout_width="177dp"
-        android:layout_height="177dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.346"
-        tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/photoView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="30dp"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/aiDescriptionText"
+            android:layout_width="228dp"
+            android:layout_height="223dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="250dp"
+            android:text="TextView" />
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
