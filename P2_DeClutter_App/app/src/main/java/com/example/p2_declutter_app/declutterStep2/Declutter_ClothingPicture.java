@@ -69,7 +69,6 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
                 } else {
                     Log.e("Declutter_ClothingPicture", "Bundle is null");
                 }
-
                 intent.putExtras(bundle);
                 startActivity(intent);
 
