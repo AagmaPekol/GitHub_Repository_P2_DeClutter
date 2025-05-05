@@ -22,6 +22,8 @@ import com.example.p2_declutter_app.wardrobe.WardrobePage;
 import com.example.p2_declutter_app.xxxTestingFeatures.ApiCallTest;
 
 public class mainMenuPage extends AppCompatActivity {
+    private static final String ACHIEVEMENT_ID = "wardrobe_opened";
+    private AchievementManager achievementManager;
 
 
 
@@ -46,11 +48,14 @@ public class mainMenuPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        achievementManager = new AchievementManager(this);
         Button wardrobeBtn = findViewById(R.id.wardrobeBtn);
         wardrobeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                // Unlock the achievement
+                achievementManager.unlockAchievement(ACHIEVEMENT_ID);
+
                 Intent intent = new Intent(mainMenuPage.this, WardrobePage.class);
                 startActivity(intent);
             }
@@ -60,7 +65,7 @@ public class mainMenuPage extends AppCompatActivity {
         rewardsBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(mainMenuPage.this, ApiCallTest.class);
+                Intent intent = new Intent(mainMenuPage.this, AchievementPage.class);
                 startActivity(intent);
 
             }
