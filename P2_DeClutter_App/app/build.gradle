@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
 }
 
 android {
@@ -34,6 +35,8 @@ android {
 
 dependencies {
     implementation libs.protolite.well.known.types
+    implementation libs.play.services.maps
+    implementation libs.play.services.location
     def room_version = "2.7.0"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"

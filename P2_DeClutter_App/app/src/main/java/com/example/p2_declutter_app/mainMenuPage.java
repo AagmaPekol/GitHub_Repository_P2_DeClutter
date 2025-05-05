@@ -17,7 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.p2_declutter_app.achievement.AchievementManager;
 import com.example.p2_declutter_app.declutterStep1.Declutter_PickClothingType;
-import com.example.p2_declutter_app.templates.Julias2Template;
+import com.example.p2_declutter_app.declutterStep3.declutterDonateDiscard;
 import com.example.p2_declutter_app.tutorial.TutorialActivity;
 import com.example.p2_declutter_app.wardrobe.WardrobePage;
 
@@ -73,7 +73,7 @@ public class mainMenuPage extends AppCompatActivity {
         juliaBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(mainMenuPage.this, Julias2Template.class);
+                Intent intent = new Intent(mainMenuPage.this, declutterDonateDiscard.class);
                 startActivity(intent);
             }
         });
