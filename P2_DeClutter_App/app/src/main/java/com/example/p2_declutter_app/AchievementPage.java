@@ -12,9 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.p2_declutter_app.achievement.Achievement;
 import com.example.p2_declutter_app.achievement.AchievementAdapter;
 import com.example.p2_declutter_app.achievement.AchievementManager;
-import com.example.p2_declutter_app.declutterStep1.Declutter_PickClothingType;
 import com.example.p2_declutter_app.profile.Profile_page_main;
-import com.example.p2_declutter_app.wardrobe.WardrobePage;
+import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
 import java.util.Arrays;
 import java.util.List;
@@ -64,7 +63,7 @@ public class AchievementPage extends AppCompatActivity {
         wardrobeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(AchievementPage.this, WardrobePage.class);
+                Intent intent = new Intent(AchievementPage.this, WardrobeDecision.class);
                 startActivity(intent);
             }
         });

@@ -12,11 +12,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.declutterStep2.Declutter_ClothingPicture;
-import com.example.p2_declutter_app.declutterStep2.dc_step2;
 import com.example.p2_declutter_app.mainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
-import com.example.p2_declutter_app.wardrobe.WardrobePage;
+import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
 public class dc_step3 extends AppCompatActivity {
 
@@ -45,7 +43,7 @@ public class dc_step3 extends AppCompatActivity {
         wardrobeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(dc_step3.this, WardrobePage.class);
+                Intent intent = new Intent(dc_step3.this, WardrobeDecision.class);
                 startActivity(intent);
             }
         });

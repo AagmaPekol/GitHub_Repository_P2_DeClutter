@@ -72,10 +72,10 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
         bundleStartOver = new Bundle();
         bundleStartOver.putString("clothingType", clothingType);
 
-        Log.d("BUNDLE_DEBUG", "clothingType: " + bundle.getString("clothingType"));
-        Log.d("BUNDLE_DEBUG", "description: " + bundle.getString("description"));
-        Log.d("BUNDLE_DEBUG", "currentPhotoPath: " + bundle.getString("currentPhotoPath"));
-        Log.d("BUNDLE_DEBUG", "text_AI: " + bundle.getString("text_AI"));
+//        Log.d("BUNDLE_DEBUG", "clothingType: " + bundle.getString("clothingType"));
+//        Log.d("BUNDLE_DEBUG", "description: " + bundle.getString("description"));
+//        Log.d("BUNDLE_DEBUG", "currentPhotoPath: " + bundle.getString("currentPhotoPath"));
+//        Log.d("BUNDLE_DEBUG", "text_AI: " + bundle.getString("text_AI"));
 
         descriptionText = findViewById(R.id.aiDescriptionText);
         photoView = findViewById(R.id.photoView2);

@@ -28,6 +28,9 @@
         android:theme="@style/Theme.P2_DeClutter_App"
         tools:targetApi="31">
         <activity
+            android:name=".wardrobe.WardrobeClothingType"
+            android:exported="false" />
+        <activity
             android:name=".declutterStep3.dc_step3"
             android:exported="false" />
         <activity
@@ -64,7 +67,7 @@
             android:name=".xxxTestingFeatures.Camera"
             android:exported="false" />
         <activity
-            android:name=".wardrobe.WardrobePage"
+            android:name=".wardrobe.WardrobeDecision"
             android:exported="false" />
         <activity
             android:name=".deClutterOverviewPage"

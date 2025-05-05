@@ -19,7 +19,7 @@ import com.example.p2_declutter_app.achievement.AchievementManager;
 import com.example.p2_declutter_app.declutterStep1.Declutter_PickClothingType;
 import com.example.p2_declutter_app.templates.Julias2Template;
 import com.example.p2_declutter_app.tutorial.TutorialActivity;
-import com.example.p2_declutter_app.wardrobe.WardrobePage;
+import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
 public class mainMenuPage extends AppCompatActivity {
     private static final String ACHIEVEMENT_ID = "wardrobe_opened";
@@ -54,7 +54,7 @@ public class mainMenuPage extends AppCompatActivity {
                 // Unlock the achievement
                 achievementManager.unlockAchievement(ACHIEVEMENT_ID);
 
-                Intent intent = new Intent(mainMenuPage.this, WardrobePage.class);
+                Intent intent = new Intent(mainMenuPage.this, WardrobeDecision.class);
                 startActivity(intent);
             }
         });

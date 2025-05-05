@@ -13,8 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.wardrobe.WardrobePage;
-import com.example.p2_declutter_app.declutterStep2.Declutter_ClothingPicture;
+import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 import com.example.p2_declutter_app.mainMenuPage;
 
 public class Declutter_PickClothingType extends AppCompatActivity {
@@ -73,7 +72,7 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         wardrobeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Declutter_PickClothingType.this, WardrobePage.class);
+                Intent intent = new Intent(Declutter_PickClothingType.this, WardrobeDecision.class);
                 startActivity(intent);
             }
         });
