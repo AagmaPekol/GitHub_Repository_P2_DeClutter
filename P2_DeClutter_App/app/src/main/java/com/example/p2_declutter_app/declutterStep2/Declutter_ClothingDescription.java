@@ -187,6 +187,7 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
                         //Sends the generated text to the next activity
                         runOnUiThread(() -> {
                             bundle.putString("text_AI", text_AI);
+                            bundle.putString("description", descriptionText.getText().toString());
 
                             Intent intent = new Intent(Declutter_ClothingDescription.this, Declutter_KeepDonateSell.class);
                             intent.putExtras(bundle);

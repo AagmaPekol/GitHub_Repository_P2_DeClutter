@@ -1,8 +1,10 @@
 package com.example.p2_declutter_app.declutterStep2;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,17 +22,28 @@ import com.example.p2_declutter_app.R;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.p2_declutter_app.database.*;
 
 import java.io.File;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Declutter_KeepDonateSell extends AppCompatActivity {
 
+    private ExecutorService executorService;
+    private AppDatabase db;
+    private ClothingDao dao;
     private Bundle bundle;
+    private Bundle bundleStartOver;
     private TextView descriptionText;
     private ImageView photoView;
     private  FrameLayout frameLayout;
 
     private String decision = "";
+    private String description;
+    private String currentPhotoPath;
+    private String aiDescription;
+    private String clothingType;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -41,6 +54,28 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
         setContentView(R.layout.activity_declutter_keep_donate_sell);
 
         bundle = getIntent().getExtras();
+
+        if (bundle == null) {
+            Toast.makeText(this, "Bundle is null!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        executorService = Executors.newSingleThreadExecutor();
+        db = AppDatabase.getDatabase(this);
+        dao = db.ClothingDao();
+
+        clothingType = bundle.getString("clothingType");
+        description = bundle.getString("description");
+        currentPhotoPath = bundle.getString("currentPhotoPath");
+        aiDescription = bundle.getString("text_AI");
+
+        bundleStartOver = new Bundle();
+        bundleStartOver.putString("clothingType", clothingType);
+
+        Log.d("BUNDLE_DEBUG", "clothingType: " + bundle.getString("clothingType"));
+        Log.d("BUNDLE_DEBUG", "description: " + bundle.getString("description"));
+        Log.d("BUNDLE_DEBUG", "currentPhotoPath: " + bundle.getString("currentPhotoPath"));
+        Log.d("BUNDLE_DEBUG", "text_AI: " + bundle.getString("text_AI"));
 
         descriptionText = findViewById(R.id.aiDescriptionText);
         photoView = findViewById(R.id.photoView2);
@@ -86,19 +121,21 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
                         if (Math.abs(deltaX) > Math.abs(deltaY)) {
                             if (deltaX > SWIPE_THRESHOLD) {
                                 decision = "keep"; // Swiped right
-                                Toast.makeText(Declutter_KeepDonateSell.this, "swiped right", Toast.LENGTH_SHORT).show();
+                                Log.d("Swipe", "swiped right");
+                                saveToDatabase(clothingType, description, currentPhotoPath, decision, aiDescription);
                             } else if (deltaX < -SWIPE_THRESHOLD) {
                                 decision = "sell"; // Swiped left
-                                Toast.makeText(Declutter_KeepDonateSell.this, "swiped left", Toast.LENGTH_SHORT).show();
+                                Log.d("Swipe", "swiped left");
+                                saveToDatabase(clothingType, description, currentPhotoPath, decision, aiDescription);
                             }
                         } else {
                             if (deltaY < -SWIPE_THRESHOLD) {
                                 decision = "donate"; // Swiped up
-                                Toast.makeText(Declutter_KeepDonateSell.this, "swiped up", Toast.LENGTH_SHORT).show();
+                                Log.d("Swipe", "swiped up");
+                                saveToDatabase(clothingType, description, currentPhotoPath, decision, aiDescription);
                             }
                             else if (deltaY > SWIPE_THRESHOLD) {
-                                decision = "delete"; // Swiped down
-                                Toast.makeText(Declutter_KeepDonateSell.this, "swiped down", Toast.LENGTH_SHORT).show();
+                                Log.d("Swipe", "swiped down");
                             }
                         }
 
@@ -115,6 +152,34 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void saveToDatabase(String clothingType, String description, String currentPhotoPath, String decision, String aiDescription) {
+
+        if (clothingType == null || clothingType.isEmpty() ||
+                description == null || description.isEmpty() ||
+                decision == null || decision.isEmpty() ||
+                currentPhotoPath == null || currentPhotoPath.isEmpty()) {
+
+            Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+        } else {
+            executorService.execute(new Runnable() {
+                public void run() {
+                    Clothing item = new Clothing(clothingType, description, currentPhotoPath, decision, aiDescription);
+                    dao.addItem(item);
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent = new Intent(Declutter_KeepDonateSell.this, Declutter_ClothingPicture.class);
+                            intent.putExtras(bundleStartOver);
+                            Log.d("DATABASE", "Saved to database");
+                            startActivity(intent);
+                        }
+                    });
+                }
+            });
+        }
     }
 
     private void setImage() {
