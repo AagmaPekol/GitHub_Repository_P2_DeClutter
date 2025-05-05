@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.p2_declutter_app.achievement.Achievement;
+import com.example.p2_declutter_app.achievement.AchievementAdapter;
+import com.example.p2_declutter_app.achievement.AchievementManager;
+
 import java.util.Arrays;
 import java.util.List;
 

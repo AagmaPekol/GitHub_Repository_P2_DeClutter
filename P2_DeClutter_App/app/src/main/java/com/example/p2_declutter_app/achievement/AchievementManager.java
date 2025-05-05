@@ -1,4 +1,4 @@
-package com.example.p2_declutter_app;
+package com.example.p2_declutter_app.achievement;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -15,17 +15,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.p2_declutter_app.achievement.AchievementManager;
 import com.example.p2_declutter_app.declutterStep1.Declutter_PickClothingType;
 import com.example.p2_declutter_app.templates.Julias2Template;
 import com.example.p2_declutter_app.tutorial.TutorialActivity;
 import com.example.p2_declutter_app.wardrobe.WardrobePage;
-import com.example.p2_declutter_app.xxxTestingFeatures.ApiCallTest;
 
 public class mainMenuPage extends AppCompatActivity {
     private static final String ACHIEVEMENT_ID = "wardrobe_opened";
     private AchievementManager achievementManager;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
