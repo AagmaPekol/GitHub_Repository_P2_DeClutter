@@ -21,12 +21,16 @@ import com.example.p2_declutter_app.wardrobe.WardrobePage;
 
 public class dc_step1 extends AppCompatActivity {
 
+    private Bundle bundle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_dc_step1);
+
+        bundle = getIntent().getExtras();
 
         //      The five buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
@@ -67,6 +71,7 @@ public class dc_step1 extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(dc_step1.this, dc_step2.class);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });

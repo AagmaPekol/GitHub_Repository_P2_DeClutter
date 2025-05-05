@@ -187,4 +187,33 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
             }
         }
     }
+
+    /*
+     * resolveActivity(getPackageManager()) != null))
+     * This apperently always returns null or doesn't
+     * work on emulators or it skips the if statement
+     * silently? Maybe it works on a real device? I
+     * don't know. A different version has been
+     * implemented above that doesn't use resolveActivity.
+     * */
+
+//    private void dispatchTakePictureIntent() {
+//        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//
+//        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+//            File photoFile = null;
+//            try {
+//                photoFile = createImageFile();
+//            } catch (IOException ex) {
+//                Toast.makeText(this, "Something went wrong with creating the file", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            if (photoFile != null) {
+//                Uri photoURI = FileProvider.getUriForFile(this, "com.example.android.fileprovider",
+//                        photoFile);
+//                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+//                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+//            }
+//        }
+//    }
 }
