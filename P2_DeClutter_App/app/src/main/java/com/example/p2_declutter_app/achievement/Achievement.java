@@ -1,4 +1,4 @@
-package com.example.p2_declutter_app;
+package com.example.p2_declutter_app.achievement;
 
 public class Achievement {
     private String id;

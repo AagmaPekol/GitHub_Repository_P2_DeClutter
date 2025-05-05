@@ -1,4 +1,4 @@
-package com.example.p2_declutter_app;
+package com.example.p2_declutter_app.achievement;
 
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.p2_declutter_app.R;
+
 import java.util.List;
 public class AchievementAdapter extends RecyclerView.Adapter<AchievementAdapter.ViewHolder> {
     private List<Achievement> achievementList;

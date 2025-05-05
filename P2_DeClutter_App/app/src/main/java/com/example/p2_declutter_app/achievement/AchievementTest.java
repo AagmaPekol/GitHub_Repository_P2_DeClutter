@@ -1,20 +1,13 @@
-package com.example.p2_declutter_app;
+package com.example.p2_declutter_app.achievement;
 
 import android.os.Bundle;
-import androidx.activity.EdgeToEdge;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import android.view.View;
-import androidx.core.view.WindowInsetsCompat;
-import android.os.Bundle;
-import android.util.Log;
+
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import okhttp3.*;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import java.io.IOException;
+
+import com.example.p2_declutter_app.R;
 
 public class AchievementTest extends AppCompatActivity {
         private static final String ACHIEVEMENT_ID = "first_win";
