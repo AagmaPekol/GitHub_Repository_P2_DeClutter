@@ -61,6 +61,12 @@
             android:exported="false"
             android:label="@string/title_activity_declutter_donate_discard" />
         <activity
+            android:name=".wardrobe.WardrobeDisplayClothing"
+            android:exported="false" />
+        <activity
+            android:name=".wardrobe.WardrobeClothingType"
+            android:exported="false" />
+        <activity
             android:name=".declutterStep3.dc_step3"
             android:exported="false" />
         <activity
@@ -97,7 +103,7 @@
             android:name=".xxxTestingFeatures.Camera"
             android:exported="false" />
         <activity
-            android:name=".wardrobe.WardrobePage"
+            android:name=".wardrobe.WardrobeDecision"
             android:exported="false" />
         <activity
             android:name=".deClutterOverviewPage"

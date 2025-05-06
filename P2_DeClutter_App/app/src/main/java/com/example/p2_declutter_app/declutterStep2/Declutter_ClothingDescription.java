@@ -1,7 +1,6 @@
 package com.example.p2_declutter_app.declutterStep2;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.wardrobe.WardrobePage;
+import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 import com.example.p2_declutter_app.mainMenuPage;
 
 import com.bumptech.glide.Glide;
@@ -90,7 +89,7 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
         wardrobeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Declutter_ClothingDescription.this, WardrobePage.class);
+                Intent intent = new Intent(Declutter_ClothingDescription.this, WardrobeDecision.class);
                 startActivity(intent);
             }
         });
