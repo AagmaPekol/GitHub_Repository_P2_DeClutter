@@ -44,7 +44,19 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAaHwpP4LLmiiyxrKOoPgg3mD9l1kUOkv0" />
-
+        <activity
+            android:name=".declutterStep3.declutterSell2" />
+        <activity
+            android:name=".declutterStep3.declutterKeep2" />
+        <activity
+            android:name=".declutterStep3.declutterDonateDiscard2"/>
+        <activity
+            android:name=".declutterStep3.declutter3Piles"
+            android:exported="false" />
+        <activity
+            android:name=".declutterStep3.Declutter_Keep" />
+        <activity
+            android:name=".declutterStep3.Declutter_Sell" />
         <activity
             android:name=".declutterStep3.declutterDonateDiscard"
             android:exported="false"

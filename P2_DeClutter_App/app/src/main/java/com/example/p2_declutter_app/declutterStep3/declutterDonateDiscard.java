@@ -2,6 +2,8 @@ package com.example.p2_declutter_app.declutterStep3;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.p2_declutter_app.R;
@@ -14,6 +16,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.p2_declutter_app.databinding.ActivityDeclutterDonateDiscardBinding;
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
@@ -35,11 +38,22 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
         binding = ActivityDeclutterDonateDiscardBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Button finishButton = findViewById(R.id.finish_button_donate_discard);
+
+        finishButton.setOnClickListener(v -> {
+            SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
+            prefs.edit().putBoolean("declutterDonateDiscard_finished", true).apply();
+
+            Intent intent = new Intent(declutterDonateDiscard.this, declutter3Piles.class);
+            startActivity(intent);
+            finish();
+        });
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-    }
+    ;}
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
