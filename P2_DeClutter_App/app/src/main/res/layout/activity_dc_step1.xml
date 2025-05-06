@@ -21,39 +21,45 @@
             android:layout_width="328dp"
             android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="200"
+            android:layout_weight="20"
             android:src="@drawable/shirts_out_step1">
-
         </ImageView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Step 1."
-            android:textStyle="bold"
-            android:textSize="38dp"
-            android:textColor="@color/Text_dark_green"
-            android:layout_weight="5"
-            android:layout_gravity="start"
-            android:gravity="bottom"
-            android:paddingLeft="20dp">
-        </TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Take all the T-shirts and lay them out, so you can see them"
-            android:layout_weight="20"
-            android:textSize="24dp"
-            android:textColor="@color/Text_dark_green"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp">
-        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="15"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 1."
+                android:textStyle="bold"
+                android:textSize="38dp"
+                android:textColor="@color/Text_dark_green"
+                android:layout_weight="5"
+                android:layout_gravity="start"
+                android:gravity="bottom"
+                android:paddingLeft="20dp">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Open your wardrobe and remove all garments of the selected category. Lay them out in front of you to get a clear overview."
+                android:layout_weight="20"
+                android:textSize="20dp"
+                android:textColor="@color/Text_dark_green"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+            </TextView>
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="140dp"
-            android:layout_weight="10"
+            android:layout_weight="2"
             android:orientation="horizontal">
             <View
                 android:layout_width="0dp"
