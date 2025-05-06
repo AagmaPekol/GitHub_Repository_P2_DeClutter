@@ -45,6 +45,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAaHwpP4LLmiiyxrKOoPgg3mD9l1kUOkv0" />
         <activity
+            android:name=".declutterStep3.declutterFinished" />
+        <activity
             android:name=".declutterStep3.declutterSell2" />
         <activity
             android:name=".declutterStep3.declutterKeep2" />

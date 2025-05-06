@@ -41,7 +41,6 @@ public class declutter3Piles extends AppCompatActivity {
         // editor.remove("declutterKeep_finished");
         // editor.remove("declutterSell_finished");
         // editor.remove("declutterDonateDiscard_finished");
-        // Add more as needed
         // editor.apply();
 
         boolean isDeclutterKeepFinished = prefs.getBoolean("declutterKeep_finished", false);
@@ -60,6 +59,10 @@ public class declutter3Piles extends AppCompatActivity {
         }
         if (isDeclutterDonateDiscardFinished) {
             bunke3.setImageResource(R.drawable.ic_checkmark); // or dim, overlay, etc.
+        }
+        if (isDeclutterKeepFinished && isDeclutterSellFinished && isDeclutterDonateDiscardFinished) {
+            Intent intent = new Intent(this, declutterFinished.class);
+            startActivity(intent);
         }
     }
 }
