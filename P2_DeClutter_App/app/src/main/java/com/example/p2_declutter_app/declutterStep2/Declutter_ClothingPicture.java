@@ -48,7 +48,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
         setContentView(R.layout.activity_declutter_clothing_picture);
 
         Button takePicture = findViewById(R.id.takePicture);
-        Button continueBtn = findViewById(R.id.continueBtn);
+        ImageView nextBtn = findViewById(R.id.nextBtn);
 
         bundle = getIntent().getExtras();
 
@@ -59,7 +59,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
             }
         });
 
-        continueBtn.setOnClickListener(new View.OnClickListener() {
+        nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Declutter_ClothingPicture.this, Declutter_ClothingDescription.class);
