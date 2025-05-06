@@ -2,8 +2,11 @@ package com.example.p2_declutter_app.wardrobe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,13 +32,15 @@ public class WardrobeClothingType extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_wardrobe_category);
+        setContentView(R.layout.activity_wardrobe_clothing_type);
 
         db = AppDatabase.getDatabase(this);
         dbDao = db.ClothingDao();
         executorService = Executors.newSingleThreadExecutor();
 
         selectedDecision = getIntent().getStringExtra("decision");
+        TextView textView = findViewById(R.id.wardrobeHeader);
+        textView.setText("Wardrobe " + selectedDecision);
 
         executorService.execute(new Runnable() {
             public void run() {
@@ -49,7 +54,15 @@ public class WardrobeClothingType extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        displayClothingTypeButtons(clothingTypeList, buttonText);
+                        if (!clothingTypeList.isEmpty()){
+                            displayClothingTypeButtons(clothingTypeList, buttonText);
+                        } else {
+                            TextView pageIsEmpty = findViewById(R.id.pageIsEmpty);
+                            pageIsEmpty.setVisibility(View.VISIBLE);
+                            pageIsEmpty.setGravity(Gravity.CENTER);
+                            pageIsEmpty.setText("No items in this Wardrobe" +
+                                    "\nAdd items to \"wardrobe " + selectedDecision + "\" to see them here");
+                        }
                     }
                 });
             }
@@ -67,7 +80,7 @@ public class WardrobeClothingType extends AppCompatActivity {
             button.setText(btnText);
 
             button.setOnClickListener(v -> {
-                Intent intent = new Intent(WardrobeClothingType.this, mainMenuPage.class);
+                Intent intent = new Intent(WardrobeClothingType.this, WardrobeDisplayClothing.class);
                 intent.putExtra("clothingType", clothingType);
                 intent.putExtra("decision",selectedDecision);
                 startActivity(intent);
