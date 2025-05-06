@@ -62,13 +62,14 @@
             android:layout_weight="20"
             android:gravity="center_horizontal">
             <LinearLayout
-                android:id="@+id/bunkeKeep"
+
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:orientation="vertical"
                 android:clickable="true"
                 android:focusable="true">
                 <ImageView
+                    android:id="@+id/bunkeKeep"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:background="@drawable/clothing_pile"
@@ -87,7 +88,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/bunkeDonate"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:orientation="vertical"
@@ -97,6 +97,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp">
                 <ImageView
+                    android:id="@+id/bunkeDonate"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:background="@drawable/clothing_pile"
@@ -114,13 +115,13 @@
                 </TextView>
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/bunkeSell"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:orientation="vertical"
                 android:clickable="true"
                 android:focusable="true">
                 <ImageView
+                    android:id="@+id/bunkeSell"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:background="@drawable/clothing_pile"
