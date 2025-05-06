@@ -37,6 +37,7 @@ dependencies {
     implementation libs.protolite.well.known.types
     implementation libs.play.services.maps
     implementation libs.play.services.location
+    implementation libs.gms.play.services.maps
     def room_version = "2.7.0"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"

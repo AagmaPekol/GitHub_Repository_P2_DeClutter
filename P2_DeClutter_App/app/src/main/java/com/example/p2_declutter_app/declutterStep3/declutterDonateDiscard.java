@@ -44,7 +44,7 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
             SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
             prefs.edit().putBoolean("declutterDonateDiscard_finished", true).apply();
 
-            Intent intent = new Intent(declutterDonateDiscard.this, declutter3Piles.class);
+            Intent intent = new Intent(declutterDonateDiscard.this, dc_step3.class);
             startActivity(intent);
             finish();
         });
