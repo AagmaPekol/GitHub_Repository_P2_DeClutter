@@ -25,4 +25,9 @@
 
     <color name="Text_dark_green">#3C543B</color>
 
+<!--    achievements colors-->
+    <color name="achievements_light_green">#ECF3E7</color>
+
+
+    <color name="transparent">#00000000</color>
 </resources>

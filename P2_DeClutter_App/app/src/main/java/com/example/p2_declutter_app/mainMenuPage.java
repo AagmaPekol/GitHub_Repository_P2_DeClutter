@@ -15,15 +15,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.p2_declutter_app.achievement.AchievementManager;
 import com.example.p2_declutter_app.declutterStep1.Declutter_PickClothingType;
-import com.example.p2_declutter_app.templates.Julias2Template;
+import com.example.p2_declutter_app.declutterStep3.declutterDonateDiscard;
 import com.example.p2_declutter_app.tutorial.TutorialActivity;
 import com.example.p2_declutter_app.wardrobe.WardrobePage;
-import com.example.p2_declutter_app.xxxTestingFeatures.ApiCallTest;
 
 public class mainMenuPage extends AppCompatActivity {
-
-
+    private static final String ACHIEVEMENT_ID = "wardrobe_opened";
+    private AchievementManager achievementManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +46,14 @@ public class mainMenuPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        achievementManager = new AchievementManager(this);
         Button wardrobeBtn = findViewById(R.id.wardrobeBtn);
         wardrobeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                // Unlock the achievement
+                achievementManager.unlockAchievement(ACHIEVEMENT_ID);
+
                 Intent intent = new Intent(mainMenuPage.this, WardrobePage.class);
                 startActivity(intent);
             }
@@ -60,7 +63,7 @@ public class mainMenuPage extends AppCompatActivity {
         rewardsBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(mainMenuPage.this, ApiCallTest.class);
+                Intent intent = new Intent(mainMenuPage.this, AchievementPage.class);
                 startActivity(intent);
 
             }
@@ -70,7 +73,7 @@ public class mainMenuPage extends AppCompatActivity {
         juliaBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(mainMenuPage.this, Julias2Template.class);
+                Intent intent = new Intent(mainMenuPage.this, declutterDonateDiscard.class);
                 startActivity(intent);
             }
         });

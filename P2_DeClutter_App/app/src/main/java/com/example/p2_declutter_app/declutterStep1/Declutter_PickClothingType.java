@@ -107,7 +107,7 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         dialogContinueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Declutter_PickClothingType.this, Declutter_ClothingPicture.class);
+                Intent intent = new Intent(Declutter_PickClothingType.this, dc_step1.class);
 
                 Bundle bundle = new Bundle();
                 bundle.putString("clothingType", clothingType);
