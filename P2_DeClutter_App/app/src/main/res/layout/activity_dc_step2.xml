@@ -35,7 +35,8 @@
             android:textSize="38dp"
             android:textColor="@color/Text_dark_green"
             android:layout_weight="5"
-            android:layout_gravity="left"
+            android:layout_gravity="start"
+            android:gravity="bottom"
             android:paddingLeft="20dp">
         </TextView>
         <TextView
