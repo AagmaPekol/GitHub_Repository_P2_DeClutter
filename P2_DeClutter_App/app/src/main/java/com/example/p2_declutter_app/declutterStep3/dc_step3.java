@@ -113,5 +113,9 @@ public class dc_step3 extends AppCompatActivity {
         if (isDeclutterDonateDiscardFinished) {
             marker3.setImageResource(R.drawable.pile_done_24); // or dim, overlay, etc.
         }
+        if (isDeclutterKeepFinished && isDeclutterSellFinished && isDeclutterDonateDiscardFinished) {
+            Intent intent = new Intent(this, declutterFinished.class);
+            startActivity(intent);
+        }
     }
 }
