@@ -20,7 +20,11 @@ public interface ClothingDao {
     @Delete
     void deleteItem(Clothing item);
 
-    @Query("SELECT * FROM db_clothing_items WHERE clothing_type = :clothingType")
-    List<Clothing> getClothingItemsByType(String clothingType);
+    @Query("SELECT * FROM db_clothing_items WHERE clothing_type = :type AND decision_keep_donate_sell = :decision")
+    List<Clothing> getItemsByTypeAndDecision(String type, String decision);
 
+    @Query("SELECT DISTINCT clothing_type FROM DB_clothing_items WHERE decision_keep_donate_sell = :decision")
+    List<String> getClothingTypeByDecision(String decision);
+    @Query("SELECT COUNT(*) FROM DB_clothing_items WHERE decision_keep_donate_sell = :decision AND clothing_type = :clothingType")
+    int getCountForClothingTypeAndDecision(String decision, String clothingType);
 }

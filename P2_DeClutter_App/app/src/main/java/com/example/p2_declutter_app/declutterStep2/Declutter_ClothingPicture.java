@@ -25,7 +25,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.wardrobe.WardrobePage;
+import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 import com.example.p2_declutter_app.mainMenuPage;
 
 import java.io.File;
@@ -92,7 +92,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
         wardrobeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Declutter_ClothingPicture.this, WardrobePage.class);
+                Intent intent = new Intent(Declutter_ClothingPicture.this, WardrobeDecision.class);
                 startActivity(intent);
             }
         });
