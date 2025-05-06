@@ -1,9 +1,11 @@
 package com.example.p2_declutter_app.declutterStep3;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +32,6 @@ public class dc_step3 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
 
         //      The five buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
@@ -65,13 +66,52 @@ public class dc_step3 extends AppCompatActivity {
             }
         });
 
-//        ImageButton nextBtn = findViewById(R.id.nextBtn);
-//        nextBtn.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                Intent intent = new Intent(dc_step3.this, Declutter_ClothingPicture.class);
-//                startActivity(intent);
-//            }
-//        });
+        updateButtonStates(); // checks flags and updates UI
+
+        ImageView bunke1 = findViewById(R.id.bunkeKeep);
+        ImageView bunke2 = findViewById(R.id.bunkeDonate);
+        ImageView bunke3 = findViewById(R.id.bunkeSell);
+
+        bunke1.setOnClickListener(v -> {
+            Intent intent = new Intent(dc_step3.this, Declutter_Keep.class);
+            startActivity(intent);
+        });
+
+        bunke2.setOnClickListener(v -> {
+            Intent intent = new Intent(dc_step3.this, Declutter_Sell.class);
+            startActivity(intent);
+        });
+
+        bunke3.setOnClickListener(v -> {
+            Intent intent = new Intent(dc_step3.this, declutterDonateDiscard.class);
+            startActivity(intent);
+        });
+    }
+    private void updateButtonStates() {
+        SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        // editor.remove("declutterKeep_finished");
+        // editor.remove("declutterSell_finished");
+        // editor.remove("declutterDonateDiscard_finished");
+        // Add more as needed
+        // editor.apply();
+
+        boolean isDeclutterKeepFinished = prefs.getBoolean("declutterKeep_finished", false);
+        boolean isDeclutterSellFinished = prefs.getBoolean("declutterSell_finished", false);
+        boolean isDeclutterDonateDiscardFinished = prefs.getBoolean("declutterDonateDiscard_finished", false);
+
+        ImageView marker1 = findViewById(R.id.marker1); // the image button
+        ImageView marker2 = findViewById(R.id.marker2); // the image button
+        ImageView marker3 = findViewById(R.id.marker3); // the image button
+
+        if (isDeclutterKeepFinished) {
+            marker1.setImageResource(R.drawable.pile_done_24); // or dim, overlay, etc.
+        }
+        if (isDeclutterSellFinished) {
+            marker2.setImageResource(R.drawable.pile_done_24); // or dim, overlay, etc.
+        }
+        if (isDeclutterDonateDiscardFinished) {
+            marker3.setImageResource(R.drawable.pile_done_24); // or dim, overlay, etc.
+        }
     }
 }

@@ -21,7 +21,7 @@ public class declutterKeep2 extends AppCompatActivity {
             SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
             prefs.edit().putBoolean("declutterKeep_finished", true).apply();
 
-            Intent intent = new Intent(declutterKeep2.this, declutter3Piles.class);
+            Intent intent = new Intent(declutterKeep2.this, dc_step3.class);
             startActivity(intent);
             finish(); // optional: closes this page
         });
