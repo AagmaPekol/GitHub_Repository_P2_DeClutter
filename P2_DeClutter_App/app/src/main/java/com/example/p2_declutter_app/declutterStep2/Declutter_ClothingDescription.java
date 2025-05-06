@@ -38,9 +38,10 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
     private static final String TAG = "OpenAI";
     private static final String OPENAI_API_KEY = "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"; // key here bruh (star wars reference)
     private static final String BASE_PROMPT = "Extract a sentimental value " +
-            "(ranging from 1-10 with 10 being high sentimental value) a condition" +
-            " value (from 1-10 with 10 being best condition) and a short sales" +
-            " description of the clothes: [story]";
+            "(ranging from 1-10 with 10 being high sentimental value)" +
+            " a condition value (from 1-10 with 10 being best condition)" +
+            "(Please dont put ** around the sentimental and the condition value)" +
+            " and a short sales description of the clothes: [story]";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

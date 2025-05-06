@@ -41,6 +41,8 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
     private String currentPhotoPath;
     private Bundle bundle;
 
+    private ImageView imageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +50,13 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
         setContentView(R.layout.activity_declutter_clothing_picture);
 
         Button takePicture = findViewById(R.id.takePicture);
-        ImageView nextBtn = findViewById(R.id.nextBtn);
+        ImageButton nextBtn = findViewById(R.id.nextBtn);
+
+        imageView = findViewById(R.id.takePhotoView);
+        Glide.with(this)
+                .load(R.drawable.pic_frame)
+                .apply(new RequestOptions().override(600, 600))
+                .into(imageView);
 
         bundle = getIntent().getExtras();
 
@@ -75,8 +83,6 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
                 } else {
                     Toast.makeText(Declutter_ClothingPicture.this, "Please take a picture", Toast.LENGTH_SHORT).show();
                 }
-                intent.putExtras(bundle);
-                startActivity(intent);
             }
         });
         //      The five buttons for the top/bottom nav
@@ -174,7 +180,6 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            ImageView imageView = findViewById(R.id.takePhotoView);
             File imgFile = new File(currentPhotoPath);
 
             if (imgFile.exists()) {
