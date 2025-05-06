@@ -2,4 +2,5 @@
     <string name="app_name">P2_DeClutter_App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_declutter_donate_discard">declutterDonateDiscard</string>
 </resources>
