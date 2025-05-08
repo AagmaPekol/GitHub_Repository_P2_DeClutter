@@ -47,6 +47,7 @@
         <activity
             android:name=".declutterStep3.declutterFinished"
             android:screenOrientation="portrait"/>
+
         <activity
             android:name=".declutterStep3.declutterSell2"
             android:screenOrientation="portrait"/>
