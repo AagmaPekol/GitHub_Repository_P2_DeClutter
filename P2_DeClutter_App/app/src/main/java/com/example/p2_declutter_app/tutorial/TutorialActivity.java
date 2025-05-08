@@ -9,12 +9,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.p2_declutter_app.R;
+import com.example.p2_declutter_app.declutterStep2.Declutter_ClothingPicture;
 import com.example.p2_declutter_app.mainMenuPage;
 
 public class TutorialActivity extends AppCompatActivity {
     private ViewPager2 viewPager;
     private View skipButton;
     private View nextButton;
+
+    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,8 @@ public class TutorialActivity extends AppCompatActivity {
             startMainApp();
             return;
         }
+
+        bundle = getIntent().getExtras();
 
         setContentView(R.layout.activity_tut);
         viewPager = findViewById(R.id.viewPager);
@@ -40,6 +45,15 @@ public class TutorialActivity extends AppCompatActivity {
             if (viewPager.getCurrentItem() < adapter.getItemCount() - 1) {
                 viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
             } else {
+                SharedPreferences.Editor editor = getSharedPreferences("prefs", MODE_PRIVATE).edit();
+                editor.putBoolean("first_time", false);
+                editor.apply();
+
+                Intent intent = new Intent(this, Declutter_ClothingPicture.class); //Her skal den hedder hvor tutorualen skal være - J
+                intent.putExtras(bundle);
+
+                startActivity(intent);
+                finish();
                 startMainApp();
             }
         });
@@ -50,7 +64,8 @@ public class TutorialActivity extends AppCompatActivity {
         editor.putBoolean("first_time", false);
         editor.apply();
 
-        Intent intent = new Intent(this, mainMenuPage.class); //Her skal den hedder hvor tutorualen skal være - J
+        Intent intent = new Intent(this, Declutter_ClothingPicture.class); //Her skal den hedder hvor tutorualen skal være - J
+        intent.putExtras(getIntent().getExtras());
         startActivity(intent);
         finish();
     }

@@ -45,73 +45,97 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAaHwpP4LLmiiyxrKOoPgg3mD9l1kUOkv0" />
         <activity
-            android:name=".declutterStep3.declutterFinished" />
+            android:name=".declutterStep3.declutterFinished"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".declutterStep3.declutterSell2" />
+            android:name=".declutterStep3.declutterSell2"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".declutterStep3.declutterKeep2" />
+            android:name=".declutterStep3.declutterKeep2"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".declutterStep3.declutterDonateDiscard2"/>
+            android:name=".declutterStep3.declutterDonateDiscard2"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".declutterStep3.Declutter_Keep" />
+            android:name=".declutterStep3.Declutter_Keep"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".declutterStep3.Declutter_Sell" />
+            android:name=".declutterStep3.Declutter_Sell"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".declutterStep3.declutterDonateDiscard"
             android:exported="false"
-            android:label="@string/title_activity_declutter_donate_discard" />
+            android:label="@string/title_activity_declutter_donate_discard"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".wardrobe.WardrobeDisplayClothing"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".wardrobe.WardrobeClothingType"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".declutterStep3.dc_step3"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".declutterStep2.dc_step2"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".declutterStep1.dc_step1"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".profile.Profile_page_main"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AchievementPage"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".xxxTestingFeatures.ApiCallTest"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".declutterStep2.Declutter_KeepDonateSell"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".declutterStep2.Declutter_ClothingDescription"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".declutterStep2.Declutter_ClothingPicture"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".declutterStep1.Declutter_PickClothingType"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".templates.Julias2Template"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".xxxTestingFeatures.Camera"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".wardrobe.WardrobeDecision"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".deClutterOverviewPage"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity android:name=".tutorial.TutorialActivity" />
         <activity
             android:name=".mainMenuPage"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
