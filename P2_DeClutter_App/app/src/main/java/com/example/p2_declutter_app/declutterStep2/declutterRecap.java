@@ -1,6 +1,7 @@
 package com.example.p2_declutter_app.declutterStep2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
@@ -21,6 +22,14 @@ public class declutterRecap extends AppCompatActivity {
             Intent intent = new Intent(com.example.p2_declutter_app.declutterStep2.declutterRecap.this, dc_step3.class);
             startActivity(intent);
         });
+    }
+    private void updateButtonStates() {
+        SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.remove("declutterKeep_finished");
+        editor.remove("declutterSell_finished");
+        editor.remove("declutterDonateDiscard_finished");
+        editor.apply();
     }
 }
 
