@@ -1,14 +1,12 @@
 package com.example.p2_declutter_app.declutterStep3;
-import android.content.SharedPreferences;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
 
 public class declutterFinished extends AppCompatActivity {
     @Override

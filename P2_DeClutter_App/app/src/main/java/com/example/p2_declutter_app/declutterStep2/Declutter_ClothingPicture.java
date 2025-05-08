@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.content.SharedPreferences;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
@@ -26,7 +27,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
-import com.example.p2_declutter_app.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
 
 import java.io.File;
 import java.io.IOException;
@@ -77,6 +78,12 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
                         bundle.putString("currentPhotoPath", currentPhotoPath);
                         intent.putExtras(bundle);
                         startActivity(intent);
+
+                        // Ends the tutorial and only shows it once
+                        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.putBoolean("isFirstRun", false);
+                        editor.apply();
                     } else {
                         Log.e("Declutter_ClothingPicture", "Bundle is null");
                     }

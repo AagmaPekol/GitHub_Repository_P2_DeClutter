@@ -1,6 +1,7 @@
 package com.example.p2_declutter_app.declutterStep1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,19 +12,26 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.p2_declutter_app.declutterStep2.Declutter_ClothingPicture;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.tutorial.TutorialActivity;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
-import com.example.p2_declutter_app.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
 
 public class Declutter_PickClothingType extends AppCompatActivity {
+
+    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_declutter_pick_clothing_type);
+
+        bundle = new Bundle();
+
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        boolean isFirstRun = prefs.getBoolean("isFirstRun", true);
 
         Button tShirtBtn = findViewById(R.id.tShirtBtn);
         Button pantsBtn = findViewById(R.id.pantsBtn);
@@ -33,21 +41,21 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         tShirtBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog("T-Shirt");
+                showDialog("T-Shirt", isFirstRun);
             }
         });
 
         pantsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog("Pants");
+                showDialog("Pants", isFirstRun);
             }
         });
 
         dressBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog("Dress");
+                showDialog("Dress", isFirstRun);
             }
 
         });
@@ -55,7 +63,7 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         hoodieBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog("Hoodie");
+                showDialog("Hoodie", isFirstRun);
             }
 
         });
@@ -94,7 +102,7 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         });
     }
 
-    private void showDialog(String clothingType){
+    private void showDialog(String clothingType, boolean isFirstRun){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_layout_clothing, null);
 
@@ -107,15 +115,17 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         dialogContinueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Declutter_PickClothingType.this, TutorialActivity.class);
-
-                Bundle bundle = new Bundle();
                 bundle.putString("clothingType", clothingType);
-                intent.putExtras(bundle);
 
-
-
-                startActivity(intent);
+                if (isFirstRun) {
+                    Intent intent = new Intent(Declutter_PickClothingType.this, dc_step1.class);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(Declutter_PickClothingType.this, Declutter_ClothingPicture.class);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
                 alertDialog.dismiss();
             }
         });

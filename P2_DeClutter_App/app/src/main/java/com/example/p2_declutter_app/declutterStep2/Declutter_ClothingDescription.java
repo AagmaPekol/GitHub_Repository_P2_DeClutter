@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
-import com.example.p2_declutter_app.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;

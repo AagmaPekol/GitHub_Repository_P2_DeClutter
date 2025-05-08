@@ -10,7 +10,6 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.declutterStep2.Declutter_ClothingPicture;
-import com.example.p2_declutter_app.mainMenuPage;
 
 public class TutorialActivity extends AppCompatActivity {
     private ViewPager2 viewPager;

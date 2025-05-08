@@ -10,7 +10,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
 import com.example.p2_declutter_app.xxxTestingFeatures.ApiCallTest;
 
 public class WardrobeDecision extends AppCompatActivity {

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.p2_declutter_app.achievement.Achievement;
 import com.example.p2_declutter_app.achievement.AchievementAdapter;
 import com.example.p2_declutter_app.achievement.AchievementManager;
+import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 

@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.p2_declutter_app.database.*;
 
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.mainMenuPage;
 
 import java.util.ArrayList;
 import java.util.List;
