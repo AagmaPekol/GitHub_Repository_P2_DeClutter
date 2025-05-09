@@ -25,7 +25,7 @@
             android:id="@+id/dialogImage"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:scaleType="centerCrop" /> <!-- sample_image is a placeholder -->
+            android:scaleType="centerCrop" />
 
         <Button
             android:id="@+id/dialogBtn"

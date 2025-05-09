@@ -9,13 +9,42 @@
     tools:context=".declutterStep2.Declutter_KeepDonateSell">
 
     <FrameLayout
+        android:id="@+id/backgroundLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" >
+
+        <TextView
+            android:id="@+id/headerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="24sp"
+            android:layout_gravity="center_horizontal"
+            android:translationY="90dp"/>
+
+        <Button
+            android:id="@+id/saveToDatabaseBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:textColor="@color/Text_dark_green"
+            android:layout_gravity="center_horizontal"
+            android:translationY="700dp"
+            android:background="@drawable/btn_orange_v1"/>
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="324dp"
-        android:layout_height="547dp"
-        android:backgroundTint="@color/vector_blue_border"
+        android:layout_height="500dp"
+        android:background="@drawable/swipe_card_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -23,16 +52,16 @@
             android:id="@+id/photoView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:translationY="60dp"
             tools:src="@tools:sample/avatars" />
 
-        <TextView
+        <EditText
             android:id="@+id/aiDescriptionText"
             android:layout_width="228dp"
             android:layout_height="223dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="250dp"
+            android:layout_gravity="center_horizontal"
+            android:translationY="300dp"
             android:text="TextView" />
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

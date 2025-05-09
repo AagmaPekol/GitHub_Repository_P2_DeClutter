@@ -108,7 +108,7 @@ public class Declutter_PickClothingType extends AppCompatActivity {
 
         Button dialogContinueButton = dialogView.findViewById(R.id.dialogBtn);
 
-        setImageView(clothingType);
+        setImageView(clothingType, dialogView);
 
         AlertDialog alertDialog = builder.setView(dialogView).create();
 
@@ -133,21 +133,21 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private void setImageView(String clothingType){
-        ImageView imageView = findViewById(R.id.dialogImage);
+    private void setImageView(String clothingType, View dialogView){
+        ImageView imageView = dialogView.findViewById(R.id.dialogImage);
 
         switch (clothingType) {
             case "T-Shirt":
-                //imageView.setImageResource(R.drawable.tshirt);
+                imageView.setImageResource(R.drawable.);
                 break;
             case "Pants":
-                //imageView.setImageResource(R.drawable.pants);
+                //imageView.setImageResource(R.drawable.PANTS IMAGE);
                 break;
             case "Dress":
-                //imageView.setImageResource(R.drawable.dress);
+                //imageView.setImageResource(R.drawable.DRESS IMAGE);
                 break;
             case "Hoodie":
-                //imageView.setImageResource(R.drawable.hoodie);
+                //imageView.setImageResource(R.drawable.HOODIE IMAGE);
                 break;
         }
     }

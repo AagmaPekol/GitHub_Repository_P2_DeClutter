@@ -1,13 +1,16 @@
 package com.example.p2_declutter_app.declutterStep2;
 
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -36,14 +39,24 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
     private Bundle bundle;
     private Bundle bundleStartOver;
     private TextView descriptionText;
+
+    private TextView headerText;
     private ImageView photoView;
     private  FrameLayout frameLayout;
+    private FrameLayout backgroundLayout;
+
+    private Button saveToDatabaseBtn;
+
+    private int currentBackgroundColor = Color.WHITE;
+    private ValueAnimator colorAnimator;
 
     private String decision = "";
     private String description;
     private String currentPhotoPath;
     private String aiDescription;
     private String clothingType;
+
+
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -80,9 +93,23 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
         descriptionText = findViewById(R.id.aiDescriptionText);
         photoView = findViewById(R.id.photoView2);
         frameLayout = findViewById(R.id.frameLayout);
+        backgroundLayout = findViewById(R.id.backgroundLayout);
+        headerText = findViewById(R.id.headerText);
+        saveToDatabaseBtn = findViewById(R.id.saveToDatabaseBtn);
 
         descriptionText.setText(bundle.getString("text_AI"));
         setImage();
+
+        saveToDatabaseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(decision.isEmpty()) {
+                    Toast.makeText(Declutter_KeepDonateSell.this, "Please swipe the card", Toast.LENGTH_SHORT).show();
+                } else {
+                    saveToDatabase(clothingType, description, currentPhotoPath, decision, aiDescription);
+                }
+            }
+        });
 
         // Got code from this tutorial:
         // https://www.youtube.com/watch?v=Rd89cVKrQBg
@@ -120,21 +147,29 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
 
                         if (Math.abs(deltaX) > Math.abs(deltaY)) {
                             if (deltaX > SWIPE_THRESHOLD) {
+                                animateBackgroundColor(Color.parseColor("#A5D6A7")); // Green
+                                headerText.setText("Keep " + clothingType);
                                 decision = "keep"; // Swiped right
                                 Log.d("Swipe", "swiped right");
-                                saveToDatabase(clothingType, description, currentPhotoPath, decision, aiDescription);
+
                             } else if (deltaX < -SWIPE_THRESHOLD) {
+                                animateBackgroundColor(Color.parseColor("#FFF176")); //yellow
+                                headerText.setText("Sell " + clothingType);
                                 decision = "sell"; // Swiped left
                                 Log.d("Swipe", "swiped left");
-                                saveToDatabase(clothingType, description, currentPhotoPath, decision, aiDescription);
+
                             }
                         } else {
                             if (deltaY < -SWIPE_THRESHOLD) {
+                                animateBackgroundColor(Color.parseColor("#EF5350")); //red
+                                headerText.setText("Donate " + clothingType);
                                 decision = "donate"; // Swiped up
                                 Log.d("Swipe", "swiped up");
-                                saveToDatabase(clothingType, description, currentPhotoPath, decision, aiDescription);
                             }
                             else if (deltaY > SWIPE_THRESHOLD) {
+                                animateBackgroundColor(Color.WHITE);
+                                headerText.setText("");
+                                decision = "";
                                 Log.d("Swipe", "swiped down");
                             }
                         }
@@ -152,6 +187,21 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void animateBackgroundColor(int targetColor) {
+        if (colorAnimator != null && colorAnimator.isRunning()) {
+            colorAnimator.cancel();
+        }
+
+        colorAnimator = ValueAnimator.ofArgb(currentBackgroundColor, targetColor);
+        colorAnimator.setDuration(300); // in milliseconds
+        colorAnimator.addUpdateListener(animator -> {
+            int animatedColor = (int) animator.getAnimatedValue();
+            backgroundLayout.setBackgroundColor(animatedColor);
+            currentBackgroundColor = animatedColor;
+        });
+        colorAnimator.start();
     }
 
     private void saveToDatabase(String clothingType, String description, String currentPhotoPath, String decision, String aiDescription) {
