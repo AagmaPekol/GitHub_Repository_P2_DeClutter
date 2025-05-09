@@ -58,8 +58,8 @@ public class dc_step2 extends AppCompatActivity {
             }
         });
 
-        ImageButton nextBtn = findViewById(R.id.nextBtn);
-        nextBtn.setOnClickListener(new View.OnClickListener(){
+        ImageButton continueBtn = findViewById(R.id.continueBtn);
+        continueBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(dc_step2.this, Declutter_ClothingPicture.class);

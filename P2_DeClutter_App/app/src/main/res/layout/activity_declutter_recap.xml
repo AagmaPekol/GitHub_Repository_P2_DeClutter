@@ -23,6 +23,7 @@
             android:layout_weight="0.2"
             android:gravity="center"
             android:text="Recap"
+            android:textStyle="bold"
             android:textColor="@color/Text_dark_green"
             android:fontFamily="@font/andada_pro2"
             android:textSize="40dp">
@@ -91,7 +92,7 @@
                 android:layout_weight="10">
             </ImageView>
             <ImageButton
-                android:id="@+id/next_button_recap"
+                android:id="@+id/continueBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"

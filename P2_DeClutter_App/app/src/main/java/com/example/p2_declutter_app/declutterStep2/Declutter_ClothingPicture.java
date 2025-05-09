@@ -51,7 +51,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
         setContentView(R.layout.activity_declutter_clothing_picture);
 
         Button takePicture = findViewById(R.id.takePicture);
-        ImageButton nextBtn = findViewById(R.id.nextBtn);
+        ImageButton continueBtn = findViewById(R.id.continueBtn);
 
         imageView = findViewById(R.id.takePhotoView);
         Glide.with(this)
@@ -68,7 +68,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
             }
         });
 
-        nextBtn.setOnClickListener(new View.OnClickListener() {
+        continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Declutter_ClothingPicture.this, Declutter_ClothingDescription.class);

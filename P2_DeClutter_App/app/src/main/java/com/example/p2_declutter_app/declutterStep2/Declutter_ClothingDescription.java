@@ -48,7 +48,7 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_declutter_clothing_description);
 
-        ImageButton continueBtn = findViewById(R.id.continueBtn2);
+        ImageButton continueBtn = findViewById(R.id.continueBtn);
         descriptionText = findViewById(R.id.descriptionText);
         photoView = findViewById(R.id.photoView);
 
