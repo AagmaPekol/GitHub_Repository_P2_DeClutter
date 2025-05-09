@@ -76,12 +76,12 @@ public class dc_step3 extends AppCompatActivity {
         });
 
         bunke2.setOnClickListener(v -> {
-            Intent intent = new Intent(dc_step3.this, Declutter_Sell.class);
+            Intent intent = new Intent(dc_step3.this, declutterDonateDiscard.class);
             startActivity(intent);
         });
 
         bunke3.setOnClickListener(v -> {
-            Intent intent = new Intent(dc_step3.this, declutterDonateDiscard.class);
+            Intent intent = new Intent(dc_step3.this, Declutter_Sell.class);
             startActivity(intent);
         });
     }
