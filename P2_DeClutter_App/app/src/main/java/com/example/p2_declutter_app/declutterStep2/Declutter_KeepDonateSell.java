@@ -213,6 +213,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
                             Intent intent = new Intent(Declutter_KeepDonateSell.this, Declutter_ClothingPicture.class);
                             intent.putExtras(bundleStartOver);
                             Log.d("DATABASE", "Saved to database");
+                            Toast.makeText(Declutter_KeepDonateSell.this, clothingType + " saved", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                         }
                     });

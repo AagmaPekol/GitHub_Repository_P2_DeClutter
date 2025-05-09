@@ -73,17 +73,16 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Declutter_ClothingPicture.this, Declutter_ClothingDescription.class);
 
+                SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("isFirstRun", false);
+                editor.apply();
+
                 if(currentPhotoPath != null){
                     if (bundle != null) {
                         bundle.putString("currentPhotoPath", currentPhotoPath);
                         intent.putExtras(bundle);
                         startActivity(intent);
-
-                        // Ends the tutorial and only shows it once
-                        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-                        SharedPreferences.Editor editor = prefs.edit();
-                        editor.putBoolean("isFirstRun", false);
-                        editor.apply();
                     } else {
                         Log.e("Declutter_ClothingPicture", "Bundle is null");
                     }
