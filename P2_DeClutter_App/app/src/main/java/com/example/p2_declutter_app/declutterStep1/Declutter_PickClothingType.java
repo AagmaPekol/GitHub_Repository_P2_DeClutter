@@ -138,16 +138,16 @@ public class Declutter_PickClothingType extends AppCompatActivity {
 
         switch (clothingType) {
             case "T-Shirt":
-                imageView.setImageResource(R.drawable.red_tshirt);
+                imageView.setImageResource(R.drawable.red_tee);
                 break;
             case "Pants":
-                //imageView.setImageResource(R.drawable.PANTS IMAGE);
+                imageView.setImageResource(R.drawable.blue_pantss);
                 break;
             case "Dress":
-                //imageView.setImageResource(R.drawable.DRESS IMAGE);
+                imageView.setImageResource(R.drawable.yello_dresss);
                 break;
             case "Hoodie":
-                //imageView.setImageResource(R.drawable.HOODIE IMAGE);
+                imageView.setImageResource(R.drawable.purp_hoodie);
                 break;
         }
     }
