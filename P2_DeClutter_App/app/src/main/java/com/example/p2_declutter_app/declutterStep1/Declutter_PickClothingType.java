@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
@@ -41,7 +42,7 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         tShirtBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog("T-Shirt", isFirstRun);
+                showDialog("T-Shirts", isFirstRun);
             }
         });
 
@@ -55,7 +56,7 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         dressBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog("Dress", isFirstRun);
+                showDialog("Dresses", isFirstRun);
             }
 
         });
@@ -63,7 +64,7 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         hoodieBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog("Hoodie", isFirstRun);
+                showDialog("Hoodies", isFirstRun);
             }
 
         });
@@ -107,7 +108,9 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_layout_clothing, null);
 
         Button dialogContinueButton = dialogView.findViewById(R.id.dialogBtn);
+        TextView dialogTitle = dialogView.findViewById(R.id.dialogTitleTextView);
 
+        dialogTitle.setText(clothingType);
         setImageView(clothingType, dialogView);
 
         AlertDialog alertDialog = builder.setView(dialogView).create();
@@ -137,16 +140,16 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         ImageView imageView = dialogView.findViewById(R.id.dialogImage);
 
         switch (clothingType) {
-            case "T-Shirt":
+            case "T-Shirts":
                 imageView.setImageResource(R.drawable.red_tee);
                 break;
             case "Pants":
                 imageView.setImageResource(R.drawable.blue_pantss);
                 break;
-            case "Dress":
+            case "Dresses":
                 imageView.setImageResource(R.drawable.yello_dresss);
                 break;
-            case "Hoodie":
+            case "Hoodies":
                 imageView.setImageResource(R.drawable.purp_hoodie);
                 break;
         }
