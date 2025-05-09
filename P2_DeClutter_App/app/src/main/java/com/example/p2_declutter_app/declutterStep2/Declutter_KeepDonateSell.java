@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,8 @@ import com.example.p2_declutter_app.database.*;
 import java.io.File;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import kotlin.io.LineReader;
 
 public class Declutter_KeepDonateSell extends AppCompatActivity {
 
@@ -93,7 +96,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
         descriptionText = findViewById(R.id.aiDescriptionText);
         photoView = findViewById(R.id.photoView2);
         frameLayout = findViewById(R.id.frameLayout);
-        backgroundLayout = findViewById(R.id.backgroundLayout);
+        //backgroundLayout = findViewById(R.id.frameLayout);
         headerText = findViewById(R.id.headerText);
         saveToDatabaseBtn = findViewById(R.id.saveToDatabaseBtn);
 
@@ -114,8 +117,8 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
         // Got code from this tutorial:
         // https://www.youtube.com/watch?v=Rd89cVKrQBg
         frameLayout.setOnTouchListener(new View.OnTouchListener() {
-            float startX = 0f;
-            float startY = 0f;
+            float startRawX = 0f;
+            float startRawY = 0f;
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -123,8 +126,8 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         // Store the initial touch position
-                        startX = event.getX();
-                        startY = event.getY();
+                        startRawX = event.getRawX();
+                        startRawY = event.getRawY();
                         return true;
 
                     case MotionEvent.ACTION_MOVE:
@@ -137,11 +140,11 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
 
                     case MotionEvent.ACTION_UP:
                         // When the frameLayout is no longer touched.
-                        float endX = event.getX();
-                        float endY = event.getY();
+                        float endX = event.getRawX();
+                        float endY = event.getRawY();
 
-                        float deltaX = endX - startX;
-                        float deltaY = endY - startY;
+                        float deltaX = endX - startRawX;
+                        float deltaY = endY - startRawY;
 
                         final int SWIPE_THRESHOLD = 100;
 
@@ -198,7 +201,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
         colorAnimator.setDuration(300); // in milliseconds
         colorAnimator.addUpdateListener(animator -> {
             int animatedColor = (int) animator.getAnimatedValue();
-            backgroundLayout.setBackgroundColor(animatedColor);
+            frameLayout.setBackgroundColor(animatedColor);
             currentBackgroundColor = animatedColor;
         });
         colorAnimator.start();
