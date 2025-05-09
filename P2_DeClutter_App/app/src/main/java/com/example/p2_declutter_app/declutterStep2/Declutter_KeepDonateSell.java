@@ -4,6 +4,10 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
+import android.graphics.drawable.ShapeDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +25,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.p2_declutter_app.R;
 
@@ -150,13 +155,12 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
 
                         if (Math.abs(deltaX) > Math.abs(deltaY)) {
                             if (deltaX > SWIPE_THRESHOLD) {
-                                animateBackgroundColor(Color.parseColor("#A5D6A7")); // Green
+                                frameLayout.setBackground(ContextCompat.getDrawable(Declutter_KeepDonateSell.this, R.drawable.swipe_card_background_green));
                                 headerText.setText("Keep " + clothingType);
                                 decision = "keep"; // Swiped right
                                 Log.d("Swipe", "swiped right");
-
                             } else if (deltaX < -SWIPE_THRESHOLD) {
-                                animateBackgroundColor(Color.parseColor("#FFF176")); //yellow
+                                frameLayout.setBackground(ContextCompat.getDrawable(Declutter_KeepDonateSell.this, R.drawable.swipe_card_background_yellow));
                                 headerText.setText("Sell " + clothingType);
                                 decision = "sell"; // Swiped left
                                 Log.d("Swipe", "swiped left");
@@ -164,47 +168,29 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
                             }
                         } else {
                             if (deltaY < -SWIPE_THRESHOLD) {
-                                animateBackgroundColor(Color.parseColor("#EF5350")); //red
+                                frameLayout.setBackground(ContextCompat.getDrawable(Declutter_KeepDonateSell.this, R.drawable.swipe_card_background_red));
                                 headerText.setText("Donate " + clothingType);
                                 decision = "donate"; // Swiped up
                                 Log.d("Swipe", "swiped up");
                             }
                             else if (deltaY > SWIPE_THRESHOLD) {
-                                animateBackgroundColor(Color.WHITE);
+                                frameLayout.setBackground(ContextCompat.getDrawable(Declutter_KeepDonateSell.this, R.drawable.swipe_card_background));
                                 headerText.setText("");
                                 decision = "";
                                 Log.d("Swipe", "swiped down");
                             }
                         }
-
                         // Reset frameLayout position to center
                         frameLayout.animate()
                                 .x((v.getRootView().getWidth() - frameLayout.getWidth()) / 2f)
                                 .y((v.getRootView().getHeight() - frameLayout.getHeight()) / 2f)
                                 .setDuration(150)
                                 .start();
-
                         return true;
                 }
                 return false;
             }
         });
-
-    }
-
-    private void animateBackgroundColor(int targetColor) {
-        if (colorAnimator != null && colorAnimator.isRunning()) {
-            colorAnimator.cancel();
-        }
-
-        colorAnimator = ValueAnimator.ofArgb(currentBackgroundColor, targetColor);
-        colorAnimator.setDuration(300); // in milliseconds
-        colorAnimator.addUpdateListener(animator -> {
-            int animatedColor = (int) animator.getAnimatedValue();
-            frameLayout.setBackgroundColor(animatedColor);
-            currentBackgroundColor = animatedColor;
-        });
-        colorAnimator.start();
     }
 
     private void saveToDatabase(String clothingType, String description, String currentPhotoPath, String decision, String aiDescription) {

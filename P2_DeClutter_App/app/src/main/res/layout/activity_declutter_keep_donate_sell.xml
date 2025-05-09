@@ -9,10 +9,7 @@
     tools:context=".declutterStep2.Declutter_KeepDonateSell">
 
     <include
-        android:id="@+id/template_main"
-        layout="@layout/template_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        layout="@layout/template_3_semiepmty"/>
 
 
     <FrameLayout

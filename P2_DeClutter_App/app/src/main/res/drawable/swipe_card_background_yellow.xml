@@ -9,7 +9,7 @@
         android:color="@color/vector_brown_border" /> <!-- Replace with your desired color -->
 
     <!-- Optional: background fill -->
-    <solid android:color="#FFFFFF" /> <!-- Or use android:color="@android:color/transparent" -->
+    <solid android:color="#F8EA57" /> <!-- Or use android:color="@android:color/transparent" -->
 
     <!-- Optional: rounded corners -->
     <corners android:radius="12dp" />
