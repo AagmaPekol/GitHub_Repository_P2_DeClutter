@@ -8,11 +8,17 @@
     android:layout_height="match_parent"
     tools:context=".declutterStep2.Declutter_KeepDonateSell">
 
+    <include
+        android:id="@+id/template_main"
+        layout="@layout/template_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
     <FrameLayout
         android:id="@+id/backgroundLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#FFFFFF"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +62,7 @@
             android:translationY="60dp"
             tools:src="@tools:sample/avatars" />
 
-        <EditText
+        <TextView
             android:id="@+id/aiDescriptionText"
             android:layout_width="228dp"
             android:layout_height="223dp"
@@ -64,4 +70,5 @@
             android:translationY="300dp"
             android:text="TextView" />
     </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
