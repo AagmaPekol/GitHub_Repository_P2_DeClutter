@@ -19,32 +19,77 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Recap"
-            android:layout_weight="20"
-            android:textSize="60dp"
-            android:textColor="@color/Text_dark_green"
             android:layout_gravity="center_horizontal"
+            android:layout_weight="0.2"
             android:gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp">
+            android:text="Recap"
+            android:textColor="@color/Text_dark_green"
+            android:fontFamily="@font/andada_pro2"
+            android:textSize="40dp">
+
         </TextView>
-        <ImageView
-            android:layout_width="328dp"
-            android:layout_height="250dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="20"
-            android:src="@drawable/wardrobecutout">
-        </ImageView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/keepRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="5"
+            android:elevation="2dp"
+            android:layout_marginHorizontal="22dp"
+            android:background="@drawable/recap_keep_vector"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7">
+        </View>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/sellRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="5"
+            android:elevation="2dp"
+            android:layout_marginHorizontal="22dp"
+            android:background="@drawable/recap_sell_vector" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7">
+        </View>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/donateRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="5"
+            android:elevation="2dp"
+            android:layout_marginHorizontal="22dp"
+            android:background="@drawable/recap_donate_vector" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7">
+        </View>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:layout_weight="10"
-            android:orientation="horizontal">
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:gravity="bottom">
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="5">
             </View>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:paddingTop="10dp"
+                android:layout_weight="10">
+            </ImageView>
             <ImageButton
                 android:id="@+id/next_button_recap"
                 android:layout_width="0dp"

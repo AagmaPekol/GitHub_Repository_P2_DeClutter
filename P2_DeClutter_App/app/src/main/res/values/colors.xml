@@ -31,5 +31,11 @@
     <color name="achievements_light_green">#ECF3E7</color>
 
 
+<!--    Recap colors-->
+    <color name="recap_keep">#54D86C</color>
+    <color name="recap_sell">#F8EA57</color>
+    <color name="recap_donate">#DD5959</color>
+
+
     <color name="transparent">#00000000</color>
 </resources>
