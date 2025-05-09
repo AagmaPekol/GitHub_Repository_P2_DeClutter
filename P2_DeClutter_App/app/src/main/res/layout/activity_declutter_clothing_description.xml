@@ -92,7 +92,7 @@
                 android:layout_weight="10">
             </ImageView>
             <ImageButton
-                android:id="@+id/continueBtn2"
+                android:id="@+id/continueBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"

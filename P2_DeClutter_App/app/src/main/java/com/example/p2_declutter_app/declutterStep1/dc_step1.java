@@ -62,8 +62,8 @@ public class dc_step1 extends AppCompatActivity {
         });
 
 //        next button
-        ImageButton nextBtn = findViewById(R.id.nextBtn);
-        nextBtn.setOnClickListener(new View.OnClickListener(){
+        ImageButton continueBtn = findViewById(R.id.continueBtn);
+        continueBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(dc_step1.this, dc_step2.class);

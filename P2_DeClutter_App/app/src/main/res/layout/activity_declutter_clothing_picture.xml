@@ -87,7 +87,7 @@
                 android:src="@drawable/man_bottom_step2">
             </ImageView>
             <ImageButton
-                android:id="@+id/nextBtn"
+                android:id="@+id/continueBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"

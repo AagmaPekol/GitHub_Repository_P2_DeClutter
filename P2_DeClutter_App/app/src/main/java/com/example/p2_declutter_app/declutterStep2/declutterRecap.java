@@ -17,8 +17,8 @@ public class declutterRecap extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_declutter_recap);
 
-        ImageButton nextButton = findViewById(R.id.next_button_recap);
-        nextButton.setOnClickListener(v -> {
+        ImageButton continueBtn = findViewById(R.id.continueBtn);
+        continueBtn.setOnClickListener(v -> {
             Intent intent = new Intent(com.example.p2_declutter_app.declutterStep2.declutterRecap.this, dc_step3.class);
             startActivity(intent);
         });
