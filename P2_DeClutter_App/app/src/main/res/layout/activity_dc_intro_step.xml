@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".declutterStep1.DC_IntroStep">
+    <include layout="@layout/template_2">
+    </include>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="1dp"
+        android:orientation="vertical"
+        android:layout_marginTop="110dp"
+        android:layout_marginBottom="80dp">
+
+            <TextView
+                android:id="@+id/textTutorial"
+                android:layout_width="328dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="20"
+                android:background="#66FFFFFF"
+                android:text="">
+            </TextView>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+            </View>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:paddingTop="10dp"
+                android:layout_weight="10"
+                android:src="@drawable/man_bottom_step1">
+            </ImageView>
+            <ImageButton
+                android:id="@+id/continueBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:layout_weight="5"
+                android:src="@drawable/ic_next_orangebtn_foreground"
+                android:layout_gravity="bottom"
+                android:paddingStart="2dp"
+                android:paddingEnd="0dp"
+                android:contentDescription="Go Next">
+            </ImageButton>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
