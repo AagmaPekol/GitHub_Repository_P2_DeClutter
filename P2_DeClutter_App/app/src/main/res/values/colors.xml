@@ -24,6 +24,8 @@
     <color name="vector_green_border">#939E87</color>
 
     <color name="Text_dark_green">#3C543B</color>
+    <color name="Text_tut_lighter_green">#5B7159</color>
+    <color name="Text_tut_orange">#CA8F53</color>
 
 <!--    achievements colors-->
     <color name="achievements_light_green">#ECF3E7</color>

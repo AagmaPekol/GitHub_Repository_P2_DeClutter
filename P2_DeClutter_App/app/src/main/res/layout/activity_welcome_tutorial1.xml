@@ -6,54 +6,86 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_lightGreen"
+    android:background="@drawable/bg_tutorial"
     android:orientation="vertical"
     tools:context=".templates.Julias2Template">
 
     <FrameLayout
-        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <FrameLayout
-            android:id="@+id/top_navigation"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_gravity="start"
             android:layout_marginBottom="8dp">
 
             <TextView
-                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Welcome to"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:textColor="@color/Text_tut_lighter_green"
+                android:translationY="60dp"
+                android:translationX="30dp"
+                android:rotation="-4"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
-                android:text="Welcome to MightyTidy"
-                android:textSize="25dp"
-                android:translationX="80dp"
-                android:translationY="80dp" />
+                android:text="Mighty"
+                android:textSize="48dp"
+                android:textColor="@color/Text_dark_green"
+                android:textStyle="bold"
+                android:translationY="90dp"
+                android:translationX="50dp"
+                android:rotation="-4"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="Tidy"
+                android:textSize="48dp"
+                android:textColor="@color/Text_tut_orange"
+                android:textStyle="bold"
+                android:translationY="84dp"
+                android:translationX="205dp"
+                android:rotation="-4"/>
+
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="welcome 1"
-            android:textSize="20dp"
-            android:translationX="150dp"
-            android:translationY="300dp"
-            android:gravity="center"
-            />
+            android:layout_gravity="center">
 
-        <TextView
-            android:id="@+id/textViewBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Click To continue"
-            android:textSize="20dp"
-            android:translationX="120dp"
-            android:translationY="600dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Declutter your closet and find clothes you had completely forgotten about."
+                android:textSize="28dp"
+                android:textStyle="bold"
+                android:textColor="@color/Text_dark_green"
+                android:gravity="center"
+                android:paddingHorizontal="45dp"
+                />
+        </FrameLayout>
 
 
-    </FrameLayout>
+            <TextView
+                android:id="@+id/textViewBtn"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:gravity="center"
+                android:layout_gravity="bottom"
+                android:text="Click To continue"
+                android:alpha="0.95"
+                android:textColor="@color/Text_dark_green"
+                android:textSize="20dp" />
+        </FrameLayout>
+
 
 </LinearLayout>
