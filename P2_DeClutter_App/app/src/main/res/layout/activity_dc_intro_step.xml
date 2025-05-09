@@ -25,6 +25,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="20"
                 android:background="#66FFFFFF"
+                android:textSize="20sp"
                 android:text="">
             </TextView>
 
