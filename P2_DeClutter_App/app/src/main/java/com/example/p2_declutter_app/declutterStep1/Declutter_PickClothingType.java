@@ -121,7 +121,7 @@ public class Declutter_PickClothingType extends AppCompatActivity {
                 bundle.putString("clothingType", clothingType);
 
                 if (isFirstRun) {
-                    Intent intent = new Intent(Declutter_PickClothingType.this, dc_step1.class);
+                    Intent intent = new Intent(Declutter_PickClothingType.this, DC_IntroStep.class);
                     intent.putExtras(bundle);
                     startActivity(intent);
                 } else {
