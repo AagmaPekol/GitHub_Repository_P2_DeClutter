@@ -25,11 +25,19 @@ public class Clothing {
     @ColumnInfo(name = "ai_text")
     public String aiText;
 
-    public Clothing(String clothingType, String description, String imageUri, String decision, String aiText){
+    @ColumnInfo(name = "session_id")
+    public String sessionId;
+
+    public Clothing(String clothingType, String description, String imageUri, String decision, String aiText, String sessionId){
         this.clothingType = clothingType;
         this.description = description;
         this.imageUri = imageUri;
         this.decision = decision;
         this.aiText = aiText;
+        this.sessionId = sessionId;
+    }
+
+    public String getImageUri() {
+        return imageUri;
     }
 }

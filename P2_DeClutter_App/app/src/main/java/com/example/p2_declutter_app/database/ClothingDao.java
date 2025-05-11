@@ -27,4 +27,7 @@ public interface ClothingDao {
     List<String> getClothingTypeByDecision(String decision);
     @Query("SELECT COUNT(*) FROM DB_clothing_items WHERE decision_keep_donate_sell = :decision AND clothing_type = :clothingType")
     int getCountForClothingTypeAndDecision(String decision, String clothingType);
+
+    @Query("SELECT * FROM DB_clothing_items WHERE decision_keep_donate_sell = :decision AND session_id = :sessionId")
+    List<Clothing> getClothingByDecisionAndSession(String decision, String sessionId);
 }
