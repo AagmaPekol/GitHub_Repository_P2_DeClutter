@@ -6,35 +6,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".wardrobe.WardrobeDisplayClothing">
+    <include layout="@layout/template_4_wardrobe">
+    </include>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="126dp"
+        android:gravity="top"
         android:orientation="vertical"
-        android:padding="8dp">
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/wardrobeHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textAlignment="center"
-            android:textSize="35sp"
-            android:layout_marginTop="100dp"/>
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:elevation="20dp"
+            android:fontFamily="@font/andada_pro2"
+            android:gravity="center_horizontal"
+            android:text="My wardrobe"
+            android:textColor="@color/Text_dark_green"
+            android:textSize="28sp"
+            android:textStyle="bold">
+
+        </TextView>
+    </FrameLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="1dp"
+        android:orientation="vertical"
+        android:layout_marginTop="110dp"
+        android:layout_marginBottom="80dp">
 
         <TextView
             android:id="@+id/clothingTypeAndCount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="@color/Text_dark_green"
+            android:fontFamily="@font/andada_pro2"
             android:textAlignment="center"
             android:textSize="20sp"
-/>
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:src="@color/vector_blue_main"
+            android:layout_marginHorizontal="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="3dp">
+        </ImageView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="689dp" />
+            android:layout_height="match_parent"
+            android:contentDescription="recyclerView"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -70,19 +70,6 @@
                 android:background="@drawable/bg_top_diamonds_bl"
                 android:elevation="8dp"
                 android:translationY="-10dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="My wardrobe"
-                android:elevation="20dp"
-                android:textSize="30sp"
-                android:fontFamily="@font/andada_pro2"
-                android:textColor="@color/Text_dark_green"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="15dp">
-            </TextView>
         </FrameLayout>
 
         <LinearLayout

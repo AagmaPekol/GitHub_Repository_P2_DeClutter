@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +19,8 @@ import com.example.p2_declutter_app.database.AppDatabase;
 import com.example.p2_declutter_app.database.Clothing;
 import com.example.p2_declutter_app.database.ClothingDao;
 import com.example.p2_declutter_app.declutterStep1.ClothingTypeSelection;
-import com.example.p2_declutter_app.declutterStep1.DC_IntroStep;
+import com.example.p2_declutter_app.declutterStep2.dc_step2;
+import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.ClothingItemAdapter;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
@@ -53,9 +56,6 @@ public class Declutter_Sell extends AppCompatActivity {
         selectedClothingType = choice;
         selectedDecision = "sell";
 
-        TextView textView = findViewById(R.id.wardrobeHeader);
-        textView.setText("Wardrobe "+ selectedDecision);
-
         executorService.execute(new Runnable() {
             @Override
             public void run() {
@@ -66,12 +66,39 @@ public class Declutter_Sell extends AppCompatActivity {
                         adapter = new ClothingItemAdapter(items);
                         recyclerView.setAdapter(adapter);
                         TextView textView = findViewById(R.id.clothingTypeAndCount);
-                        textView.setText(selectedClothingType +" "+ items.size());
+                        textView.setText(selectedClothingType + " " + "(" + items.size() + ")");
                     }
                 });
             }
         });
+        Button openVinted = findViewById(R.id.openVinted);
+        openVinted.setOnClickListener(v -> {
+            Intent launchIntent = getPackageManager().getLaunchIntentForPackage("fr.vinted");
+            if (launchIntent != null) {
+                startActivity(launchIntent); // Launch the other app
+            } else {
+                Intent playStoreIntent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://play.google.com/store/apps/details?id=fr.vinted"));
+                startActivity(playStoreIntent);
+            }
+        });
+        ImageButton nextButton = findViewById(R.id.finish_button_sell);
+        nextButton.setOnClickListener(v -> {
+            SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
+            prefs.edit().putBoolean("declutterSell_finished", true).apply();
+
+            Intent intent = new Intent(Declutter_Sell.this, dc_step3.class);
+            startActivity(intent);
+        });
         //      The five buttons for the top/bottom nav
+        ImageButton menuBtn = findViewById(R.id.menuBtn);
+        menuBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Declutter_Sell.this, mainMenuPage.class);
+                startActivity(intent);
+            }
+        });
         ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
         wardrobeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -94,11 +121,6 @@ public class Declutter_Sell extends AppCompatActivity {
             public void onClick(View v) {
                 onBackPressed();
             }
-        });
-        Button nextButton = findViewById(R.id.next_button_sell);
-        nextButton.setOnClickListener(v -> {
-            Intent intent = new Intent(Declutter_Sell.this, declutterSell2.class);
-            startActivity(intent);
         });
     }
 }

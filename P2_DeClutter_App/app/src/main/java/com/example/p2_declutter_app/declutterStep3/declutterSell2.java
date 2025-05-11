@@ -1,6 +1,8 @@
 package com.example.p2_declutter_app.declutterStep3;
 
 import android.content.SharedPreferences;
+import android.media.Image;
+import android.net.Uri;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Button;
@@ -8,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
+
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.declutterStep1.DC_IntroStep;
 import com.example.p2_declutter_app.profile.Profile_page_main;
@@ -19,7 +23,19 @@ public class declutterSell2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_declutter_sell2);
 
-        Button finishButton = findViewById(R.id.finish_button_sell);
+        Button openVinted = findViewById(R.id.openVinted);
+        openVinted.setOnClickListener(v -> {
+            Intent launchIntent = getPackageManager().getLaunchIntentForPackage("fr.vinted");
+            if (launchIntent != null) {
+                startActivity(launchIntent); // Launch the other app
+            } else {
+                Intent playStoreIntent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://play.google.com/store/apps/details?id=fr.vinted"));
+                startActivity(playStoreIntent);
+            }
+        });
+
+        ImageButton finishButton = findViewById(R.id.finish_button_sell);
 
         finishButton.setOnClickListener(v -> {
             SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);

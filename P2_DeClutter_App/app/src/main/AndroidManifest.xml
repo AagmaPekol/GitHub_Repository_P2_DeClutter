@@ -59,6 +59,7 @@
             android:value="AIzaSyAaHwpP4LLmiiyxrKOoPgg3mD9l1kUOkv0" />
         <activity
             android:name=".declutterStep2.declutterRecap"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".declutterStep3.declutterFinished"
@@ -68,9 +69,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".declutterStep3.declutterKeep2"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".declutterStep3.declutterDonateDiscard2"
             android:screenOrientation="portrait" />
         <activity
             android:name=".declutterStep3.Declutter_Keep"

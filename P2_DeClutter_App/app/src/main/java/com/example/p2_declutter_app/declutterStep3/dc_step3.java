@@ -103,13 +103,13 @@ public class dc_step3 extends AppCompatActivity {
         ImageView marker3 = findViewById(R.id.marker3); // the image button
 
         if (isDeclutterKeepFinished) {
-            marker1.setImageResource(R.drawable.pile_done_24); // or dim, overlay, etc.
+            marker1.setBackgroundResource(R.drawable.pile_done_24); // or dim, overlay, etc.
         }
         if (isDeclutterSellFinished) {
-            marker2.setImageResource(R.drawable.pile_done_24); // or dim, overlay, etc.
+            marker3.setBackgroundResource(R.drawable.pile_done_24); // or dim, overlay, etc.
         }
         if (isDeclutterDonateDiscardFinished) {
-            marker3.setImageResource(R.drawable.pile_done_24); // or dim, overlay, etc.
+            marker2.setBackgroundResource(R.drawable.pile_done_24); // or dim, overlay, etc.
         }
         if (isDeclutterKeepFinished && isDeclutterSellFinished && isDeclutterDonateDiscardFinished) {
             Intent intent = new Intent(this, declutterFinished.class);

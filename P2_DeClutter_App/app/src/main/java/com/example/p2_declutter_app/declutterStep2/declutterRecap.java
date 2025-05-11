@@ -31,7 +31,6 @@ public class declutterRecap extends AppCompatActivity {
     private RecyclerView keepRecyclerView, sellRecyclerView, donateRecyclerView;
     private String sessionId;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +38,7 @@ public class declutterRecap extends AppCompatActivity {
 
         db = AppDatabase.getDatabase(this);
         dbDao = db.ClothingDao();
+        updateButtonStates();
 
         keepRecyclerView = findViewById(R.id.keepRecyclerView);
         sellRecyclerView = findViewById(R.id.sellRecyclerView);
@@ -95,8 +95,6 @@ public class declutterRecap extends AppCompatActivity {
             }
         });
     }
-
-
     private void updateButtonStates() {
         SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();

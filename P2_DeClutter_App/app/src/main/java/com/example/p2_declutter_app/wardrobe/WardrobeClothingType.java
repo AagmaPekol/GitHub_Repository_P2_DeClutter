@@ -5,15 +5,20 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.p2_declutter_app.database.*;
 
 import com.example.p2_declutter_app.R;
+import com.example.p2_declutter_app.declutterStep1.dc_step1;
+import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.profile.Profile_page_main;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +46,39 @@ public class WardrobeClothingType extends AppCompatActivity {
         TextView textView = findViewById(R.id.wardrobeHeader);
         textView.setText("Wardrobe " + selectedDecision);
 
+        //      The five buttons for the top/bottom nav
+        ImageButton menuBtn = findViewById(R.id.menuBtn);
+        menuBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(WardrobeClothingType.this, mainMenuPage.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
+        wardrobeBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(WardrobeClothingType.this, WardrobeDecision.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton profileBtn = findViewById(R.id.profileBtn);
+        profileBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(WardrobeClothingType.this, Profile_page_main.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         executorService.execute(new Runnable() {
             public void run() {
                 List<String> clothingTypeList = dbDao.getClothingTypeByDecision(selectedDecision);
@@ -60,7 +98,7 @@ public class WardrobeClothingType extends AppCompatActivity {
                             pageIsEmpty.setVisibility(View.VISIBLE);
                             pageIsEmpty.setGravity(Gravity.CENTER);
                             pageIsEmpty.setText("No items in this Wardrobe" +
-                                    "\nAdd items to \"wardrobe " + selectedDecision + "\" to see them here");
+                                    "\nAdd more items to the " + selectedDecision + " pile, to see them here");
                         }
                     }
                 });
@@ -77,6 +115,8 @@ public class WardrobeClothingType extends AppCompatActivity {
 
             Button button = new Button(this);
             button.setText(btnText);
+            button.setBackground(ContextCompat.getDrawable(this, R.drawable.btn_blue_v1));
+            button.setTextColor(ContextCompat.getColor(this, R.color.Text_dark_green));
 
             button.setOnClickListener(v -> {
                 Intent intent = new Intent(WardrobeClothingType.this, WardrobeDisplayClothing.class);

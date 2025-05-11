@@ -7,6 +7,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.p2_declutter_app.R;
+import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.profile.Profile_page_main;
+import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -16,7 +19,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.p2_declutter_app.databinding.ActivityDeclutterDonateDiscardBinding;
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
@@ -38,7 +43,7 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
         binding = ActivityDeclutterDonateDiscardBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        Button finishButton = findViewById(R.id.finish_button_donate_discard);
+        ImageButton finishButton = findViewById(R.id.finish_button_donate);
 
         finishButton.setOnClickListener(v -> {
             SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
@@ -47,6 +52,38 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
             Intent intent = new Intent(declutterDonateDiscard.this, dc_step3.class);
             startActivity(intent);
             finish();
+        });
+        //      The five buttons for the top/bottom nav
+        ImageButton menuBtn = findViewById(R.id.menuBtn);
+        menuBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(declutterDonateDiscard.this, mainMenuPage.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
+        wardrobeBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(declutterDonateDiscard.this, WardrobeDecision.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton profileBtn = findViewById(R.id.profileBtn);
+        profileBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(declutterDonateDiscard.this, Profile_page_main.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
         });
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.

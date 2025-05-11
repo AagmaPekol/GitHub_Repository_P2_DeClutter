@@ -1,6 +1,9 @@
 package com.example.p2_declutter_app.wardrobe;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -13,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.database.*;
+import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.xxxTestingFeatures.ApiCallTest;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -48,7 +53,7 @@ public class WardrobeDisplayClothing extends AppCompatActivity {
         selectedDecision = getIntent().getStringExtra("decision");
 
         TextView textView = findViewById(R.id.wardrobeHeader);
-        textView.setText("Wardrobe "+ selectedDecision);
+        textView.setText("Category: "+ selectedClothingType);
 
         executorService.execute(new Runnable() {
             @Override
@@ -63,6 +68,42 @@ public class WardrobeDisplayClothing extends AppCompatActivity {
                         textView.setText(selectedClothingType + " +" + items.size());
                     }
                 });
+            }
+        });
+
+        //========================= The four buttons for the top/bottom nav =====================================
+        ImageButton menuBtn = findViewById(R.id.menuBtn);
+        menuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WardrobeDisplayClothing.this, mainMenuPage.class);
+                startActivity(intent);
+
+            }
+        });
+        ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
+        wardrobeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WardrobeDisplayClothing.this, WardrobeDecision.class);
+                startActivity(intent);
+
+            }
+        });
+        ImageButton profileBtn = findViewById(R.id.profileBtn);
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WardrobeDisplayClothing.this, ApiCallTest.class);
+                startActivity(intent);
+
+            }
+        });
+        ImageButton backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
 
