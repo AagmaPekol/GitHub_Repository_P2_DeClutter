@@ -27,7 +27,6 @@ import androidx.core.content.FileProvider;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.p2_declutter_app.declutterStep3.dc_step3;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
@@ -265,7 +264,6 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
         AlertDialog alertDialog = builder.setView(dialogView).create();
         alertDialog.show();
     }
-
 
     /*
      * resolveActivity(getPackageManager()) != null))

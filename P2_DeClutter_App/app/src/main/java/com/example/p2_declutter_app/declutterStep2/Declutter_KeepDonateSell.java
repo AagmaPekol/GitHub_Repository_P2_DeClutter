@@ -1,66 +1,53 @@
 package com.example.p2_declutter_app.declutterStep2;
 
-import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.LayerDrawable;
-import android.graphics.drawable.ShapeDrawable;
-import android.net.Uri;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.example.p2_declutter_app.R;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+
+import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.database.*;
-import com.example.p2_declutter_app.declutterStep1.DC_IntroStep;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
 import java.io.File;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import kotlin.io.LineReader;
 
 public class Declutter_KeepDonateSell extends AppCompatActivity {
 
     private ExecutorService executorService;
     private AppDatabase db;
     private ClothingDao dao;
+
     private Bundle bundle;
     private Bundle bundleStartOver;
-    private TextView descriptionText;
 
+    private TextView descriptionText;
     private TextView headerText;
     private ImageView photoView;
     private  FrameLayout frameLayout;
-    private FrameLayout backgroundLayout;
-
     private Button saveToDatabaseBtn;
-
-    private int currentBackgroundColor = Color.WHITE;
-    private ValueAnimator colorAnimator;
 
     private String decision = "";
     private String description;
@@ -68,9 +55,6 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
     private String aiDescription;
     private String clothingType;
     private String sessionId;
-
-
-
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -96,16 +80,10 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
         aiDescription = bundle.getString("text_AI");
         sessionId = bundle.getString("sessionId");
 
-
         bundleStartOver = new Bundle();
         bundleStartOver.putString("clothingType", clothingType);
         bundleStartOver.putString("sessionId", sessionId);
         bundleStartOver.putBoolean("showButton", true);
-
-//        Log.d("BUNDLE_DEBUG", "clothingType: " + bundle.getString("clothingType"));
-//        Log.d("BUNDLE_DEBUG", "description: " + bundle.getString("description"));
-//        Log.d("BUNDLE_DEBUG", "currentPhotoPath: " + bundle.getString("currentPhotoPath"));
-//        Log.d("BUNDLE_DEBUG", "text_AI: " + bundle.getString("text_AI"));
 
         descriptionText = findViewById(R.id.aiDescriptionText);
         photoView = findViewById(R.id.photoView2);
@@ -115,6 +93,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
 
         descriptionText.setText(bundle.getString("text_AI"));
         setImage();
+        dialog();
 
         saveToDatabaseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -269,5 +248,34 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
                 Toast.makeText(this, "Image file not found", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private void dialog(){
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        boolean hasSeenDialog = prefs.getBoolean("hasSeenSwipeDialog", false);
+
+        if (hasSeenDialog) {
+            return;
+        }
+
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("hasSeenSwipeDialog", true);
+        editor.apply();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_swipe, null);
+
+        ImageView dialogImageView = dialogView.findViewById(R.id.dialogSwipeView);
+
+        AlertDialog alertDialog = builder.setView(dialogView).create();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        dialogImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+        alertDialog.show();
     }
 }

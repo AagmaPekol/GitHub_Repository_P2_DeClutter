@@ -3,7 +3,6 @@ package com.example.p2_declutter_app.declutterStep2;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -15,9 +14,7 @@ import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.database.AppDatabase;
 import com.example.p2_declutter_app.database.Clothing;
 import com.example.p2_declutter_app.database.ClothingDao;
-import com.example.p2_declutter_app.declutterStep1.DC_IntroStep;
 import com.example.p2_declutter_app.declutterStep3.dc_step3;
-import com.example.p2_declutter_app.declutterStep3.declutterKeep2;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
