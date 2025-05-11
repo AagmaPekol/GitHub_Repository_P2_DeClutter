@@ -57,7 +57,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAaHwpP4LLmiiyxrKOoPgg3mD9l1kUOkv0" />
-
+        <activity
+            android:name=".declutterStep2.declutterRecap"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".declutterStep3.declutterFinished"
             android:screenOrientation="portrait" />
