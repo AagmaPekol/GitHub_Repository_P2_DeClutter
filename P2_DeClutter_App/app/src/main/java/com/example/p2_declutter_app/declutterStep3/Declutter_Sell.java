@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.p2_declutter_app.R;
@@ -16,7 +17,10 @@ import com.example.p2_declutter_app.database.AppDatabase;
 import com.example.p2_declutter_app.database.Clothing;
 import com.example.p2_declutter_app.database.ClothingDao;
 import com.example.p2_declutter_app.declutterStep1.ClothingTypeSelection;
+import com.example.p2_declutter_app.declutterStep1.DC_IntroStep;
+import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.ClothingItemAdapter;
+import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -65,6 +69,30 @@ public class Declutter_Sell extends AppCompatActivity {
                         textView.setText(selectedClothingType +" "+ items.size());
                     }
                 });
+            }
+        });
+        //      The five buttons for the top/bottom nav
+        ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
+        wardrobeBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Declutter_Sell.this, WardrobeDecision.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton profileBtn = findViewById(R.id.profileBtn);
+        profileBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Declutter_Sell.this, Profile_page_main.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
         Button nextButton = findViewById(R.id.next_button_sell);

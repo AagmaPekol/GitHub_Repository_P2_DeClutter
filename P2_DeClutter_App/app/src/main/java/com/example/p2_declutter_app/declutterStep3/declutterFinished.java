@@ -21,5 +21,6 @@ public class declutterFinished extends AppCompatActivity {
             startActivity(intent);
             finish(); // optional: closes this page
         });
+
     }
 }

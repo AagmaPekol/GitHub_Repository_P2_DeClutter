@@ -52,6 +52,7 @@ public class DC_IntroStep extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //      The five buttons for the top/bottom nav
         ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
         wardrobeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -85,5 +86,6 @@ public class DC_IntroStep extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }
