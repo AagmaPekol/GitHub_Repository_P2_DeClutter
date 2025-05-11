@@ -1,15 +1,22 @@
 package com.example.p2_declutter_app.declutterStep3;
 
 import android.content.SharedPreferences;
+import android.view.WindowManager;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Button;
+
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.example.p2_declutter_app.R;
+import com.example.p2_declutter_app.declutterStep1.DC_IntroStep;
+import com.example.p2_declutter_app.declutterStep1.dc_step1;
+import com.example.p2_declutter_app.profile.Profile_page_main;
+import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 import android.webkit.WebView;
 import android.webkit.WebSettings;
 
@@ -30,6 +37,8 @@ public class declutterKeep2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_declutter_keep2);
 
         WebView youtube1 = findViewById(R.id.youtube1);
@@ -50,6 +59,31 @@ public class declutterKeep2 extends AppCompatActivity {
             startActivity(intent);
             finish(); // optional: closes this page
         });
+        //      The five buttons for the top/bottom nav
+        ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
+        wardrobeBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(declutterKeep2.this, WardrobeDecision.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton profileBtn = findViewById(R.id.profileBtn);
+        profileBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(declutterKeep2.this, Profile_page_main.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
     }
 }
 

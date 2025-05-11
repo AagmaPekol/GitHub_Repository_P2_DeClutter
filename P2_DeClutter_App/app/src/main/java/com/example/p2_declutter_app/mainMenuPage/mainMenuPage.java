@@ -86,6 +86,7 @@ public class mainMenuPage extends AppCompatActivity {
             }
         });
 
+
 //        Button camera = findViewById(R.id.CameraBTN);
 //        camera.setOnClickListener(new View.OnClickListener() {
 //            @Override
