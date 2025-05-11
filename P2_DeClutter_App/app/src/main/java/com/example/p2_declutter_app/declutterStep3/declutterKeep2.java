@@ -1,10 +1,13 @@
 package com.example.p2_declutter_app.declutterStep3;
 
 import android.content.SharedPreferences;
+import android.view.WindowManager;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Button;
+
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,6 +37,8 @@ public class declutterKeep2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_declutter_keep2);
 
         WebView youtube1 = findViewById(R.id.youtube1);

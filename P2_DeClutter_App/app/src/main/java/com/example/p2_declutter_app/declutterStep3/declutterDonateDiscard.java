@@ -1,5 +1,6 @@
 package com.example.p2_declutter_app.declutterStep3;
 
+import androidx.activity.EdgeToEdge;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
@@ -20,6 +21,7 @@ import com.example.p2_declutter_app.databinding.ActivityDeclutterDonateDiscardBi
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -39,6 +41,8 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         binding = ActivityDeclutterDonateDiscardBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
