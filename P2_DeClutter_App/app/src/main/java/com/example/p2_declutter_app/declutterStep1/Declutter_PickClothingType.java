@@ -119,6 +119,7 @@ public class Declutter_PickClothingType extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 bundle.putString("clothingType", clothingType);
+                ClothingTypeSelection.getInstance().setClothingTypeSelection(clothingType);
 
                 if (isFirstRun) {
                     Intent intent = new Intent(Declutter_PickClothingType.this, DC_IntroStep.class);
