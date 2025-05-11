@@ -132,7 +132,6 @@ public class Declutter_PickClothingType extends AppCompatActivity {
                 alertDialog.dismiss();
             }
         });
-
         alertDialog.show();
     }
 
