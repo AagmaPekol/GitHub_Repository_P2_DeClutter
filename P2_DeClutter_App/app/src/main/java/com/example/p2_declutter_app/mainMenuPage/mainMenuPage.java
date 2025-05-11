@@ -65,17 +65,15 @@ public class mainMenuPage extends AppCompatActivity {
         rewardsBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(mainMenuPage.this, AchievementPage.class);
-                startActivity(intent);
-
+                Toast.makeText(mainMenuPage.this, "Rewards is not implemented yet", Toast.LENGTH_SHORT).show();
             }
         });
 
-        ImageButton juliaBtn = findViewById(R.id.juliaBtn);
-        juliaBtn.setOnClickListener(new View.OnClickListener(){
+        ImageButton achievementBtn = findViewById(R.id.achievementBtn);
+        achievementBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(mainMenuPage.this, declutterDonateDiscard.class);
+                Intent intent = new Intent(mainMenuPage.this, AchievementPage.class);
                 startActivity(intent);
             }
         });
@@ -84,8 +82,7 @@ public class mainMenuPage extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mainMenuPage.this, TutorialActivity.class);
-                startActivity(intent);
+                Toast.makeText(mainMenuPage.this, "Profile is not implemented yet", Toast.LENGTH_SHORT).show();
             }
         });
 

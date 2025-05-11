@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,16 @@ public class dc_step1 extends AppCompatActivity {
         setContentView(R.layout.activity_dc_step1);
 
         bundle = getIntent().getExtras();
+        if (bundle != null){
+            String clothingType = bundle.getString("clothingType");
+            String text = "Open your wardrobe and Take all the " + clothingType + "and lay them out, so you can see them";
+            TextView step1Text = findViewById(R.id.step1Text);
+            step1Text.setText(text);
+        } else {
+            TextView step1Text = findViewById(R.id.step1Text);
+            step1Text.setText("Open your wardrobe and remove all garments of the selected category." +
+                    " Lay them out in front of you to get a clear overview.");
+        }
 
         //      The five buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);

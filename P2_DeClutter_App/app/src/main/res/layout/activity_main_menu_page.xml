@@ -155,7 +155,7 @@
             android:layout_weight="1"
             android:background="@drawable/btn_brown_v1"
             android:fontFamily="@font/andada_pro2"
-            android:text="Trophies"
+            android:text="Rewards"
             android:textAllCaps="false"
             android:textColor="#3C543B"
             android:textColorLink="#FBFFFFFF"
@@ -175,7 +175,7 @@
 
 
         <ImageButton
-            android:id="@+id/juliaBtn"
+            android:id="@+id/achievementBtn"
             android:layout_width="90dp"
             android:layout_height="65dp"
             android:layout_gravity="start"
