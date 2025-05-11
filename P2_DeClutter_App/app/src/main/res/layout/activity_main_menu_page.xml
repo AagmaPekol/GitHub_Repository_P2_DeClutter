@@ -155,7 +155,7 @@
             android:layout_weight="1"
             android:background="@drawable/btn_brown_v1"
             android:fontFamily="@font/andada_pro2"
-            android:text="Rewards"
+            android:text="Trophies"
             android:textAllCaps="false"
             android:textColor="#3C543B"
             android:textColorLink="#FBFFFFFF"
