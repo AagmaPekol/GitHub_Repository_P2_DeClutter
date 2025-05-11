@@ -9,6 +9,32 @@
     <include layout="@layout/template_4_wardrobe">
     </include>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="126dp"
+        android:gravity="top"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:elevation="20dp"
+            android:fontFamily="@font/andada_pro2"
+            android:gravity="center_horizontal"
+            android:text="My wardrobe"
+            android:textColor="@color/Text_dark_green"
+            android:textSize="30sp"
+            android:textStyle="bold">
+        </TextView>
+    </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,41 +50,156 @@
             android:orientation="vertical"
             android:background="@drawable/btn_blue_v1"
             android:layout_marginHorizontal="50dp"
-            android:layout_marginVertical="50dp"
-            android:gravity="center_horizontal"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp">
+            android:layout_marginVertical="100dp"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="5dp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/brownn_pants"
+                    android:rotation="-15"
+                    android:layout_gravity="start">
+                </ImageView>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                </View>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/breige_dress"
+                    android:rotation="18"
+                    android:layout_gravity="start">
+                </ImageView>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                </View>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/grey_hood"
+                    android:rotation="-7"
+                    android:layout_gravity="start">
+                </ImageView>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                </View>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/green_tee"
+                    android:rotation="6"
+                    android:layout_gravity="end">
+                </ImageView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
             <Button
                 android:id="@+id/donateBtn"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Donate Wardrobe"
+                android:textColor="#133526"
                 android:elevation="10dp"
                 android:background="@drawable/btn_transparent"/>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="50dp"/>
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/keepBtn"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Keep Wardrobe"
+                android:textColor="#133526"
                 android:elevation="10dp"
                 android:background="@drawable/btn_transparent"/>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="50dp"/>
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
             <Button
                 android:id="@+id/sellBtn"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:text="Sell Wardrobe"
+                android:textColor="#133526"
                 android:elevation="10dp"
                 android:background="@drawable/btn_transparent"/>
-        </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="5dp"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/pinkhood"
+                    android:rotation="-15"
+                    android:layout_gravity="start">
+                </ImageView>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                </View>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/orange_tee"
+                    android:rotation="18"
+                    android:layout_gravity="start">
+                </ImageView>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                </View>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/green_pants"
+                    android:rotation="-15"
+                    android:layout_gravity="start">
+                </ImageView>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                </View>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/blue_dress"
+                    android:rotation="6"
+                    android:layout_gravity="end">
+                </ImageView>
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
