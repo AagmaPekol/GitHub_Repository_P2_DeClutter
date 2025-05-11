@@ -43,9 +43,10 @@
                 android:paddingLeft="20dp">
             </TextView>
             <TextView
+                android:id="@+id/step1Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Open your wardrobe and remove all garments of the selected category. Lay them out in front of you to get a clear overview."
+                android:text=""
                 android:layout_weight="20"
                 android:textSize="20dp"
                 android:textColor="@color/Text_dark_green"
