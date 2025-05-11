@@ -237,11 +237,11 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
         int openCount = prefs.getInt("activity_open_count", 0);
 
         if (openCount == 1) {
-            showDialog(); // Show dialog on second open
+            showDialog();
         }
 
         SharedPreferences.Editor editor = prefs.edit();
-        if (openCount < 2) { // Avoid increasing it forever
+        if (openCount < 2) {
             editor.putInt("activity_open_count", openCount + 1);
             editor.apply();
         }
