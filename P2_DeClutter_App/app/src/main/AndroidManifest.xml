@@ -81,6 +81,9 @@
             android:exported="false"
             android:label="@string/title_activity_declutter_donate_discard"
             android:screenOrientation="portrait" />
+        <activity android:name=".declutterStep2.declutterRecap"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".wardrobe.WardrobeDisplayClothing"
             android:exported="false"

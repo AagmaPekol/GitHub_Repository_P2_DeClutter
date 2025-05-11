@@ -12,11 +12,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.content.SharedPreferences;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -51,6 +53,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
         setContentView(R.layout.activity_declutter_clothing_picture);
 
         Button takePicture = findViewById(R.id.takePicture);
+        Button allDoneBtn = findViewById(R.id.allDoneBtn);
         ImageButton continueBtn = findViewById(R.id.continueBtn);
 
         imageView = findViewById(R.id.takePhotoView);
@@ -60,6 +63,26 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
                 .into(imageView);
 
         bundle = getIntent().getExtras();
+        Log.d("BUNDLE_DEBUG", "sessionId: " + bundle.getString("sessionId"));
+
+
+        if (bundle != null) {
+            boolean showButton = bundle.getBoolean("showButton");
+            if (showButton) {
+                allDoneBtn.setVisibility(View.VISIBLE);
+            } else {
+                allDoneBtn.setVisibility(View.GONE);
+            }
+        }
+
+        allDoneBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Declutter_ClothingPicture.this, declutterRecap.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
 
         takePicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -197,6 +220,19 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
                 Toast.makeText(this, "Image file not found", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private void showDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_sorted_first_item, null);
+
+        TextView dialogTextView = dialogView.findViewById(R.id.dialogTextView);
+
+        AlertDialog alertDialog = builder.setView(dialogView).create();
+
+
+        alertDialog.show();
+
     }
 
     /*

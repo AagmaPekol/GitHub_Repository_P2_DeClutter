@@ -63,6 +63,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
     private String currentPhotoPath;
     private String aiDescription;
     private String clothingType;
+    private String sessionId;
 
 
 
@@ -89,9 +90,13 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
         description = bundle.getString("description");
         currentPhotoPath = bundle.getString("currentPhotoPath");
         aiDescription = bundle.getString("text_AI");
+        sessionId = bundle.getString("sessionId");
+
 
         bundleStartOver = new Bundle();
         bundleStartOver.putString("clothingType", clothingType);
+        bundleStartOver.putString("sessionId", sessionId);
+        bundleStartOver.putBoolean("showButton", true);
 
 //        Log.d("BUNDLE_DEBUG", "clothingType: " + bundle.getString("clothingType"));
 //        Log.d("BUNDLE_DEBUG", "description: " + bundle.getString("description"));
@@ -101,7 +106,6 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
         descriptionText = findViewById(R.id.aiDescriptionText);
         photoView = findViewById(R.id.photoView2);
         frameLayout = findViewById(R.id.frameLayout);
-        //backgroundLayout = findViewById(R.id.frameLayout);
         headerText = findViewById(R.id.headerText);
         saveToDatabaseBtn = findViewById(R.id.saveToDatabaseBtn);
 
@@ -114,7 +118,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
                 if(decision.isEmpty()) {
                     Toast.makeText(Declutter_KeepDonateSell.this, "Please swipe the card", Toast.LENGTH_SHORT).show();
                 } else {
-                    saveToDatabase(clothingType, description, currentPhotoPath, decision, aiDescription);
+                    saveToDatabase(clothingType, description, currentPhotoPath, decision, aiDescription, sessionId);
                 }
             }
         });
@@ -193,18 +197,19 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
         });
     }
 
-    private void saveToDatabase(String clothingType, String description, String currentPhotoPath, String decision, String aiDescription) {
+    private void saveToDatabase(String clothingType, String description, String currentPhotoPath, String decision, String aiDescription, String sessionId) {
 
         if (clothingType == null || clothingType.isEmpty() ||
                 description == null || description.isEmpty() ||
                 decision == null || decision.isEmpty() ||
-                currentPhotoPath == null || currentPhotoPath.isEmpty()) {
+                currentPhotoPath == null || currentPhotoPath.isEmpty() ||
+                sessionId == null || sessionId.isEmpty()) {
 
             Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
         } else {
             executorService.execute(new Runnable() {
                 public void run() {
-                    Clothing item = new Clothing(clothingType, description, currentPhotoPath, decision, aiDescription);
+                    Clothing item = new Clothing(clothingType, description, currentPhotoPath, decision, aiDescription, sessionId);
                     dao.addItem(item);
 
                     runOnUiThread(new Runnable() {

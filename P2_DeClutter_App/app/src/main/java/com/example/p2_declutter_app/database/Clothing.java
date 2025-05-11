@@ -36,4 +36,8 @@ public class Clothing {
         this.aiText = aiText;
         this.sessionId = sessionId;
     }
+
+    public String getImageUri() {
+        return imageUri;
+    }
 }
