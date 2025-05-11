@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +46,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
     private String currentPhotoPath;
     private Bundle bundle;
 
+    private boolean photoTaken = false;
     private ImageView imageView;
 
     @Override
@@ -56,6 +58,8 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
         Button takePicture = findViewById(R.id.takePicture);
         Button allDoneBtn = findViewById(R.id.allDoneBtn);
         ImageButton continueBtn = findViewById(R.id.continueBtn);
+
+        dialog();
 
         imageView = findViewById(R.id.takePhotoView);
         Glide.with(this)
@@ -95,14 +99,14 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
         continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Declutter_ClothingPicture.this, Declutter_ClothingDescription.class);
+                if (photoTaken && currentPhotoPath != null) {
+                    Intent intent = new Intent(Declutter_ClothingPicture.this, Declutter_ClothingDescription.class);
 
-                SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putBoolean("isFirstRun", false);
-                editor.apply();
+                    SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putBoolean("isFirstRun", false);
+                    editor.apply();
 
-                if(currentPhotoPath != null){
                     if (bundle != null) {
                         bundle.putString("currentPhotoPath", currentPhotoPath);
                         intent.putExtras(bundle);
@@ -111,10 +115,11 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
                         Log.e("Declutter_ClothingPicture", "Bundle is null");
                     }
                 } else {
-                    Toast.makeText(Declutter_ClothingPicture.this, "Please take a picture", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Declutter_ClothingPicture.this, "Please take a picture first", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
         //      The five buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener(){
@@ -147,7 +152,6 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
     }
 
     private void dispatchTakePictureIntent() {
@@ -214,28 +218,52 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
             File imgFile = new File(currentPhotoPath);
 
             if (imgFile.exists()) {
+                photoTaken = true;
                 Glide.with(this)
                         .load(imgFile)
                         .apply(new RequestOptions().override(600, 600))
                         .into(imageView);
             } else {
+                photoTaken = false;
                 Toast.makeText(this, "Image file not found", Toast.LENGTH_SHORT).show();
             }
+        } else {
+            photoTaken = false;
         }
     }
 
+    private void dialog(){
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        int openCount = prefs.getInt("activity_open_count", 0);
+
+        if (openCount == 1) {
+            showDialog();
+        }
+
+        SharedPreferences.Editor editor = prefs.edit();
+        if (openCount < 2) {
+            editor.putInt("activity_open_count", openCount + 1);
+            editor.apply();
+        }
+    }
 
     private void showDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_sorted_first_item, null);
 
         TextView dialogTextView = dialogView.findViewById(R.id.dialogTextView);
+        String formattedText = "<b>Well done!</b><br>" +
+                "You have just sorted your first t-shirt!<br><br>" +
+                "<b>Now put the sorted item in the designated pile</b><br><br>" +
+                "Keep on taking pictures and sorting until every piece has found it’s place in a pile :D<br><br>" +
+                "When all the pieces are sorted, proceed through the " +
+                "<font color='#F39C12'><b>“All done”</b></font> button at the top";
+        dialogTextView.setText(Html.fromHtml(formattedText, Html.FROM_HTML_MODE_LEGACY));
+        dialogTextView.setTextSize(22);
+        dialogTextView.setGravity(android.view.Gravity.CENTER);
 
         AlertDialog alertDialog = builder.setView(dialogView).create();
-
-
         alertDialog.show();
-
     }
 
 
