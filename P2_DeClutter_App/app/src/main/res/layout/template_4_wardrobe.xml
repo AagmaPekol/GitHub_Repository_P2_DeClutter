@@ -54,14 +54,14 @@
                 android:translationY="-100dp" />
 
             <View
-                android:layout_width="150dp"
-                android:layout_height="160dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/bg_top_diamonds_br"
                 android:elevation="4dp"
-                android:rotation="-65"
+                android:rotation="-70"
                 android:translationX="200dp"
-                android:translationY="-60dp" />
+                android:translationY="-100dp" />
 
             <View
                 android:layout_width="250dp"
