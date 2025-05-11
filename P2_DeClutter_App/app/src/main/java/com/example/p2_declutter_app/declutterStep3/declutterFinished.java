@@ -1,7 +1,9 @@
 package com.example.p2_declutter_app.declutterStep3;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +17,8 @@ public class declutterFinished extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_declutter_finished);
 
         ImageButton finishButton = findViewById(R.id.nextBtn);

@@ -3,9 +3,12 @@ package com.example.p2_declutter_app.declutterStep3;
 import android.content.SharedPreferences;
 import android.media.Image;
 import android.net.Uri;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Button;
+
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +24,8 @@ public class declutterSell2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_declutter_sell2);
 
         Button openVinted = findViewById(R.id.openVinted);
