@@ -50,7 +50,7 @@ public class WardrobeDecision extends AppCompatActivity {
         });
 
 
-//========================= The five buttons for the top/bottom nav =====================================
+//========================= The four buttons for the top/bottom nav =====================================
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
