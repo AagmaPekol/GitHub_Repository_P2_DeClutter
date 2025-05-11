@@ -19,13 +19,133 @@
         android:layout_marginTop="110dp"
         android:layout_marginBottom="80dp">
 
-        <FrameLayout
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="200">
+            android:layout_height="100dp"
+            android:layout_weight="20"
+            android:gravity="center_horizontal"
+            android:paddingTop="50dp">
+            <ImageView
+                android:id="@+id/marker1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/pile_done_24"
+                android:layout_gravity="center"
+                android:contentDescription="Not Done">
+            </ImageView>
+            <ImageView
+                android:id="@+id/marker2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/pile_done_24"
+                android:layout_gravity="center"
+                android:contentDescription="Not Done"
+                android:layout_marginStart="55dp"
+                android:layout_marginEnd="55dp"
+                android:translationY="15dp">
+            </ImageView>
+            <ImageView
+                android:id="@+id/marker3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/pile_done_24"
+                android:layout_gravity="center"
+                android:contentDescription="Not Done">
+            </ImageView>
+        </LinearLayout>
 
 
-        </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:gravity="center_horizontal">
+            <LinearLayout
+
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true">
+                <ImageView
+                    android:id="@+id/bunkeKeep"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/clothing_pile"
+                    android:layout_gravity="center"
+                    android:contentDescription="Pile">
+                </ImageView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Keep"
+                    android:gravity="center"
+                    android:textColor="@color/Text_dark_green"
+                    android:textStyle="bold"
+                    >
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:translationY="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp">
+                <ImageView
+                    android:id="@+id/bunkeDonate"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/clothing_pile"
+                    android:layout_gravity="center"
+                    android:contentDescription="Pile">
+                </ImageView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Donate"
+                    android:gravity="center"
+                    android:textColor="@color/Text_dark_green"
+                    android:textStyle="bold"
+                    >
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true">
+                <ImageView
+                    android:id="@+id/bunkeSell"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/clothing_pile"
+                    android:layout_gravity="center"
+                    android:contentDescription="Pile">
+                </ImageView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sell"
+                    android:gravity="center"
+                    android:textColor="@color/Text_dark_green"
+                    android:textStyle="bold"
+                    >
+                </TextView>
+            </LinearLayout>
+        </LinearLayout>
+        <!--        <FrameLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_weight="200">-->
+
+
+        <!--        </FrameLayout>-->
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,9 +154,10 @@
             android:textStyle="bold"
             android:textSize="38dp"
             android:textColor="@color/Text_dark_green"
-            android:layout_weight="5"
-            android:layout_gravity="left"
-            android:paddingLeft="20dp">
+            android:layout_weight="2"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center">
+
         </TextView>
         <TextView
             android:layout_width="wrap_content"
@@ -80,9 +201,11 @@
                 android:paddingEnd="0dp"
                 android:contentDescription="Go Next">
             </ImageButton>
+
         </LinearLayout>
 
     </LinearLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
