@@ -47,7 +47,8 @@
             android:layout_height="0dp"
             android:layout_weight="10"
             android:orientation="vertical"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:layout_marginHorizontal="30dp">
             <ImageView
                 android:id="@+id/takePhotoView"
                 android:layout_width="match_parent"

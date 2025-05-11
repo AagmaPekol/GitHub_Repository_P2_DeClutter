@@ -34,12 +34,12 @@ public class DC_IntroStep extends AppCompatActivity {
 
         TextView textTutorial = findViewById(R.id.textTutorial);
         String formattedText = "<b>Welcome to your decluttering journey!</b><br><br>" +
-                "You will now dive deep into a section of your wardrobe, scour through the forgotten and sort each piece, " +
+                "We will now dive deep into a section of your wardrobe, scour through the forgotten and sort each piece, " +
                 "with it’s history and memories in mind. Who knows what you might find on the way?<br><br>" +
-                "This time, you will be looking through <b><u>" + clothingType + "</u></b><br><br>" +
+                "This time, we will be looking through <b><u>" + clothingType + "</u></b><br><br>" +
                 "Remember that this is <b>YOUR</b> journey, so follow along in your own pace and make it as fun or cozy as you want. " +
-                "A warm drink or some good music are highly recommended.<br><br>" +
-                "When you are done with a step, press the <font color='#f29c4a'><b>orange</b></font> button at the bottom right to proceed.";
+                "A warm drink or some good music is highly recommended.<br><br>" +
+                "When you are done with each step, press the <font color='#f29c4a'><b>orange</b></font> button at the bottom right to proceed.";
 
         textTutorial.setText(Html.fromHtml(formattedText, Html.FROM_HTML_MODE_LEGACY));
         textTutorial.setGravity(android.view.Gravity.CENTER);

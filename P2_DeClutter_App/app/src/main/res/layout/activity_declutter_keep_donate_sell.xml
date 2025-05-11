@@ -9,7 +9,7 @@
     tools:context=".declutterStep2.Declutter_KeepDonateSell">
 
     <include
-        layout="@layout/template_3_semiepmty"/>
+        layout="@layout/template_3_swiping"/>
 
 
     <FrameLayout
@@ -19,7 +19,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" >
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="100dp">
 
         <TextView
             android:id="@+id/headerText"
@@ -36,8 +37,8 @@
             android:layout_height="wrap_content"
             android:text="Save"
             android:textColor="@color/Text_dark_green"
-            android:layout_gravity="center_horizontal"
-            android:translationY="700dp"
+            android:layout_gravity="bottom|center_horizontal"
+
             android:background="@drawable/btn_orange_v1"/>
     </FrameLayout>
 
