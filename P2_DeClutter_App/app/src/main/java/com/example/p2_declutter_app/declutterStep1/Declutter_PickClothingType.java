@@ -3,6 +3,7 @@ package com.example.p2_declutter_app.declutterStep1;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -19,6 +20,8 @@ import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
 
+import java.util.UUID;
+
 public class Declutter_PickClothingType extends AppCompatActivity {
 
     private Bundle bundle;
@@ -30,6 +33,11 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         setContentView(R.layout.activity_declutter_pick_clothing_type);
 
         bundle = new Bundle();
+
+        String sessionId = UUID.randomUUID().toString();
+        bundle.putString("sessionId", sessionId);
+
+        Log.d("SessionID", "Session ID: " + sessionId);
 
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         boolean isFirstRun = prefs.getBoolean("isFirstRun", true);
@@ -133,7 +141,6 @@ public class Declutter_PickClothingType extends AppCompatActivity {
                 alertDialog.dismiss();
             }
         });
-
         alertDialog.show();
     }
 
