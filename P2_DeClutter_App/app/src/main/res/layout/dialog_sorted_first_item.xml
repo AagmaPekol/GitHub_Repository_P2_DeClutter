@@ -28,7 +28,7 @@
             android:textSize="30dp"
             android:textColor="@color/Text_tut_lighter_green"
             android:gravity="center_horizontal"
-            android:height="500dp"
+            android:height="400dp"
             android:text="">
         </TextView>
 
