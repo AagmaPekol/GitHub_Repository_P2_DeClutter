@@ -46,16 +46,6 @@
         android:layout_marginTop="110dp"
         android:layout_marginBottom="80dp">
 
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:src="@color/vector_blue_main"
-            android:layout_marginHorizontal="80dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp">
-        </ImageView>
-
         <TextView
             android:id="@+id/clothingTypeAndCount"
             android:layout_width="match_parent"
@@ -64,7 +54,17 @@
             android:textColor="@color/Text_dark_green"
             android:fontFamily="@font/andada_pro2"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:src="@color/vector_blue_main"
+            android:layout_marginHorizontal="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="3dp">
+        </ImageView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
