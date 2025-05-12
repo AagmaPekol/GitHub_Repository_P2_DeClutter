@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Time to get MightyTidy!"
-                android:textSize="28dp"
+                android:textSize="35dp"
                 android:textStyle="bold"
                 android:textColor="@color/Text_dark_green"
                 android:gravity="center"
@@ -81,7 +81,7 @@
             android:layout_height="140dp"
             android:gravity="center"
             android:layout_gravity="bottom"
-            android:text="Click To continue"
+            android:text="Click here to continue"
             android:alpha="0.95"
             android:textColor="@color/Text_dark_green"
             android:textSize="20dp" />

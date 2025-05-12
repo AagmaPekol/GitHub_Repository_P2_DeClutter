@@ -30,7 +30,7 @@ public class dc_step1 extends AppCompatActivity {
         bundle = getIntent().getExtras();
         if (bundle != null){
             String clothingType = bundle.getString("clothingType");
-            String text = "Open your wardrobe and Take all the " + clothingType + "and lay them out, so you can see them";
+            String text = "Open your wardrobe, take all the " + clothingType + " and lay them out, so you can see them";
             TextView step1Text = findViewById(R.id.step1Text);
             step1Text.setText(text);
         } else {

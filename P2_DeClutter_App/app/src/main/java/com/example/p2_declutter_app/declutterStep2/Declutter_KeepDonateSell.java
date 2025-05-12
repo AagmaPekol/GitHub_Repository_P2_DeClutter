@@ -25,6 +25,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import com.example.p2_declutter_app.R;
+import com.example.p2_declutter_app.achievement.AchievementManager;
 import com.example.p2_declutter_app.database.*;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
@@ -55,6 +56,9 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
     private String aiDescription;
     private String clothingType;
     private String sessionId;
+
+    private static final String ACHIEVEMENT_ID = "sort_item";
+    private AchievementManager achievementManager;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -208,6 +212,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
     }
 
     private void saveToDatabase(String clothingType, String description, String currentPhotoPath, String decision, String aiDescription, String sessionId) {
+        achievementManager = new AchievementManager(this);achievementManager = new AchievementManager(this);
 
         if (clothingType == null || clothingType.isEmpty() ||
                 description == null || description.isEmpty() ||
@@ -237,6 +242,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
                             intent.putExtras(bundleStartOver);
                             Log.d("DATABASE", "Saved to database");
                             Toast.makeText(Declutter_KeepDonateSell.this, clothingType + " saved", Toast.LENGTH_SHORT).show();
+                            achievementManager.unlockAchievement(ACHIEVEMENT_ID);
                             startActivity(intent);
                             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         }

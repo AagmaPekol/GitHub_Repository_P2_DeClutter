@@ -33,9 +33,9 @@ public class AchievementPage extends AppCompatActivity {
 
         // You can eventually pull these from a database or constants
         List<Achievement> achievements = Arrays.asList(
-                new Achievement("keep_item", "Keep a piece of clothing", "Add a piece of clothing to the keep pile when decluttering"),
-                new Achievement("donate_item", "Donate a piece of clothing", "Donate a piece of clothing to your nearest donation spot"),
-                new Achievement("sell_item", "Sell a piece of clothing", "List your first piece of clothing on Vinted"),
+                new Achievement("sort_item", "Sort your first item", "Sort your first item in the decluttering process"),
+                new Achievement("donate_item", "Donate your unwanted clothes", "Donate your unwanted clothes to the nearest container or shop"),
+                new Achievement("sell_item", "Sell a piece of clothing", "Give your clothes a second life by selling them on Vinted"),
                 new Achievement("wardrobe_opened", "Open the wardrobe", "Open the wardrobe and check out what you have"),
                 new Achievement("declutter_finished","Finish decluttering","Go through the whole decluttering process" )
 
