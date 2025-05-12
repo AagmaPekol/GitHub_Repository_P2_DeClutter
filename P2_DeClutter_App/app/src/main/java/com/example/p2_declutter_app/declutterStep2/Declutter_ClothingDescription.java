@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.p2_declutter_app.profile.Profile_page_main;
@@ -90,8 +92,7 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_ClothingDescription.this, mainMenuPage.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                warningDialog(intent);
             }
         });
         ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
@@ -99,8 +100,7 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_ClothingDescription.this, WardrobeDecision.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                warningDialog(intent);
             }
         });
         ImageButton profileBtn = findViewById(R.id.profileBtn);
@@ -108,8 +108,7 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_ClothingDescription.this, Profile_page_main.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                warningDialog(intent);
             }
         });
         ImageButton backBtn = findViewById(R.id.backBtn);
@@ -180,7 +179,7 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
                         loadingText.setVisibility(View.GONE);
 
                         Toast.makeText(Declutter_ClothingDescription.this,
-                                "Failed to get response. Please try again.", Toast.LENGTH_SHORT).show();
+                                "Request failed. Check your internet connection and try again", Toast.LENGTH_SHORT).show();
                     }
                 });
                 e.printStackTrace();
@@ -228,5 +227,28 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void warningDialog(Intent intent){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_warning_declutter, null);
+        AlertDialog dialog = builder.setView(dialogView).create();
+
+        TextView dialogHeaderWarningText = dialogView.findViewById(R.id.dialogHeaderWarningText);
+        TextView dialogWarningText = dialogView.findViewById(R.id.dialogWarningText);
+        Button dialogWarningBtn = dialogView.findViewById(R.id.dialogWarningBtn);
+
+        dialogHeaderWarningText.setText("Warning!");
+        dialogWarningText.setText("You are about to leave your decluttering session. Are you sure you want to continue?" +
+                " \nYou will lose all your progress in this session if you do.");
+        dialogWarningText.setGravity(android.view.Gravity.CENTER);
+        dialogWarningBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+        dialog.show();
     }
 }

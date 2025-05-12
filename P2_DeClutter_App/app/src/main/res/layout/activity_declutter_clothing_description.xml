@@ -138,7 +138,7 @@
                 android:id="@+id/loadingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Loading..."
+                android:text="Generating Description..."
                 android:textSize="18sp"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"

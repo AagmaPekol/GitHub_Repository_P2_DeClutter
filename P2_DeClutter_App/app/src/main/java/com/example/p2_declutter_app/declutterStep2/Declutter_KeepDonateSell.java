@@ -27,6 +27,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.achievement.AchievementManager;
 import com.example.p2_declutter_app.database.*;
+import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
@@ -110,13 +111,20 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
             }
         });
         //      The five buttons for the top/bottom nav
+        ImageButton menuBtn = findViewById(R.id.menuBtn);
+        menuBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Declutter_KeepDonateSell.this, mainMenuPage.class);
+                warningDialog(intent);
+            }
+        });
         ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
         wardrobeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_KeepDonateSell.this, WardrobeDecision.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                warningDialog(intent);
             }
         });
         ImageButton profileBtn = findViewById(R.id.profileBtn);
@@ -124,8 +132,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_KeepDonateSell.this, Profile_page_main.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                warningDialog(intent);
             }
         });
         ImageButton backBtn = findViewById(R.id.backBtn);
@@ -295,5 +302,28 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
             }
         });
         alertDialog.show();
+    }
+
+    private void warningDialog(Intent intent) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_warning_declutter, null);
+        AlertDialog dialog = builder.setView(dialogView).create();
+
+        TextView dialogHeaderWarningText = dialogView.findViewById(R.id.dialogHeaderWarningText);
+        TextView dialogWarningText = dialogView.findViewById(R.id.dialogWarningText);
+        Button dialogWarningBtn = dialogView.findViewById(R.id.dialogWarningBtn);
+
+        dialogHeaderWarningText.setText("Warning!");
+        dialogWarningText.setText("You are about to leave your decluttering session. Are you sure you want to continue?" +
+                " \nYou will lose all your progress in this session if you do.");
+        dialogWarningText.setGravity(android.view.Gravity.CENTER);
+        dialogWarningBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+        dialog.show();
     }
 }
