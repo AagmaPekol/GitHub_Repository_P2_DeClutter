@@ -15,7 +15,6 @@
         android:layout_marginTop="110dp"
         android:layout_marginBottom="80dp"
         android:gravity="center">
-    <!-- Other UI elements like text or buttons -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,9 +26,6 @@
             android:textColor="@color/Text_dark_green"
             android:fontFamily="@font/andada_pro2"
             android:textSize="28dp" />
-
-        <!-- Map embedded in a portion of the screen -->
-
         <fragment
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -70,7 +66,5 @@
                 android:contentDescription="Go Next">
             </ImageButton>
         </LinearLayout>
-
-            <!-- Add more UI below the map if needed -->
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

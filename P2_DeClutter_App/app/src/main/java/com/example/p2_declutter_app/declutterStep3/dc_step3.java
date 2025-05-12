@@ -85,28 +85,23 @@ public class dc_step3 extends AppCompatActivity {
     private void updateButtonStates() {
         SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
-        // editor.remove("declutterKeep_finished");
-        // editor.remove("declutterSell_finished");
-        // editor.remove("declutterDonateDiscard_finished");
-        // Add more as needed
-        // editor.apply();
 
         boolean isDeclutterKeepFinished = prefs.getBoolean("declutterKeep_finished", false);
         boolean isDeclutterSellFinished = prefs.getBoolean("declutterSell_finished", false);
         boolean isDeclutterDonateDiscardFinished = prefs.getBoolean("declutterDonateDiscard_finished", false);
 
-        ImageView marker1 = findViewById(R.id.marker1); // the image button
-        ImageView marker2 = findViewById(R.id.marker2); // the image button
-        ImageView marker3 = findViewById(R.id.marker3); // the image button
+        ImageView marker1 = findViewById(R.id.marker1); // the image above button 1
+        ImageView marker2 = findViewById(R.id.marker2); // the image above button 2
+        ImageView marker3 = findViewById(R.id.marker3); // the image above button 3
 
         if (isDeclutterKeepFinished) {
-            marker1.setBackgroundResource(R.drawable.pile_done_24); // or dim, overlay, etc.
+            marker1.setBackgroundResource(R.drawable.pile_done_24); // changes the image above button 1
         }
         if (isDeclutterSellFinished) {
-            marker3.setBackgroundResource(R.drawable.pile_done_24); // or dim, overlay, etc.
+            marker3.setBackgroundResource(R.drawable.pile_done_24); // changes the image above button 2
         }
         if (isDeclutterDonateDiscardFinished) {
-            marker2.setBackgroundResource(R.drawable.pile_done_24); // or dim, overlay, etc.
+            marker2.setBackgroundResource(R.drawable.pile_done_24); // changes the image above button 3
         }
         if (isDeclutterKeepFinished && isDeclutterSellFinished && isDeclutterDonateDiscardFinished) {
             Intent intent = new Intent(this, declutterFinished.class);

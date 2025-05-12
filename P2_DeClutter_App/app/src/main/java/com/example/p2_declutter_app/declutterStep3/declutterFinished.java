@@ -9,11 +9,15 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.p2_declutter_app.R;
+import com.example.p2_declutter_app.achievement.AchievementManager;
 import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
 public class declutterFinished extends AppCompatActivity {
+    private static final String ACHIEVEMENT_ID = "declutter_finished";
+    private AchievementManager achievementManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +26,14 @@ public class declutterFinished extends AppCompatActivity {
         setContentView(R.layout.activity_declutter_finished);
 
         ImageButton finishButton = findViewById(R.id.nextBtn);
+        achievementManager = new AchievementManager(this);achievementManager = new AchievementManager(this);
 
         finishButton.setOnClickListener(v -> {
             Intent intent = new Intent(declutterFinished.this, mainMenuPage.class);
+            // Unlock an achievement
+            achievementManager.unlockAchievement(ACHIEVEMENT_ID);
             startActivity(intent);
-            finish(); // optional: closes this page
+            finish();
         });
         //      The five buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);

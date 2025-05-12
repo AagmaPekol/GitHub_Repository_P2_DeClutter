@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.p2_declutter_app.R;
+import com.example.p2_declutter_app.achievement.AchievementManager;
 import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
@@ -37,6 +38,8 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
     private GoogleMap mMap;
     private ActivityDeclutterDonateDiscardBinding binding;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
+    private static final String ACHIEVEMENT_ID = "donate_item";
+    private AchievementManager achievementManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,8 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
         setContentView(binding.getRoot());
 
         ImageButton finishButton = findViewById(R.id.finish_button_donate);
+
+        achievementManager = new AchievementManager(this);
 
         finishButton.setOnClickListener(v -> {
             SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
@@ -63,6 +68,8 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(declutterDonateDiscard.this, mainMenuPage.class);
+                // Unlock an achievement
+                achievementManager.unlockAchievement(ACHIEVEMENT_ID);
                 startActivity(intent);
             }
         });
@@ -107,7 +114,7 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
                 == PackageManager.PERMISSION_GRANTED && mMap != null) {
             mMap.setMyLocationEnabled(true);
 
-            // Move camera to last known location
+            // Move camera to current / last known location
             FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
             fusedLocationClient.getLastLocation()
