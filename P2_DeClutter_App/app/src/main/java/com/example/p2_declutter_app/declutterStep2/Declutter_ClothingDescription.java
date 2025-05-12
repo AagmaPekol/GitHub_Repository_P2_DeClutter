@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,8 @@ import okhttp3.*;
 public class Declutter_ClothingDescription extends AppCompatActivity {
 
     private Bundle bundle;
+    private ProgressBar loadingIndicator;
+    private TextView loadingText;
     private TextView descriptionText;
     private ImageView photoView;
 
@@ -49,8 +52,13 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
         setContentView(R.layout.activity_declutter_clothing_description);
 
         ImageButton continueBtn = findViewById(R.id.continueBtn);
+        loadingIndicator = findViewById(R.id.loadingIndicator);
+        loadingText = findViewById(R.id.loadingText);
         descriptionText = findViewById(R.id.descriptionText);
         photoView = findViewById(R.id.photoView);
+
+        loadingIndicator.bringToFront();
+        loadingText.bringToFront();
 
         bundle = getIntent().getExtras();
         setImage();
@@ -127,6 +135,9 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
     }
 
     private void callOpenAI(final String prompt) {
+        loadingIndicator.setVisibility(View.VISIBLE);
+        loadingText.setVisibility(View.VISIBLE);
+
         OkHttpClient client = new OkHttpClient();
 
         MediaType JSON = MediaType.get("application/json; charset=utf-8");
@@ -161,6 +172,9 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        loadingIndicator.setVisibility(View.GONE);
+                        loadingText.setVisibility(View.GONE);
+
                         Toast.makeText(Declutter_ClothingDescription.this,
                                 "Failed to get response. Please try again.", Toast.LENGTH_SHORT).show();
                     }
@@ -185,6 +199,9 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
 
                         //Sends the generated text to the next activity
                         runOnUiThread(() -> {
+                            loadingIndicator.setVisibility(View.GONE);
+                            loadingText.setVisibility(View.GONE);
+
                             bundle.putString("text_AI", text_AI);
                             bundle.putString("description", descriptionText.getText().toString());
 
