@@ -33,10 +33,12 @@ public class AchievementPage extends AppCompatActivity {
 
         // You can eventually pull these from a database or constants
         List<Achievement> achievements = Arrays.asList(
-                new Achievement("first_item", "Add an item", "Add your first piece of clothing to your wardrobe"),
-                new Achievement("daily_clean", "Daily Declutter", "Open declutter 2 days in a row"),
-                new Achievement("sell_item", "Sell an item", "List your first item on Vinted"),
-                new Achievement("wardrobe_opened", "Open the wardrobe", "Open the wardrobe")
+                new Achievement("keep_item", "Keep a piece of clothing", "Add a piece of clothing to the keep pile when decluttering"),
+                new Achievement("donate_item", "Donate a piece of clothing", "Donate a piece of clothing to your nearest donation spot"),
+                new Achievement("sell_item", "Sell a piece of clothing", "List your first piece of clothing on Vinted"),
+                new Achievement("wardrobe_opened", "Open the wardrobe", "Open the wardrobe and check out what you have"),
+                new Achievement("declutter_finished","Finish decluttering","Go through the whole decluttering process" )
+
         );
 
         // Update unlocked status

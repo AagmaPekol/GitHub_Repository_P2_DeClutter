@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.example.p2_declutter_app.R;
+import com.example.p2_declutter_app.achievement.AchievementManager;
 import com.example.p2_declutter_app.declutterStep1.DC_IntroStep;
 import com.example.p2_declutter_app.declutterStep1.dc_step1;
 import com.example.p2_declutter_app.profile.Profile_page_main;
@@ -21,7 +22,8 @@ import android.webkit.WebView;
 import android.webkit.WebSettings;
 
 public class declutterKeep2 extends AppCompatActivity {
-
+    private static final String ACHIEVEMENT_ID = "keep_item";
+    private AchievementManager achievementManager;
     private void loadVideo(WebView webView, String videoID) {
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
@@ -50,12 +52,15 @@ public class declutterKeep2 extends AppCompatActivity {
         loadVideo(youtube3, "a-TFbunklsQ"); // Example ID 3
 
         ImageButton finishButton = findViewById(R.id.finish_button_keep);
+        achievementManager = new AchievementManager(this);achievementManager = new AchievementManager(this);
 
         finishButton.setOnClickListener(v -> {
             SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
             prefs.edit().putBoolean("declutterKeep_finished", true).apply();
 
             Intent intent = new Intent(declutterKeep2.this, dc_step3.class);
+            // Unlock an achievement
+            achievementManager.unlockAchievement(ACHIEVEMENT_ID);
             startActivity(intent);
             finish(); // optional: closes this page
         });

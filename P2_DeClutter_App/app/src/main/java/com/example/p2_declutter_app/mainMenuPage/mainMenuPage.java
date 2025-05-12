@@ -53,7 +53,7 @@ public class mainMenuPage extends AppCompatActivity {
         wardrobeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                // Unlock the achievement
+                // Unlock an achievement
                 achievementManager.unlockAchievement(ACHIEVEMENT_ID);
 
                 Intent intent = new Intent(mainMenuPage.this, WardrobeDecision.class);

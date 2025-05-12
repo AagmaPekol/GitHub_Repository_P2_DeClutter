@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.p2_declutter_app.R;
+import com.example.p2_declutter_app.achievement.AchievementManager;
 import com.example.p2_declutter_app.database.AppDatabase;
 import com.example.p2_declutter_app.database.Clothing;
 import com.example.p2_declutter_app.database.ClothingDao;
@@ -40,6 +41,9 @@ public class Declutter_Sell extends AppCompatActivity {
 
     private ClothingItemAdapter adapter;
     private int count;
+    private static final String ACHIEVEMENT_ID = "sell_item";
+    private AchievementManager achievementManager;
+
     String choice = ClothingTypeSelection.getInstance().getUClothingTypeSelection();
 
     @Override
@@ -85,11 +89,14 @@ public class Declutter_Sell extends AppCompatActivity {
             }
         });
         ImageButton nextButton = findViewById(R.id.finish_button_sell);
+        achievementManager = new AchievementManager(this);achievementManager = new AchievementManager(this);
         nextButton.setOnClickListener(v -> {
             SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
             prefs.edit().putBoolean("declutterSell_finished", true).apply();
 
             Intent intent = new Intent(Declutter_Sell.this, dc_step3.class);
+            // Unlock an achievement
+            achievementManager.unlockAchievement(ACHIEVEMENT_ID);
             startActivity(intent);
         });
         //      The five buttons for the top/bottom nav
