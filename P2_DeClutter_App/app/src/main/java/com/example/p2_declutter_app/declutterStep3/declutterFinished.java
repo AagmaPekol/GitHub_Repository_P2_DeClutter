@@ -15,7 +15,7 @@ import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
 public class declutterFinished extends AppCompatActivity {
-    private static final String ACHIEVEMENT_ID = "declutter_finished";
+    private static final String ACHIEVEMENT_ID = "Finish Decluttering";
     private AchievementManager achievementManager;
 
     @Override

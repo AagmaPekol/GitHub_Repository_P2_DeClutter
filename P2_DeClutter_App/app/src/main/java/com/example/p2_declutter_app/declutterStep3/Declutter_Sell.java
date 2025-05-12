@@ -41,7 +41,7 @@ public class Declutter_Sell extends AppCompatActivity {
 
     private ClothingItemAdapter adapter;
     private int count;
-    private static final String ACHIEVEMENT_ID = "sell_item";
+    private static final String ACHIEVEMENT_ID = "Sell Item";
     private AchievementManager achievementManager;
 
     String choice = ClothingTypeSelection.getInstance().getUClothingTypeSelection();

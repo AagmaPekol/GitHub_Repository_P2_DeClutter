@@ -25,7 +25,7 @@ import com.example.p2_declutter_app.tutorial.TutorialActivity;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
 public class mainMenuPage extends AppCompatActivity {
-    private static final String ACHIEVEMENT_ID = "wardrobe_opened";
+    private static final String ACHIEVEMENT_ID = "Open Wardrobe";
     private AchievementManager achievementManager;
 
     @Override

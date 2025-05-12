@@ -38,7 +38,7 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
     private GoogleMap mMap;
     private ActivityDeclutterDonateDiscardBinding binding;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-    private static final String ACHIEVEMENT_ID = "donate_item";
+    private static final String ACHIEVEMENT_ID = "Donate Item";
     private AchievementManager achievementManager;
 
     @Override

@@ -57,7 +57,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
     private String clothingType;
     private String sessionId;
 
-    private static final String ACHIEVEMENT_ID = "sort_item";
+    private static final String ACHIEVEMENT_ID = "Sort Item";
     private AchievementManager achievementManager;
 
     @SuppressLint("ClickableViewAccessibility")
