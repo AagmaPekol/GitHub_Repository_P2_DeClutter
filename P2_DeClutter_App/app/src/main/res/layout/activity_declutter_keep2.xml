@@ -15,34 +15,37 @@
         android:orientation="vertical"
         android:layout_marginTop="110dp"
         android:layout_marginBottom="80dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="top"
-            android:text="Need some inspiration?"
-            android:textStyle="bold"
-            android:textColor="@color/Text_dark_green"
-            android:fontFamily="@font/andada_pro2"
-            android:textSize="28dp">
-        </TextView>
 
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="10dp">
-        </View>
+            android:layout_height="37dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="top"
+                android:text="Need some inspiration?"
+                android:textStyle="bold"
+                android:textColor="@color/Text_dark_green"
+                android:fontFamily="@font/andada_pro2"
+                android:textSize="28dp">
+            </TextView>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="250dp"
             android:layout_height="200dp"
+            android:layout_weight="1"
             android:gravity="center_horizontal"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
-            android:translationX="40dp">
+            android:translationX="-40dp">
             <WebView
                 android:id="@+id/youtube1"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp" />
         </LinearLayout>
         <View
@@ -52,27 +55,29 @@
         <LinearLayout
             android:layout_width="250dp"
             android:layout_height="200dp"
+            android:layout_weight="1"
             android:gravity="center_horizontal"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
-            android:translationX="0dp">
+            android:translationX="15dp">
             <WebView
                 android:id="@+id/youtube2"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="250dp"
             android:layout_height="200dp"
+            android:layout_weight="1"
             android:gravity="center_horizontal"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
-            android:translationX="-40dp">
+            android:translationX="-30dp">
             <WebView
                 android:id="@+id/youtube3"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp" />
         </LinearLayout>
 
