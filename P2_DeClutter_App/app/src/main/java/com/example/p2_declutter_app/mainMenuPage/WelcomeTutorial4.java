@@ -32,6 +32,5 @@ public class WelcomeTutorial4 extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
-
     }
 }

@@ -166,4 +166,14 @@ public class Declutter_PickClothingType extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
+        int backCount = prefs.getInt("back_press_count", 0);
+        prefs.edit().putInt("back_press_count", backCount + 1).apply();
+
+        Log.d("BackPress", "Total back presses so far: " + backCount);
+
+        super.onBackPressed();
+    }
 }

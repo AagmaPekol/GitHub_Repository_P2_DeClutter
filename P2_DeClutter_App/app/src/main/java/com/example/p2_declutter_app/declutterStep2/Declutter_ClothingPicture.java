@@ -285,6 +285,15 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
         dialog.show();
     }
 
+    @Override
+    public void onBackPressed() {
+        SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
+        int backCount = prefs.getInt("back_press_count", 0);
+        prefs.edit().putInt("back_press_count", backCount + 1).apply();
+
+        super.onBackPressed();
+    }
+
     /*
      * resolveActivity(getPackageManager()) != null))
      * This apperently always returns null or doesn't

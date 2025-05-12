@@ -1,7 +1,9 @@
 package com.example.p2_declutter_app.profile;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -77,7 +79,10 @@ public class Profile_page_main extends AppCompatActivity {
         toast1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Profile_page_main.this,"This feature has not been implemented yet", Toast.LENGTH_SHORT).show();
+                SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
+                int backCount = prefs.getInt("back_press_count", 0);
+                Log.d("BackPress", "Total back presses so far: " + backCount);
+                Toast.makeText(Profile_page_main.this,"This feature has not been implemented yet " + backCount, Toast.LENGTH_SHORT).show();
             }
         });
 

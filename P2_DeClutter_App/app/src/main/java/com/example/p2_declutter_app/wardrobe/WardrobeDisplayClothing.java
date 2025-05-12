@@ -62,7 +62,7 @@ public class WardrobeDisplayClothing extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        adapter = new ClothingItemAdapter(items);
+                        adapter = new ClothingItemAdapter(items, dbDao, executorService);
                         recyclerView.setAdapter(adapter);
                         TextView textView = findViewById(R.id.clothingTypeAndCount);
                         textView.setText(selectedClothingType + " +" + items.size());

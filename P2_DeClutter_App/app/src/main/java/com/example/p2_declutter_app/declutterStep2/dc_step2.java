@@ -1,6 +1,7 @@
 package com.example.p2_declutter_app.declutterStep2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -72,7 +73,14 @@ public class dc_step2 extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
+    }
 
+    @Override
+    public void onBackPressed() {
+        SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
+        int backCount = prefs.getInt("back_press_count", 0);
+        prefs.edit().putInt("back_press_count", backCount + 1).apply();
 
+        super.onBackPressed();
     }
 }

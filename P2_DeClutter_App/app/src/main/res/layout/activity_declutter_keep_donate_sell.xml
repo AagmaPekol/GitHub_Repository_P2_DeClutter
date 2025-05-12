@@ -20,7 +20,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="100dp">
+        android:layout_marginBottom="85dp">
 
         <TextView
             android:id="@+id/headerText"
@@ -39,8 +39,18 @@
             android:paddingHorizontal="10dp"
             android:textColor="@color/Text_dark_green"
             android:layout_gravity="bottom|center_horizontal"
-
             android:background="@drawable/btn_orange_v1"/>
+
+        <Button
+            android:id="@+id/editTextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:translationY="665dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/btn_orange_v1"
+            android:paddingHorizontal="10dp"
+            android:text="Edit Text"
+            android:textColor="@color/Text_dark_green" />
     </FrameLayout>
 
     <FrameLayout

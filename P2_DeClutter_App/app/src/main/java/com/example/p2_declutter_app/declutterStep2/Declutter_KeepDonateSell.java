@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -48,8 +49,9 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
     private TextView descriptionText;
     private TextView headerText;
     private ImageView photoView;
-    private  FrameLayout frameLayout;
+    private FrameLayout frameLayout;
     private Button saveToDatabaseBtn;
+    private Button editTextBtn;
 
     private String decision = "";
     private String description;
@@ -95,10 +97,19 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
         frameLayout = findViewById(R.id.frameLayout);
         headerText = findViewById(R.id.headerText);
         saveToDatabaseBtn = findViewById(R.id.saveToDatabaseBtn);
+        editTextBtn = findViewById(R.id.editTextBtn);
+
 
         descriptionText.setText(bundle.getString("text_AI"));
         setImage();
         dialog();
+
+        editTextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editTextDialog();
+            }
+        });
 
         saveToDatabaseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -325,5 +336,32 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
             }
         });
         dialog.show();
+    }
+
+    private void editTextDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Edit Description");
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_edit_ai_description, null);
+
+        EditText editText = dialogView.findViewById(R.id.editTextDescription);
+        editText.setText(aiDescription);
+
+        builder.setView(dialogView)
+                .setPositiveButton("Save", (dialog, which) -> {
+                    aiDescription = editText.getText().toString();
+                    descriptionText.setText(aiDescription);
+                })
+                .setNegativeButton("Cancel", null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
+        int backCount = prefs.getInt("back_press_count", 0);
+        prefs.edit().putInt("back_press_count", backCount + 1).apply();
+
+        super.onBackPressed();
     }
 }
