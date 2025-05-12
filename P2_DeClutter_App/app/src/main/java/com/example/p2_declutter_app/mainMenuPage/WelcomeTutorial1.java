@@ -33,6 +33,7 @@ public class WelcomeTutorial1 extends AppCompatActivity {
                 if (welcomeIsFirstRun) {
                     Intent intent = new Intent(WelcomeTutorial1.this, WelcomeTutorial2.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 }
             }
         });

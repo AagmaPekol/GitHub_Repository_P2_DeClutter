@@ -85,6 +85,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
                 Intent intent = new Intent(Declutter_ClothingPicture.this, declutterRecap.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
@@ -110,6 +111,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
                         bundle.putString("currentPhotoPath", currentPhotoPath);
                         intent.putExtras(bundle);
                         startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     } else {
                         Log.e("Declutter_ClothingPicture", "Bundle is null");
                     }
@@ -126,6 +128,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_ClothingPicture.this, mainMenuPage.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
@@ -134,6 +137,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_ClothingPicture.this, WardrobeDecision.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton profileBtn = findViewById(R.id.profileBtn);
@@ -142,6 +146,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_ClothingPicture.this, Profile_page_main.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton backBtn = findViewById(R.id.backBtn);
@@ -149,6 +154,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }

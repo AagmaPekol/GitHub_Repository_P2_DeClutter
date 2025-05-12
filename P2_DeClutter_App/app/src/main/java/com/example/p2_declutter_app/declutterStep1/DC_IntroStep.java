@@ -46,6 +46,7 @@ public class DC_IntroStep extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(DC_IntroStep.this, mainMenuPage.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         //      The five buttons for the top/bottom nav
@@ -55,6 +56,7 @@ public class DC_IntroStep extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(DC_IntroStep.this, WardrobeDecision.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton profileBtn = findViewById(R.id.profileBtn);
@@ -63,6 +65,7 @@ public class DC_IntroStep extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(DC_IntroStep.this, Profile_page_main.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton backBtn = findViewById(R.id.backBtn);
@@ -70,6 +73,7 @@ public class DC_IntroStep extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
@@ -80,6 +84,7 @@ public class DC_IntroStep extends AppCompatActivity {
                 Intent intent = new Intent(DC_IntroStep.this, dc_step1.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 

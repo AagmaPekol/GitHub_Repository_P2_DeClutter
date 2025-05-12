@@ -62,6 +62,7 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
             // Unlock an achievement
             achievementManager.unlockAchievement(ACHIEVEMENT_ID);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             finish();
         });
         //      The five buttons for the top/bottom nav
@@ -71,6 +72,7 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
             public void onClick(View v){
                 Intent intent = new Intent(declutterDonateDiscard.this, mainMenuPage.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
@@ -79,6 +81,7 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
             public void onClick(View v){
                 Intent intent = new Intent(declutterDonateDiscard.this, WardrobeDecision.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton profileBtn = findViewById(R.id.profileBtn);
@@ -87,6 +90,7 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
             public void onClick(View v){
                 Intent intent = new Intent(declutterDonateDiscard.this, Profile_page_main.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton backBtn = findViewById(R.id.backBtn);
@@ -94,6 +98,7 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
             @Override
             public void onClick(View v) {
                 onBackPressed();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 

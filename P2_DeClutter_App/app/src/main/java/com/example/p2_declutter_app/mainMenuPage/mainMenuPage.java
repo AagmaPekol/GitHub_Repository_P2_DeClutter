@@ -47,6 +47,7 @@ public class mainMenuPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(mainMenuPage.this, Declutter_PickClothingType.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         achievementManager = new AchievementManager(this);
@@ -59,6 +60,7 @@ public class mainMenuPage extends AppCompatActivity {
 
                 Intent intent = new Intent(mainMenuPage.this, WardrobeDecision.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
@@ -76,6 +78,7 @@ public class mainMenuPage extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(mainMenuPage.this, AchievementPage.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 

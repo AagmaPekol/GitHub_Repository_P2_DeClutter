@@ -91,6 +91,7 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_ClothingDescription.this, mainMenuPage.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
@@ -99,6 +100,7 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_ClothingDescription.this, WardrobeDecision.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton profileBtn = findViewById(R.id.profileBtn);
@@ -107,6 +109,7 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_ClothingDescription.this, Profile_page_main.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton backBtn = findViewById(R.id.backBtn);
@@ -114,6 +117,7 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }
@@ -208,6 +212,7 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
                             Intent intent = new Intent(Declutter_ClothingDescription.this, Declutter_KeepDonateSell.class);
                             intent.putExtras(bundle);
                             startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         });
                     } catch (Exception e) {
                         e.printStackTrace();

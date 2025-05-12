@@ -29,6 +29,7 @@ public class Declutter_Keep extends AppCompatActivity {
         nextButton.setOnClickListener(v -> {
             Intent intent = new Intent(Declutter_Keep.this, declutterKeep2.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
         //      The five buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
@@ -45,6 +46,7 @@ public class Declutter_Keep extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_Keep.this, WardrobeDecision.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton profileBtn = findViewById(R.id.profileBtn);
@@ -53,6 +55,7 @@ public class Declutter_Keep extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_Keep.this, Profile_page_main.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton backBtn = findViewById(R.id.backBtn);
@@ -60,6 +63,7 @@ public class Declutter_Keep extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }

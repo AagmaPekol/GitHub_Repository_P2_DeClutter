@@ -98,6 +98,7 @@ public class Declutter_Sell extends AppCompatActivity {
             // Unlock an achievement
             achievementManager.unlockAchievement(ACHIEVEMENT_ID);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
         //      The five buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
@@ -106,6 +107,7 @@ public class Declutter_Sell extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_Sell.this, mainMenuPage.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
@@ -114,6 +116,7 @@ public class Declutter_Sell extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_Sell.this, WardrobeDecision.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton profileBtn = findViewById(R.id.profileBtn);
@@ -122,6 +125,7 @@ public class Declutter_Sell extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_Sell.this, Profile_page_main.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton backBtn = findViewById(R.id.backBtn);
@@ -129,6 +133,7 @@ public class Declutter_Sell extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }
