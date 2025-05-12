@@ -18,6 +18,7 @@ import com.example.p2_declutter_app.AchievementPage;
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.achievement.Achievement;
 import com.example.p2_declutter_app.declutterStep1.DC_IntroStep;
+import com.example.p2_declutter_app.declutterStep3.Declutter_Sell;
 import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
@@ -31,19 +32,19 @@ public class Profile_page_main extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //      The five buttons for the top/bottom nav
-        ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
-        wardrobeBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(Profile_page_main.this, WardrobeDecision.class);
-                startActivity(intent);
-            }
-        });
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(Profile_page_main.this, mainMenuPage.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
+        wardrobeBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(Profile_page_main.this, WardrobeDecision.class);
                 startActivity(intent);
             }
         });
