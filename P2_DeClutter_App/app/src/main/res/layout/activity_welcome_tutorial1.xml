@@ -65,12 +65,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Declutter your closet and find clothes you had completely forgotten about."
+                android:text="Declutter your wardrobe and find pieces you had completely forgotten about."
                 android:textSize="28dp"
                 android:textStyle="bold"
                 android:textColor="@color/Text_dark_green"
                 android:gravity="center"
-                android:paddingHorizontal="45dp"
+                android:paddingHorizontal="50dp"
                 />
         </FrameLayout>
 
@@ -81,7 +81,7 @@
                 android:layout_height="140dp"
                 android:gravity="center"
                 android:layout_gravity="bottom"
-                android:text="Click To continue"
+                android:text="Click here to continue"
                 android:alpha="0.95"
                 android:textColor="@color/Text_dark_green"
                 android:textSize="20dp" />

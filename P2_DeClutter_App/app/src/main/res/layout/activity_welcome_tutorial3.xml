@@ -65,7 +65,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="The app consists of 3 main components: Declutter, Wardrobe &amp; Achievements"
+                android:text="The 3 main components of the app are: Declutter, Wardrobe &amp; Achievements"
                 android:textSize="28dp"
                 android:textStyle="bold"
                 android:textColor="@color/Text_dark_green"
@@ -80,7 +80,7 @@
             android:layout_height="140dp"
             android:gravity="center"
             android:layout_gravity="bottom"
-            android:text="Click To continue"
+            android:text="Click here to continue"
             android:alpha="0.95"
             android:textColor="@color/Text_dark_green"
             android:textSize="20dp" />
