@@ -238,12 +238,6 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
         if (openCount == 1) {
             showDialog();
         }
-
-        SharedPreferences.Editor editor = prefs.edit();
-        if (openCount < 2) {
-            editor.putInt("activity_open_count", openCount + 1);
-            editor.apply();
-        }
     }
 
     private void showDialog(){

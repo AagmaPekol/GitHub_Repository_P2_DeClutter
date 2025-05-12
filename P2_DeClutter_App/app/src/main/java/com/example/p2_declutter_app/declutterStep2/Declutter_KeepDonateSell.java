@@ -222,6 +222,14 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                            int openCount = prefs.getInt("activity_open_count", 0);
+                            SharedPreferences.Editor editor = prefs.edit();
+                            if (openCount < 2) {
+                                editor.putInt("activity_open_count", openCount + 1);
+                                editor.apply();
+                            }
+
                             Intent intent = new Intent(Declutter_KeepDonateSell.this, Declutter_ClothingPicture.class);
                             intent.putExtras(bundleStartOver);
                             Log.d("DATABASE", "Saved to database");
