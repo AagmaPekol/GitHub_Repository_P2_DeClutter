@@ -66,7 +66,7 @@
                     android:gravity="start"
                     android:hint="Write or speak..."
                     android:inputType="textMultiLine"
-                    android:lines="5"
+                    android:lines="14"
                     android:paddingHorizontal="10dp"
                     android:scrollbars="vertical"
                     android:singleLine="false" />
@@ -106,6 +106,49 @@
         </LinearLayout>
     </LinearLayout>
 
+    <FrameLayout
+        android:id="@+id/loadingOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:focusable="true"
+        android:background="@android:color/transparent"
+        android:elevation="10dp">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="250dp">
+
+            <ProgressBar
+                android:id="@+id/loadingIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:indeterminate="true"
+                style="?android:attr/progressBarStyleLarge" />
+
+            <TextView
+                android:id="@+id/loadingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                android:visibility="gone"
+                android:shadowColor="#FF000000"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="4" />
+        </LinearLayout>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
