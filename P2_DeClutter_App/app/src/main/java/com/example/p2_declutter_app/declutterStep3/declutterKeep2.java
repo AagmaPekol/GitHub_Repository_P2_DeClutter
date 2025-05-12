@@ -62,6 +62,7 @@ public class declutterKeep2 extends AppCompatActivity {
             // Unlock an achievement
             achievementManager.unlockAchievement(ACHIEVEMENT_ID);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             finish(); // optional: closes this page
         });
         //      The five buttons for the top/bottom nav
@@ -71,6 +72,7 @@ public class declutterKeep2 extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(declutterKeep2.this, WardrobeDecision.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton profileBtn = findViewById(R.id.profileBtn);
@@ -79,6 +81,7 @@ public class declutterKeep2 extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(declutterKeep2.this, Profile_page_main.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton backBtn = findViewById(R.id.backBtn);
@@ -86,6 +89,7 @@ public class declutterKeep2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 

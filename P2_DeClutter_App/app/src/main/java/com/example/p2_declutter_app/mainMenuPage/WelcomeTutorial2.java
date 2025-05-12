@@ -24,6 +24,7 @@ public class WelcomeTutorial2 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(WelcomeTutorial2.this, WelcomeTutorial3.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 

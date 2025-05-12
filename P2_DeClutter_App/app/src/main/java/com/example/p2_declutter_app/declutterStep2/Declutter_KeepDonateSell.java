@@ -112,6 +112,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_KeepDonateSell.this, WardrobeDecision.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton profileBtn = findViewById(R.id.profileBtn);
@@ -120,6 +121,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(Declutter_KeepDonateSell.this, Profile_page_main.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
         ImageButton backBtn = findViewById(R.id.backBtn);
@@ -127,6 +129,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
@@ -235,6 +238,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
                             Log.d("DATABASE", "Saved to database");
                             Toast.makeText(Declutter_KeepDonateSell.this, clothingType + " saved", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         }
                     });
                 }
