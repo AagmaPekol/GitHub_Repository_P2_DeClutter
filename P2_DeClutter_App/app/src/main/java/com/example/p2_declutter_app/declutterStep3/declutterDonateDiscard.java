@@ -59,6 +59,8 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
             prefs.edit().putBoolean("declutterDonateDiscard_finished", true).apply();
 
             Intent intent = new Intent(declutterDonateDiscard.this, dc_step3.class);
+            // Unlock an achievement
+            achievementManager.unlockAchievement(ACHIEVEMENT_ID);
             startActivity(intent);
             finish();
         });
@@ -68,8 +70,6 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(declutterDonateDiscard.this, mainMenuPage.class);
-                // Unlock an achievement
-                achievementManager.unlockAchievement(ACHIEVEMENT_ID);
                 startActivity(intent);
             }
         });
