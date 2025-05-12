@@ -20,6 +20,7 @@ import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.achievement.AchievementManager;
 import com.example.p2_declutter_app.declutterStep1.Declutter_PickClothingType;
 import com.example.p2_declutter_app.declutterStep3.declutterDonateDiscard;
+import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.tutorial.TutorialActivity;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
@@ -82,7 +83,8 @@ public class mainMenuPage extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mainMenuPage.this, "Profile is not implemented yet", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mainMenuPage.this, Profile_page_main.class);
+                startActivity(intent);
             }
         });
 
