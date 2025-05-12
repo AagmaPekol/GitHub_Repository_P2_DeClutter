@@ -35,7 +35,8 @@
             android:id="@+id/saveToDatabaseBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
+            android:text="Save this decision"
+            android:paddingHorizontal="10dp"
             android:textColor="@color/Text_dark_green"
             android:layout_gravity="bottom|center_horizontal"
 
