@@ -230,7 +230,7 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
     }
 
     private void saveToDatabase(String clothingType, String description, String currentPhotoPath, String decision, String aiDescription, String sessionId) {
-        achievementManager = new AchievementManager(this);achievementManager = new AchievementManager(this);
+        achievementManager = new AchievementManager(this); achievementManager = new AchievementManager(this);
 
         if (clothingType == null || clothingType.isEmpty() ||
                 description == null || description.isEmpty() ||
