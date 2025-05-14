@@ -47,8 +47,8 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
             " a condition value (from 1-10 with 10 being best condition)" +
             " For both values in sentimental and condition, put it as e.g 1/10"+
             "(Please dont put ** around the sentimental and the condition value)" +
-            " and a short sales description of the clothes but dont include the word sales," +
-            " just put it as description : [story]";
+            " and a short sales description of the clothes (dont include the word 'sales' in the description)," +
+            ": [story]";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
