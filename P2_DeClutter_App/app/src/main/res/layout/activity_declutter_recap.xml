@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:elevation="1dp"
         android:orientation="vertical"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="80dp">
 
         <TextView
@@ -26,8 +26,19 @@
             android:textStyle="bold"
             android:textColor="@color/Text_dark_green"
             android:fontFamily="@font/andada_pro2"
-            android:textSize="40dp">
-
+            android:textSize="40sp">
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:text="Green: Keep | Yellow: Sell | Red: Donate"
+            android:textStyle="bold"
+            android:textColor="@color/Text_dark_green"
+            android:fontFamily="@font/andada_pro2"
+            android:textSize="18sp">
         </TextView>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -38,12 +49,9 @@
             android:layout_weight="5"
             android:elevation="2dp"
             android:layout_marginHorizontal="22dp"
-            android:background="@drawable/recap_keep_vector"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.7">
-        </View>
+            android:background="@drawable/recap_keep_vector"
+            android:layout_marginBottom="15dp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/sellRecyclerView"
             android:layout_width="match_parent"
@@ -52,12 +60,9 @@
             android:layout_weight="5"
             android:elevation="2dp"
             android:layout_marginHorizontal="22dp"
-            android:background="@drawable/recap_sell_vector" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.7">
-        </View>
+            android:background="@drawable/recap_sell_vector"
+            android:layout_marginBottom="15dp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/donateRecyclerView"
             android:layout_width="match_parent"
@@ -66,7 +71,8 @@
             android:layout_weight="5"
             android:elevation="2dp"
             android:layout_marginHorizontal="22dp"
-            android:background="@drawable/recap_donate_vector" />
+            android:background="@drawable/recap_donate_vector"
+            android:layout_marginBottom="10dp"/>
 
         <View
             android:layout_width="match_parent"
