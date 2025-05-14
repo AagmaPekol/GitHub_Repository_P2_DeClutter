@@ -19,12 +19,30 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.p2_declutter_app.AchievementPage;
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.achievement.Achievement;
+import com.example.p2_declutter_app.database.AppDatabase;
+import com.example.p2_declutter_app.database.Clothing;
+import com.example.p2_declutter_app.database.ClothingDao;
 import com.example.p2_declutter_app.declutterStep1.DC_IntroStep;
 import com.example.p2_declutter_app.declutterStep3.Declutter_Sell;
 import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Profile_page_main extends AppCompatActivity {
+
+    private ExecutorService executorService;
+    private AppDatabase db;
+    private ClothingDao dbDao;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +50,10 @@ public class Profile_page_main extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_profile_page_main);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        executorService = Executors.newSingleThreadExecutor();
+        db = AppDatabase.getDatabase(this);
+        dbDao = db.ClothingDao();
 
         //      The five buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
@@ -91,6 +113,25 @@ public class Profile_page_main extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Profile_page_main.this,"This feature has not been implemented yet", Toast.LENGTH_SHORT).show();
+
+                executorService.execute(new Runnable() {
+                    public void run() {
+                        List<Clothing> clothingList = dbDao.getAllItems();
+
+                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                        String json = gson.toJson(clothingList);
+
+                        Log.d("JSON", json);
+
+                        File file = new File(Profile_page_main.this.getFilesDir(), "clothing_data.json");
+                        try (FileWriter writer = new FileWriter(file)) {
+                            writer.write(json);
+                            Log.d("ExportJSON", "Saved JSON to: " + file.getAbsolutePath());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
             }
         });
 
