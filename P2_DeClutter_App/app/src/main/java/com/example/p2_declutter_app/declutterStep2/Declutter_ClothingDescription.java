@@ -45,8 +45,10 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
     private static final String BASE_PROMPT = "Extract a sentimental value " +
             "(ranging from 1-10 with 10 being high sentimental value)" +
             " a condition value (from 1-10 with 10 being best condition)" +
+            " For both values in sentimental and condition, put it as e.g 1/10"+
             "(Please dont put ** around the sentimental and the condition value)" +
-            " and a short sales description of the clothes: [story]";
+            " and a short sales description of the clothes but dont include the word sales," +
+            " just put it as description : [story]";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

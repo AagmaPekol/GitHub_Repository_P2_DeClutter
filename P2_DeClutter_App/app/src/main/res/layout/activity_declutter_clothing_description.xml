@@ -64,9 +64,10 @@
                     android:background="@drawable/bg_top_diamonds_light_gr"
                     android:ems="10"
                     android:gravity="start"
-                    android:hint="Write or speak..."
+                    android:hint="Write or speak... \n\nThis T-shirt is a little worn but one of my favorites. I got it as a gift from my mom for my 18th birthday 2 years ago, so it means a lot to me."
                     android:inputType="textMultiLine"
-                    android:lines="14"
+                    android:lines="6"
+                    android:isScrollContainer="true"
                     android:paddingHorizontal="10dp"
                     android:scrollbars="vertical"
                     android:singleLine="false" />
