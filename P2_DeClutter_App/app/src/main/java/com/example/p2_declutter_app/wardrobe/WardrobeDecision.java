@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
-import com.example.p2_declutter_app.xxxTestingFeatures.ApiCallTest;
 
 public class WardrobeDecision extends AppCompatActivity {
 
@@ -50,7 +49,6 @@ public class WardrobeDecision extends AppCompatActivity {
             }
         });
 
-
 //========================= The four buttons for the top/bottom nav =====================================
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +56,6 @@ public class WardrobeDecision extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(WardrobeDecision.this, MainMenuPage.class);
                 startActivity(intent);
-
             }
         });
         ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
@@ -67,7 +64,6 @@ public class WardrobeDecision extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(WardrobeDecision.this, WardrobeDecision.class);
                 startActivity(intent);
-
             }
         });
         ImageButton profileBtn = findViewById(R.id.profileBtn);
@@ -76,7 +72,6 @@ public class WardrobeDecision extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(WardrobeDecision.this, Profile_page_main.class);
                 startActivity(intent);
-
             }
         });
         ImageButton backBtn = findViewById(R.id.backBtn);

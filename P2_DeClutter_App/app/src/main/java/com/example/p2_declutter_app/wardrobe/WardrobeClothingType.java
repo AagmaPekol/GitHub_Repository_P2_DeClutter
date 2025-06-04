@@ -45,7 +45,7 @@ public class WardrobeClothingType extends AppCompatActivity {
         TextView textView = findViewById(R.id.wardrobeHeader);
         textView.setText("Wardrobe " + selectedDecision);
 
-        //      The five buttons for the top/bottom nav
+        //      The four buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override

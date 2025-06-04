@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.database.*;
 import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
-import com.example.p2_declutter_app.xxxTestingFeatures.ApiCallTest;
+import com.example.p2_declutter_app.profile.Profile_page_main;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -31,7 +31,6 @@ public class WardrobeDisplayClothing extends AppCompatActivity {
 
     private ClothingItemAdapter adapter;
 
-    private int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +74,6 @@ public class WardrobeDisplayClothing extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(WardrobeDisplayClothing.this, MainMenuPage.class);
                 startActivity(intent);
-
             }
         });
         ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
@@ -84,16 +82,14 @@ public class WardrobeDisplayClothing extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(WardrobeDisplayClothing.this, WardrobeDecision.class);
                 startActivity(intent);
-
             }
         });
         ImageButton profileBtn = findViewById(R.id.profileBtn);
         profileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WardrobeDisplayClothing.this, ApiCallTest.class);
+                Intent intent = new Intent(WardrobeDisplayClothing.this, Profile_page_main.class);
                 startActivity(intent);
-
             }
         });
         ImageButton backBtn = findViewById(R.id.backBtn);
@@ -103,6 +99,5 @@ public class WardrobeDisplayClothing extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
     }
 }
