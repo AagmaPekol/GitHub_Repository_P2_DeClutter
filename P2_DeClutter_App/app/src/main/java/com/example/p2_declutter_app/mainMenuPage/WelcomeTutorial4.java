@@ -27,7 +27,7 @@ public class WelcomeTutorial4 extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WelcomeTutorial4.this, mainMenuPage.class);
+                Intent intent = new Intent(WelcomeTutorial4.this, MainMenuPage.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }

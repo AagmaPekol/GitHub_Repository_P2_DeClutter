@@ -1,4 +1,4 @@
-package com.example.p2_declutter_app;
+package com.example.p2_declutter_app.achievement;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.p2_declutter_app.achievement.Achievement;
-import com.example.p2_declutter_app.achievement.AchievementAdapter;
-import com.example.p2_declutter_app.achievement.AchievementManager;
-import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.R;
+import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
@@ -63,7 +61,7 @@ public class AchievementPage extends AppCompatActivity {
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(AchievementPage.this, mainMenuPage.class);
+                Intent intent = new Intent(AchievementPage.this, MainMenuPage.class);
                 startActivity(intent);
             }
         });

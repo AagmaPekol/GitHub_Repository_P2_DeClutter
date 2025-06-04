@@ -13,9 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.declutterStep1.DC_IntroStep;
-import com.example.p2_declutter_app.declutterStep1.dc_step1;
-import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
@@ -34,12 +32,12 @@ public class Declutter_Keep extends AppCompatActivity {
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
-        //      The five buttons for the top/bottom nav
+        //      The four buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Declutter_Keep.this, mainMenuPage.class);
+                Intent intent = new Intent(Declutter_Keep.this, MainMenuPage.class);
                 warningDialog(intent);
             }
         });

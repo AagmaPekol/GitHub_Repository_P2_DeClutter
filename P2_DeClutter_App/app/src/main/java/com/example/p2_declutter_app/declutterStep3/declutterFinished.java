@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.achievement.AchievementManager;
-import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
@@ -33,19 +33,19 @@ public class declutterFinished extends AppCompatActivity {
         achievementManager = new AchievementManager(this);achievementManager = new AchievementManager(this);
 
         finishButton.setOnClickListener(v -> {
-            Intent intent = new Intent(declutterFinished.this, mainMenuPage.class);
+            Intent intent = new Intent(declutterFinished.this, MainMenuPage.class);
             // Unlock an achievement
             achievementManager.unlockAchievement(ACHIEVEMENT_ID);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             finish();
         });
-        //      The five buttons for the top/bottom nav
+        //      The four buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(declutterFinished.this, mainMenuPage.class);
+                Intent intent = new Intent(declutterFinished.this, MainMenuPage.class);
                 warningDialog(intent);
             }
         });

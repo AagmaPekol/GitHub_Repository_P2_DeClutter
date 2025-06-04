@@ -14,9 +14,16 @@ public class Achievement {
     }
 
     // Getters and setters
-    public String getId() { return id; }
-    public boolean isUnlocked() { return unlocked; }
-    public void unlock() { this.unlocked = true; }
-    public String getName() { return name; }
-    public String getDescription() { return description; }
+    public String getId() {
+        return id; }
+    public boolean isUnlocked() {
+        return unlocked; }
+    public void unlock() {
+        this.unlocked = true; }
+
+    public String getName() {
+        return name; }
+
+    public String getDescription() {
+        return description; }
 }

@@ -1,7 +1,6 @@
 package com.example.p2_declutter_app.mainMenuPage;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;

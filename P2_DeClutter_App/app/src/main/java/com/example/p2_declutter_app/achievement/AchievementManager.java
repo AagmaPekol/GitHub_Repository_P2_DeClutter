@@ -28,7 +28,6 @@ public class AchievementManager {
     }
 
     private void showAchievementUnlockedDialog(String achievementId) {
-        // Replace this with actual UI logic
         Toast.makeText(context, "Achievement Unlocked: " + achievementId, Toast.LENGTH_LONG).show();
     }
 }

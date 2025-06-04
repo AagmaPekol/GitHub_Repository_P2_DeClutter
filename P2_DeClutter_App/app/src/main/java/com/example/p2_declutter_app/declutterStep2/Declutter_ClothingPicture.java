@@ -30,7 +30,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
-import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,9 +39,9 @@ import java.util.Date;
 
 public class Declutter_ClothingPicture extends AppCompatActivity {
 
-
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int REQUEST_CAMERA_PERMISSION = 200;
+
     private String currentPhotoPath;
     private Bundle bundle;
 
@@ -121,12 +121,12 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
             }
         });
 
-        //      The five buttons for the top/bottom nav
+        //      The four buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Declutter_ClothingPicture.this, mainMenuPage.class);
+                Intent intent = new Intent(Declutter_ClothingPicture.this, MainMenuPage.class);
                 warningDialog(intent);
             }
         });
@@ -193,7 +193,7 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
                 storageDir      /* directory */
         );
 
-        // Save a file: path for use with ACTION_VIEW intents
+        // Save the file path
         currentPhotoPath = image.getAbsolutePath();
         return image;
     }
@@ -204,10 +204,8 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
 
         if (requestCode == REQUEST_CAMERA_PERMISSION) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, proceed with the camera intent
                 dispatchTakePictureIntent();
             } else {
-                // Permission denied, inform the user
                 Toast.makeText(this, "Camera permission is required to take pictures", Toast.LENGTH_SHORT).show();
             }
         }
@@ -293,33 +291,4 @@ public class Declutter_ClothingPicture extends AppCompatActivity {
 
         super.onBackPressed();
     }
-
-    /*
-     * resolveActivity(getPackageManager()) != null))
-     * This apperently always returns null or doesn't
-     * work on emulators or it skips the if statement
-     * silently? Maybe it works on a real device? I
-     * don't know. A different version has been
-     * implemented above that doesn't use resolveActivity.
-     * */
-
-//    private void dispatchTakePictureIntent() {
-//        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//
-//        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-//            File photoFile = null;
-//            try {
-//                photoFile = createImageFile();
-//            } catch (IOException ex) {
-//                Toast.makeText(this, "Something went wrong with creating the file", Toast.LENGTH_SHORT).show();
-//            }
-//
-//            if (photoFile != null) {
-//                Uri photoURI = FileProvider.getUriForFile(this, "com.example.android.fileprovider",
-//                        photoFile);
-//                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-//                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-//            }
-//        }
-//    }
 }

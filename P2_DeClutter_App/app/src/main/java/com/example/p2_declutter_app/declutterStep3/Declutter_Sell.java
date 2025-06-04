@@ -22,8 +22,7 @@ import com.example.p2_declutter_app.database.AppDatabase;
 import com.example.p2_declutter_app.database.Clothing;
 import com.example.p2_declutter_app.database.ClothingDao;
 import com.example.p2_declutter_app.declutterStep1.ClothingTypeSelection;
-import com.example.p2_declutter_app.declutterStep2.dc_step2;
-import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.ClothingItemAdapter;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
@@ -36,12 +35,12 @@ public class Declutter_Sell extends AppCompatActivity {
 
     private String selectedDecision;
     private String selectedClothingType;
+
     private AppDatabase db;
     private ClothingDao dbDao;
     private ExecutorService executorService;
 
     private ClothingItemAdapter adapter;
-    private int count;
     private static final String ACHIEVEMENT_ID = "Sell Item";
     private AchievementManager achievementManager;
 
@@ -104,12 +103,12 @@ public class Declutter_Sell extends AppCompatActivity {
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
 
-        //      The five buttons for the top/bottom nav
+        //      The four buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Declutter_Sell.this, mainMenuPage.class);
+                Intent intent = new Intent(Declutter_Sell.this, MainMenuPage.class);
                 warningDialog(intent);
             }
         });

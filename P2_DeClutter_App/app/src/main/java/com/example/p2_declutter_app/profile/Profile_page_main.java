@@ -12,19 +12,13 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.p2_declutter_app.AchievementPage;
+import com.example.p2_declutter_app.achievement.AchievementPage;
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.achievement.Achievement;
 import com.example.p2_declutter_app.database.AppDatabase;
 import com.example.p2_declutter_app.database.Clothing;
 import com.example.p2_declutter_app.database.ClothingDao;
-import com.example.p2_declutter_app.declutterStep1.DC_IntroStep;
-import com.example.p2_declutter_app.declutterStep3.Declutter_Sell;
-import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,12 +49,12 @@ public class Profile_page_main extends AppCompatActivity {
         db = AppDatabase.getDatabase(this);
         dbDao = db.ClothingDao();
 
-        //      The five buttons for the top/bottom nav
+        //      The four buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Profile_page_main.this, mainMenuPage.class);
+                Intent intent = new Intent(Profile_page_main.this, MainMenuPage.class);
                 startActivity(intent);
             }
         });

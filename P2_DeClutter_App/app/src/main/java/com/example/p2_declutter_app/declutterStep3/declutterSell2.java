@@ -51,9 +51,9 @@ public class declutterSell2 extends AppCompatActivity {
             Intent intent = new Intent(declutterSell2.this, dc_step3.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            finish(); // optional: closes this page
+            finish();
         });
-        //      The five buttons for the top/bottom nav
+        //      The four buttons for the top/bottom nav
         ImageButton wardrobeBtn = findViewById(R.id.wardrobeBtn);
         wardrobeBtn.setOnClickListener(new View.OnClickListener(){
             @Override

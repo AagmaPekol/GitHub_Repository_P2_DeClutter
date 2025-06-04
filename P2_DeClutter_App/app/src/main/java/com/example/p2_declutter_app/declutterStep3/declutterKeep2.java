@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.view.WindowManager;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -14,10 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.achievement.AchievementManager;
-import com.example.p2_declutter_app.declutterStep1.DC_IntroStep;
-import com.example.p2_declutter_app.declutterStep1.dc_step1;
-import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 import android.webkit.WebView;
@@ -68,7 +64,7 @@ public class declutterKeep2 extends AppCompatActivity {
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(declutterKeep2.this, mainMenuPage.class);
+                Intent intent = new Intent(declutterKeep2.this, MainMenuPage.class);
                 warningDialog(intent);
             }
         });

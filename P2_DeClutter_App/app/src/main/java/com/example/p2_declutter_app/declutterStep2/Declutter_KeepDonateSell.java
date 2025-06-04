@@ -28,7 +28,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.achievement.AchievementManager;
 import com.example.p2_declutter_app.database.*;
-import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
@@ -121,12 +121,12 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
                 }
             }
         });
-        //      The five buttons for the top/bottom nav
+        //      The four buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Declutter_KeepDonateSell.this, mainMenuPage.class);
+                Intent intent = new Intent(Declutter_KeepDonateSell.this, MainMenuPage.class);
                 warningDialog(intent);
             }
         });
@@ -361,7 +361,6 @@ public class Declutter_KeepDonateSell extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
         int backCount = prefs.getInt("back_press_count", 0);
         prefs.edit().putInt("back_press_count", backCount + 1).apply();
-
         super.onBackPressed();
     }
 }

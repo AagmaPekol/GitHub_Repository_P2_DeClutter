@@ -10,7 +10,7 @@ import android.os.Bundle;
 
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.achievement.AchievementManager;
-import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -67,12 +67,12 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             finish();
         });
-        //      The five buttons for the top/bottom nav
+        //      The four buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(declutterDonateDiscard.this, mainMenuPage.class);
+                Intent intent = new Intent(declutterDonateDiscard.this, MainMenuPage.class);
                 warningDialog(intent);
             }
         });
@@ -132,15 +132,6 @@ public class declutterDonateDiscard extends FragmentActivity implements OnMapRea
                     });
         }
     }
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
 
     @Override
     public void onMapReady(GoogleMap googleMap) {

@@ -16,8 +16,7 @@ import androidx.core.content.ContextCompat;
 import com.example.p2_declutter_app.database.*;
 
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.declutterStep1.dc_step1;
-import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ public class WardrobeClothingType extends AppCompatActivity {
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(WardrobeClothingType.this, mainMenuPage.class);
+                Intent intent = new Intent(WardrobeClothingType.this, MainMenuPage.class);
                 startActivity(intent);
             }
         });

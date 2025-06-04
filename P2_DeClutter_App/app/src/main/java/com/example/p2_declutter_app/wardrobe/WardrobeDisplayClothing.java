@@ -8,15 +8,12 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.database.*;
-import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 import com.example.p2_declutter_app.xxxTestingFeatures.ApiCallTest;
 
 import java.util.List;
@@ -76,7 +73,7 @@ public class WardrobeDisplayClothing extends AppCompatActivity {
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WardrobeDisplayClothing.this, mainMenuPage.class);
+                Intent intent = new Intent(WardrobeDisplayClothing.this, MainMenuPage.class);
                 startActivity(intent);
 
             }

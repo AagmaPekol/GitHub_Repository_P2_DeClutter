@@ -6,7 +6,8 @@
         android:name="android.hardware.camera"
         android:required="false" />
 
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.CAMERA" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32"
@@ -15,9 +16,12 @@
         android:name="android.permission.READ_MEDIA_IMAGES"
         android:maxSdkVersion="32"
         tools:ignore="ScopedStorage" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -40,20 +44,7 @@
             android:exported="false" />
         <activity
             android:name=".mainMenuPage.WelcomeTutorial2"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".mainMenuPage.WelcomeTutorial1" -->
-        <!-- android:exported="false" /> -->
-        <!--
-             TODO: Before you run your application, you need a Google Maps API key.
-
-             To get one, follow the directions here:
-
-                https://developers.google.com/maps/documentation/android-sdk/get-api-key
-
-             Once you have your API key (it starts with "AIza"), define a new property in your
-             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
-             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
-        -->
+            android:exported="false" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAaHwpP4LLmiiyxrKOoPgg3mD9l1kUOkv0" />
@@ -103,11 +94,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AchievementPage"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".xxxTestingFeatures.ApiCallTest"
+            android:name=".achievement.AchievementPage"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -131,19 +118,11 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".xxxTestingFeatures.Camera"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".wardrobe.WardrobeDecision"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".deClutterOverviewPage"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".mainMenuPage.mainMenuPage"
+            android:name=".mainMenuPage.MainMenuPage"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -152,10 +131,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- FileProvider declaration -->
+        </activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.p2_declutter_app.fileprovider"
@@ -170,5 +149,4 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-
 </manifest>

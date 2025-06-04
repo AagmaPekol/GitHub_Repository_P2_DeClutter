@@ -19,7 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.R;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
-import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -89,12 +89,13 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
                 }
             }
         });
-        //      The five buttons for the top/bottom nav
+
+        //      The four buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Declutter_ClothingDescription.this, mainMenuPage.class);
+                Intent intent = new Intent(Declutter_ClothingDescription.this, MainMenuPage.class);
                 warningDialog(intent);
             }
         });
@@ -150,7 +151,7 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
 
         JSONObject requestBodyJson = new JSONObject();
         try {
-            requestBodyJson.put("model", "gpt-4.1");  // Use GPT-4 model
+            requestBodyJson.put("model", "gpt-4.1");  // Uses GPT-4 model
             JSONArray messages = new JSONArray();
             JSONObject message = new JSONObject();
             message.put("role", "user");
@@ -191,19 +192,19 @@ public class Declutter_ClothingDescription extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
-                    final String responseData = response.body().string(); // Get response as string
-                    Log.d(TAG, "Response: " + responseData); // Log the raw response
+                    final String responseData = response.body().string();
+                    Log.d(TAG, "Response: " + responseData);
 
                     // Parse the JSON to extract the generated text
                     try {
                         JSONObject json = new JSONObject(responseData);
                         String text_AI = json
-                                .getJSONArray("choices") // Get the choices array
-                                .getJSONObject(0) // Get the first choice (as there's usually only one)
-                                .getJSONObject("message") // Get the message object
-                                .getString("content"); // Extract the content (generated text)
+                                .getJSONArray("choices")    // Get the choices array
+                                .getJSONObject(0)           // Get the first choice (as there's usually only one)
+                                .getJSONObject("message")   // Get the message object
+                                .getString("content");      // Extract the content (generated text)
 
-                        //Sends the generated text to the next activity
+                        //Saves the generated in the bundle & sends the text to the next activity
                         runOnUiThread(() -> {
                             loadingIndicator.setVisibility(View.GONE);
                             loadingText.setVisibility(View.GONE);

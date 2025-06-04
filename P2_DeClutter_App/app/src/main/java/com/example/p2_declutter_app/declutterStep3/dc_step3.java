@@ -13,12 +13,9 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.wardrobe.WardrobeDecision;
 
@@ -31,12 +28,12 @@ public class dc_step3 extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_dc_step3);
 
-        //      The five buttons for the top/bottom nav
+        //      The four buttons for the top/bottom nav
         ImageButton menuBtn = findViewById(R.id.menuBtn);
         menuBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(dc_step3.this, mainMenuPage.class);
+                Intent intent = new Intent(dc_step3.this, MainMenuPage.class);
                 warningDialog(intent);
             }
         });
@@ -102,13 +99,13 @@ public class dc_step3 extends AppCompatActivity {
         ImageView marker3 = findViewById(R.id.marker3); // the image above button 3
 
         if (isDeclutterKeepFinished) {
-            marker1.setBackgroundResource(R.drawable.pile_done_24); // changes the image above button 1
+            marker1.setBackgroundResource(R.drawable.pile_done_24);
         }
         if (isDeclutterSellFinished) {
-            marker3.setBackgroundResource(R.drawable.pile_done_24); // changes the image above button 2
+            marker3.setBackgroundResource(R.drawable.pile_done_24);
         }
         if (isDeclutterDonateDiscardFinished) {
-            marker2.setBackgroundResource(R.drawable.pile_done_24); // changes the image above button 3
+            marker2.setBackgroundResource(R.drawable.pile_done_24);
         }
         if (isDeclutterKeepFinished && isDeclutterSellFinished && isDeclutterDonateDiscardFinished) {
             Intent intent = new Intent(this, declutterFinished.class);

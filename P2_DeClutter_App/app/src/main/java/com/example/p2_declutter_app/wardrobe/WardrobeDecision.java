@@ -10,7 +10,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.p2_declutter_app.R;
-import com.example.p2_declutter_app.mainMenuPage.mainMenuPage;
+import com.example.p2_declutter_app.mainMenuPage.MainMenuPage;
 import com.example.p2_declutter_app.profile.Profile_page_main;
 import com.example.p2_declutter_app.xxxTestingFeatures.ApiCallTest;
 
@@ -56,7 +56,7 @@ public class WardrobeDecision extends AppCompatActivity {
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WardrobeDecision.this, mainMenuPage.class);
+                Intent intent = new Intent(WardrobeDecision.this, MainMenuPage.class);
                 startActivity(intent);
 
             }

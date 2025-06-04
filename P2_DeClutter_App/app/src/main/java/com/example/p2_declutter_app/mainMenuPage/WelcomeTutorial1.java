@@ -24,7 +24,7 @@ public class WelcomeTutorial1 extends AppCompatActivity {
         TextView textView = findViewById(R.id.textViewBtn);
 
         if (!welcomeIsFirstRun) {
-            Intent intent = new Intent(WelcomeTutorial1.this, mainMenuPage.class);
+            Intent intent = new Intent(WelcomeTutorial1.this, MainMenuPage.class);
             startActivity(intent);
         }
         textView.setOnClickListener(new View.OnClickListener() {
